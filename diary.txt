@@ -2,3 +2,15 @@ Freitag, 19.10.2018
 Projekteinführung, 01_Intro.pdf
 Todo’s: what, who, deadline, status (open, work in progress, done)
 tbd
+
+- 25.10.2018 Scoping
+	Zeit: 08:20Uhr - 11:55Uhr
+	Teilnehmer: Moritz Küdig, Roger Tschanz, Michael Däppen, Armon Dressler, Samuel Pulfer
+
+- 26.10.2018 Interview mit Regula Hälg (Suprax)
+	Zeit: 10:00Uhr - 11:00Uhr
+	Teilnehmer: Moritz Küdig, Roger Tschanz, Michael Däppen, Armon Dressler, Samuel Pulfer
+
+- 29.10.2018 Ausarbeitung Storyboards und GUI
+	Zeit: 20:00Uhr - 23:45Uhr
+	Teilnehmer: Moritz Kündig, Samuel Pulfer
