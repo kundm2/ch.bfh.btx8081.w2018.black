@@ -23,3 +23,7 @@
 - 31.11.2018 Finalisierung der Dokumente / Erstellung der Präsentation
 	Zeit: 18:00Uhr - 21:45Uhr
 	Teilnehmer: Moritz Küdig, Roger Tschanz, Michael Däppen, Armon Dressler, Samuel Pulfer
+	
+- 05.11.2018 Erster Entwurf der CRC-Cards
+	Zeit: 20:00 Uhr - 21:00 Uhr
+	Teilnehmer: Moritz Kündig, Roger Tschanz
