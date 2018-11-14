@@ -43,3 +43,7 @@
 - 12.11.2018 Überarbeitung Domain Model
 	Zeit: 17:00 Uhr - 18:00 Uhr
 	Teilnehmer: Michael Däppen
+	
+- 14.11.2018 Überarbeitung Domain Model
+	Zeit: 18:30 Uhr - 19:00 Uhr
+	Teilnehmer: Michael Däppen
