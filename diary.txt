@@ -27,3 +27,7 @@
 - 05.11.2018 Erster Entwurf der CRC-Cards
 	Zeit: 20:00 Uhr - 21:00 Uhr
 	Teilnehmer: Moritz Kündig, Roger Tschanz
+
+- 11.11.2018 Ausarbeitung CRC-Cards
+	Zeit: 16:00 Uhr - 17:00 Uhr
+	Teilnehmer: Roger Tschanz
