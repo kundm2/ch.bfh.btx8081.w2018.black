@@ -24,10 +24,22 @@
 	Zeit: 18:00Uhr - 21:45Uhr
 	Teilnehmer: Moritz Küdig, Roger Tschanz, Michael Däppen, Armon Dressler, Samuel Pulfer
 	
+- 02.11.2018 Ausarbeitung Domain Model
+	Zeit: 15:00 Uhr - 16.00 Uhr
+	Teilnehmer: Michael Däppen, Armon Dressler	
+	
 - 05.11.2018 Erster Entwurf der CRC-Cards
 	Zeit: 20:00 Uhr - 21:00 Uhr
 	Teilnehmer: Moritz Kündig, Roger Tschanz
 
+- 06.11.2018 Digitalisierung Domain Model
+	Zeit: 17:30 Uhr - 18:00 Uhr
+	Teilnehmer: Michael Däppen
+
 - 11.11.2018 Ausarbeitung CRC-Cards
 	Zeit: 16:00 Uhr - 17:00 Uhr
 	Teilnehmer: Roger Tschanz
+
+- 12.11.2018 Überarbeitung Domain Model
+	Zeit: 17:00 Uhr - 18:00 Uhr
+	Teilnehmer: Michael Däppen
