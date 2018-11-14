@@ -43,6 +43,14 @@
 - 12.11.2018 Überarbeitung Domain Model
 	Zeit: 17:00 Uhr - 18:00 Uhr
 	Teilnehmer: Michael Däppen
+
+- 12.11.2018 Überarbeitung CRC-Cards
+	Zeit: 20:00 Uhr - 21:00 Uhr
+	Teilnehmer: Moritz Kündig
+
+- 13.11.2018 Anpassung CRC-Cards, Präsentation erstellen
+	Zeit: 20:00 Uhr - 21:00 Uhr
+	Teilnehmer: Moritz Kündig
 	
 - 14.11.2018 Überarbeitung Domain Model
 	Zeit: 18:30 Uhr - 19:00 Uhr
@@ -55,3 +63,7 @@
 - 14.11.2018 Präsentation erstellt
 	Zeit: 18:30 Uhr - 19:30 Uhr
 	Teilnehmer: Moritz Küdig, Roger Tschanz, Michael Däppen, Armon Dressler, Samuel Pulfer
+
+- 14.11.2018 Erabeitung von Domain Model Doctor
+	Zeit: 21:15 Uhr - 22:00 Uhr
+	Teilnehmer: Moritz Kündig
