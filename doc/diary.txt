@@ -67,3 +67,7 @@
 - 14.11.2018 Erabeitung von Domain Model Doctor
 	Zeit: 21:15 Uhr - 22:00 Uhr
 	Teilnehmer: Moritz Kündig
+	
+- 16.11.2018 Einrichten Vaadin/Git Umgebung, Aufgabenbesprechung Task 3 und Task 4, Feedback Task 2
+	Zeit: 14:30 - 16:15 Uhr
+	Teilnehmer: Moritz Kündig, Roger Tschanz, Armon Dressler, Samuel Pulfer
