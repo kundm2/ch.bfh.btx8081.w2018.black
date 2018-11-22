@@ -83,3 +83,7 @@
 - 21.11.2018 Komponentendiagramm, Klassendiagramm, Deploymentdiagram, Präsentation
 	Zeit: 17:30 Uhr - 19:30 Uhr
 	Teilnehmer: Moritz Küdig, Roger Tschanz, Michael Däppen, Armon Dressler, Samuel Pulfer
+	
+- 21.11.2018 Feinschliff Präsentation
+	Zeit: 21:30 - 22:00 Uhr
+	Teilnehmer: Roger Tschanz
