@@ -79,3 +79,9 @@
 - 20.11.2018 SCRUM File führen, detailierte Taskliste 
 	Zeit: 19:00 - 20:30 Uhr
 	Teilnehmer: Moritz Kündig, Roger Tschanz
+
+- 21.11.2018 UML classdiagram for main view erarbeitet
+	Zeit: 17:00 - 20:00 Uhr
+	Teilnehmer: Michael Däppen, Samuel Pulfer
+
+
