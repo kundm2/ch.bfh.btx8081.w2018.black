@@ -24,8 +24,15 @@ import javax.sql.DataSource;
 public class Init implements ServletContextListener {
 	
 	private final static Logger LOGGER = Logger.getLogger(Init.class.getName());
+	
+	/**
+	 * The DataSource for db connections.
+	 */
 	private DataSource ds;
 	
+	/**
+	 * Retreives DataSource for db connection.
+	 */
 	public Init() {
 		try {
 			Context ctx = new InitialContext();
