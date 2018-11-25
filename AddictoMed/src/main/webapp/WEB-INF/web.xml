@@ -12,6 +12,11 @@
 		<welcome-file>default.htm</welcome-file>
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
+	<listener>
+		<listener-class>
+			ch.bfh.btx8081.w2018.black.Init
+		</listener-class>
+	</listener>
 	<resource-ref>
 		<description>PostgreSQL DB</description>
 		<res-ref-name>jdbc/postgres</res-ref-name>
