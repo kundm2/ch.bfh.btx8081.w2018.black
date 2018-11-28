@@ -22,14 +22,14 @@ CREATE TABLE IF NOT EXISTS employee (
 	created TIMESTAMP, modified TIMESTAMP, deleted TIMESTAMP
 );
 
-/*
+
 CREATE TABLE IF NOT EXISTS employee_type(
 	employee_type_id SERIAL PRIMARY KEY,
 	description VARCHAR(30),
 	title VARCHAR(30),
 	zsr_nr INTEGER,
 	mebeko_nr INTEGER,
-	bab_nr INTEGER,
+	bab_nr INTEGER
 );	
 CREATE TABLE IF NOT EXISTS contract(
 	contract_id SERIAL PRIMARY KEY,
@@ -37,9 +37,9 @@ CREATE TABLE IF NOT EXISTS contract(
 	salary INTEGER,
 	
 	start_date TIMESTAMP,
-	end_date TIMESTAMP,	
+	end_date TIMESTAMP
 );	
-*/
+
 
 CREATE TABLE IF NOT EXISTS patient (
 	patient_id SERIAL PRIMARY KEY,
