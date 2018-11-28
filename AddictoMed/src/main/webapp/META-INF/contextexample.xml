@@ -1,0 +1,15 @@
+<!-- Copy this file to META_INF/context.xml and adjust the DB settings to your DB -->
+
+<Context>
+	<Resource name="jdbc/postgres"
+		auth="Container"
+		type="javax.sql.DataSource"
+		driverClassName="org.postgresql.Driver"
+		url="jdbc:postgresql://127.0.0.1:5432/AddictoMed"
+		username="username"
+		password="password"
+		maxActive="20"
+		maxIdle="10"
+		maxWait="-1">
+	</Resource>
+</Context>
