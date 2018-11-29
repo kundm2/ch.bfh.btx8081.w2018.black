@@ -7,10 +7,10 @@ CREATE TABLE IF NOT EXISTS employee (
 	employee_id SERIAL PRIMARY KEY,
 	--employee_type_id INTEGER NOT NULL,
 	--contract_id INTEGER NOT NULL,
-	birhtdate DATE,
+	birthdate DATE,
 	first_name VARCHAR(30) NOT NULL,
 	last_name VARCHAR(30) NOT NULL,
-	departement VARCHAR(30),
+	department VARCHAR(30),
 	job_title VARCHAR(30),
 	address VARCHAR(50),
 	zip_code CHAR(5),
@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS patient (
 	address VARCHAR(50),
 	zip_code CHAR(5),
 	gender CHAR(1),
-	birhtdate DATE,
+	birthdate DATE,
 	
 	created TIMESTAMP, modified TIMESTAMP, deleted TIMESTAMP
 );
@@ -187,6 +187,7 @@ CREATE TABLE IF NOT EXISTS laboratory (
 -------------------------
 -- FOREIGN KEYS ---------
 -------------------------
+
 ALTER TABLE "case" ADD FOREIGN KEY ("created_by") REFERENCES employee("employee_id");
 ALTER TABLE "case" ADD FOREIGN KEY ("patient_id") REFERENCES patient("patient_id");
 ALTER TABLE "case" ADD FOREIGN KEY ("insurance_id") REFERENCES insurance("insurance_id");
