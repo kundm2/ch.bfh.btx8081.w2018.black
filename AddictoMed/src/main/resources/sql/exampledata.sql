@@ -2,6 +2,8 @@
 SET datestyle = "ISO, MDY";
 -- User
 INSERT INTO employee (employee_id, birthdate, first_name, last_name, department, job_title, address, zip_code, nickname, password) VALUES (1,'1/1/1970','Admin','User','ICT','Developer','Höheweg 80','2501','admin',MD5('admin'));
+-- Insurance
+INSERT INTO insurance (insurance_id, name, address, created, modified) VALUES (1, 'Concordia','Bundespl. 15, 6002 Luzern', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 -- Patients
 INSERT INTO patient (first_name, last_name, address, zip_code, gender, birthdate, created, modified) VALUES ('Jennifer','Kaestner','Herrenberg 126','1292','F','12/9/1939',CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 INSERT INTO patient (first_name, last_name, address, zip_code, gender, birthdate, created, modified) VALUES ('Silke','Busch','Binzmühlestrasse 128','5745','F','10/21/1940',CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
@@ -3004,6 +3006,13 @@ INSERT INTO patient (first_name, last_name, address, zip_code, gender, birthdate
 INSERT INTO patient (first_name, last_name, address, zip_code, gender, birthdate, created, modified) VALUES ('Philipp','Abt','Dreibündenstrasse 40','3053','M','5/2/1936',CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 INSERT INTO patient (first_name, last_name, address, zip_code, gender, birthdate, created, modified) VALUES ('Lukas','Farber','Mattenstrasse 108','1950','M','5/10/1993',CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
+-- Case
+INSERT INTO "case"(
+	created_by, patient_id, insurance_id, start_date, end_date, place, created, modified)
+	VALUES 
+	(1, 42, 1, '11/20/2018', '11/25/2018', 'Notfallzentrum', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+	(1, 42, 1, '11/25/2018', '11/28/2018', 'Pneumologie', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
+	(1, 42, 1, '11/29/2018', NULL, 'Chirurgie', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 -- Settings
 INSERT INTO settings (settingskey, settingsvalue) VALUES ('examplepatients','imported');
 -- Reset datestyle
