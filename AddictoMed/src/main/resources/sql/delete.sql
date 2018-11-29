@@ -1,0 +1,16 @@
+DROP TABLE settings;
+DROP TABLE anamnesis;
+DROP TABLE appointment;
+DROP TABLE prescriptiondrugs;
+DROP TABLE drug;
+DROP TABLE employee_type;
+DROP TABLE contract;
+DROP TABLE message;
+DROP TABLE prescription;
+DROP TABLE diagnosis;
+DROP TABLE labresult;
+DROP TABLE laboratory;
+DROP TABLE "case";
+DROP TABLE employee;
+DROP TABLE insurance;
+DROP TABLE patient;
