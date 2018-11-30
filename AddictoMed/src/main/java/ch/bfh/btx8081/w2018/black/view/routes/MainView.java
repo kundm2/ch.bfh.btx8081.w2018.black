@@ -6,6 +6,7 @@ import com.vaadin.flow.router.Route;
 import ch.bfh.btx8081.w2018.black.model.MainPatientModelImpl;
 import ch.bfh.btx8081.w2018.black.model.ifaces.MainPatientModel;
 import ch.bfh.btx8081.w2018.black.presenter.MainPatientPresenterImpl;
+import ch.bfh.btx8081.w2018.black.view.MainCaseViewImpl;
 import ch.bfh.btx8081.w2018.black.view.MainPatientViewImpl;
 
 /**
@@ -35,6 +36,7 @@ public class MainView extends HorizontalLayout {
 		MainPatientViewImpl view = new MainPatientViewImpl();
 		MainPatientModel model = new MainPatientModelImpl();
 		new MainPatientPresenterImpl(view, model);
-		add(view,column2);
+		MainCaseViewImpl cview = new MainCaseViewImpl();
+		add(view, cview);
     }
 }
