@@ -87,3 +87,19 @@
 - 21.11.2018 Feinschliff Präsentation
 	Zeit: 21:30 - 22:00 Uhr
 	Teilnehmer: Roger Tschanz
+
+- 22.11.2018 Präsentation & IDE vorbereiten
+	Zeit: 08:20 - 11:50 Uhr
+	Teilnehmer: Moritz Küdig, Roger Tschanz, Michael Däppen, Armon Dressler, Samuel Pulfer
+
+- 23.11.2018 Daily SCRUM & Programieren gem. SCRUM Backlog
+	Zeit: 14:25 - 16:10 Uhr
+	Teilnehmer: Moritz Küdig, Roger Tschanz, Michael Däppen, Armon Dressler, Samuel Pulfer
+
+- 25.11.2018 Screen Design gem. SCRUM Backlog
+	Zeit: 18:00 - 19:00 Uhr
+	Teilnehmer: Samuel Pulfer
+
+- 29.11.2018 Daily SCRUM & Programieren gem. SCRUM Backlog
+	Zeit: 08:20 - 11:50  Uhr
+	Teilnehmer: Moritz Küdig, Roger Tschanz, Michael Däppen, Armon Dressler, Samuel Pulfer

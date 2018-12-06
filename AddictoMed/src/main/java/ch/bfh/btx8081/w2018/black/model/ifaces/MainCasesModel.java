@@ -3,18 +3,55 @@ package ch.bfh.btx8081.w2018.black.model.ifaces;
 import java.time.LocalDate;
 import java.util.List;
 
-	public interface MainCasesModel {
+/** 
+ * @author Roger Tschanz
+ */
+
+public interface MainCasesModel {
+
+	/**
+	 * 
+	 * @param patientID The patient ID
+	 * @return A List containing Case-Objects that belong to a patient with according patientID
+	 */
+	public List<Case> getCaseList(int patientID);
+
+	/**
+	 * 
+	 * @author Roger Tschanz
+	 *
+	 */
+	public interface Case {
 		
-		// public List<Object> CaseList = new ArrayList<Object>();
-		public List<Case> getCaseList();
+		/**
+		 * @return CaseID
+		 */
+		public int getCaseID();
 		
-		public interface Case {
-			public int getCaseID();
-			public LocalDate getStartDate();
-			public LocalDate getEndDate();
-			public int getInsuranceNumber();
-			public String getInsuranceNote();
-			public String getPlace();	
-		}
+		/**
+		 * @return StartDate
+		 */
+		public LocalDate getStartDate();
+		
+		/**
+		 * @return EndDate
+		 */
+		public LocalDate getEndDate();
+		
+		/**
+		 * @return Insurance Number
+		 */
+		public int getInsuranceNumber();
+		
+		/**
+		 * @return Insurance Note
+		 */
+		public String getInsuranceNote();
+		
+		/**
+		 * @return Place
+		 */
+		public String getPlace();	
+	}
 
 }

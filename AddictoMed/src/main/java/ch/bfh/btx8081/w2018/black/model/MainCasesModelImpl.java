@@ -16,62 +16,65 @@ import javax.sql.DataSource;
 
 import ch.bfh.btx8081.w2018.black.model.ifaces.MainCasesModel;
 
+/**
+ * @author Roger Tschanz
+ */
+
 public class MainCasesModelImpl implements MainCasesModel {
-	
+
 	private class CaseImpl implements Case {
-		public int CaseID;
-		public LocalDate StartDate = null;
-		public LocalDate EndDate = null;
-		public int InsuranceNumber;
-		public String InsuranceNote = null;
-		public String Place = null;
-		
-		public CaseImpl(int CaseID, LocalDate StartDate, LocalDate EndDate, int InsuranceNumber, 
-				String InsuranceNote, String Place) {
-			this.CaseID = CaseID;
-			this.StartDate = StartDate;
-			this.EndDate = EndDate;
-			this.InsuranceNumber = InsuranceNumber;
-			this.InsuranceNote = InsuranceNote;
-			this.Place = Place;
+		public int caseID;
+		public LocalDate startDate = null;
+		public LocalDate endDate = null;
+		public int insuranceNumber;
+		public String insuranceNote = null;
+		public String place = null;
+
+		public CaseImpl(int caseID, LocalDate startDate, LocalDate endDate, int insuranceNumber, 
+				String insuranceNote, String place) {
+			this.caseID = caseID;
+			this.startDate = startDate;
+			this.endDate = endDate;
+			this.insuranceNumber = insuranceNumber;
+			this.insuranceNote = insuranceNote;
+			this.place = place;
 		}
 
 		@Override
 		public int getCaseID() {
-			return CaseID;
+			return caseID;
 		}
 
 		@Override
 		public LocalDate getStartDate() {
-			return StartDate;
+			return startDate;
 		}
 
 		@Override
 		public LocalDate getEndDate() {
-			return EndDate;
+			return endDate;
 		}
 
 		@Override
 		public int getInsuranceNumber() {
-			return InsuranceNumber;
+			return insuranceNumber;
 		}
 
 		@Override
 		public String getInsuranceNote() {
-			return InsuranceNote;
+			return insuranceNote;
 		}
 
 		@Override
 		public String getPlace() {
-			return Place;
+			return place;
 		}	
 	}
-	
+
 	private DataSource dsCases;
 	private final static Logger LOGGER = Logger.getLogger(MainCasesModelImpl.class.getName());
-	//ToDo: Change to List<Case> CaseList = New ArrayList<Case>();
 	public List<Object> CaseList = new ArrayList<Object>();
-	
+
 	public MainCasesModelImpl() {
 		try {
 			Context ctx = new InitialContext();
@@ -80,9 +83,9 @@ public class MainCasesModelImpl implements MainCasesModel {
 			LOGGER.severe("Can't connect to db. Error: " + e.getMessage());
 		}
 	}
-	
+
 	@Override
-	public List<Case> getCaseList() {
+	public List<Case> getCaseList(int patientID) {
 		List<Case> Cases = new ArrayList<>();
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -90,7 +93,8 @@ public class MainCasesModelImpl implements MainCasesModel {
 		try {
 			conn = dsCases.getConnection();
 			ps = conn.prepareStatement(
-					"SELECT * FROM Case ORDER BY case_id");
+					"SELECT * FROM Case WHERE patient_id=? ORDER BY case_id");
+					ps.setInt(1, patientID);
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				Case Case = new CaseImpl(rs.getInt("case_id"), rs.getDate("StartDate").toLocalDate(), 
