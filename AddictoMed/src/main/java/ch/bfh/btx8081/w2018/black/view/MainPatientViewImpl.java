@@ -44,9 +44,9 @@ public class MainPatientViewImpl extends VerticalLayout implements MainPatientVi
 		//btn_add.getElement().getStyle().set("margin-left", "auto");
 		footer.setWidth("100%");
 		footer.add(btn_add);
-		grid.addColumn(Patient::getPatientID);
-		grid.addColumn(Patient::getName);
-		grid.addColumn(Patient::getDateOfBirth);
+		grid.addColumn(Patient::getPatientID).setHeader("Patient ID");
+		grid.addColumn(Patient::getName).setHeader("Name");
+		grid.addColumn(Patient::getDateOfBirth).setHeader("Geburtsdatum");
 		grid.addSelectionListener(event -> {
 			Optional<Patient> patient = event.getFirstSelectedItem();
 			if(patient.isPresent()) {
