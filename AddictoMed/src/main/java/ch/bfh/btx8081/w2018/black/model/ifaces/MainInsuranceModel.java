@@ -6,7 +6,7 @@ import java.util.List;
  * @author Moritz Kündig
  * Interface for Insurance Model
  */
-public interface IMainInsuranceModel {
+public interface MainInsuranceModel {
 
 	/*
 	 * Returns a list of all insurances

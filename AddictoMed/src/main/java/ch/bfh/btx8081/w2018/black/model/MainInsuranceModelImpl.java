@@ -16,13 +16,13 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import ch.bfh.btx8081.w2018.black.model.ifaces.IMainInsuranceModel;
+import ch.bfh.btx8081.w2018.black.model.ifaces.MainInsuranceModel;
 
 /**
  * @author moritz
  *
  */
-public class MainInsuranceModelImpl implements IMainInsuranceModel {
+public class MainInsuranceModelImpl implements MainInsuranceModel {
 
 	private DataSource dsCases;
 	private final static Logger LOGGER = Logger.getLogger(MainInsuranceModelImpl.class.getName());
