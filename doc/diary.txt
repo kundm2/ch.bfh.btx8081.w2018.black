@@ -119,3 +119,7 @@
 - 11.12.2018 Finalizing Case-Appointment
 	Zeit: 20:00 - 21:00 Uhr:
 	Teilnehmer: Roger Tschanz
+
+- 13.12.2018 Diagnosis model created / some bugfixes
+	Zeit: 21:30 - 22:00 Uhr:
+	Teilnehmer: Samuel Pulfer
