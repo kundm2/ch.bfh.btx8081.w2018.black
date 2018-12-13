@@ -71,7 +71,7 @@ public class MainPatientModelImpl implements MainPatientModel {
 			while (rs.next()) {
 				// TODO fails if birthdate is null...
 				//LOGGER.info("found one patient");
-				Patient patient = new PatientImpl(rs.getString("patient_id"), rs.getString("first_name"),
+				Patient patient = new PatientImpl(rs.getInt("patient_id"), rs.getString("first_name"),
 						rs.getString("last_name"), rs.getString("gender"),
 						rs.getDate("birthdate").toLocalDate(), rs.getString("address"), rs.getString("zip_code"));
 				patients.add(patient);
@@ -110,7 +110,7 @@ public class MainPatientModelImpl implements MainPatientModel {
 			if(rs.next()) {
 				// TODO fails if birthdate is null...
 				//LOGGER.info("found one patient");
-				patient = new PatientImpl(rs.getString("patient_id"), rs.getString("first_name"),
+				patient = new PatientImpl(rs.getInt("patient_id"), rs.getString("first_name"),
 						rs.getString("last_name"), rs.getString("gender"),
 						rs.getDate("birthdate").toLocalDate(), rs.getString("address"), rs.getString("zip_code"));
 			}

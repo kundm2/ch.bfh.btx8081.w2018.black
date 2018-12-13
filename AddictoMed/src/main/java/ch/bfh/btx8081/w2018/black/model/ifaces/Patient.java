@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public interface Patient {
 	public enum Gender { MALE, FEMALE, UNKNOWN }
 	
-	public String getPatientID();
+	public int getPatientID();
 	public String getFirstname();
 	public String getLastname();
 	public String getName();

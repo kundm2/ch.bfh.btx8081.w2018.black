@@ -6,7 +6,7 @@ import ch.bfh.btx8081.w2018.black.model.ifaces.Patient;
 
 public class PatientImpl implements Patient {
 
-	private String patientID = null;
+	private int patientID = -1;
 	private String firstname = null;
 	private String lastname = null;
 	private Gender gender = Gender.UNKNOWN;
@@ -14,21 +14,21 @@ public class PatientImpl implements Patient {
 	private String address = null;
 	private String zipCode = null;
 
-	public PatientImpl(String patientID, String firstname, String lastname, String gender, LocalDate dateOfBirth) {
+	public PatientImpl(int patientID, String firstname, String lastname, String gender, LocalDate dateOfBirth) {
 		this.patientID = patientID;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.dateOfBirth = dateOfBirth;
 		setGender(gender);
 	}
-	public PatientImpl(String patientID, String firstname, String lastname, String gender, LocalDate dateOfBirth, String address, String zipCode) {
+	public PatientImpl(int patientID, String firstname, String lastname, String gender, LocalDate dateOfBirth, String address, String zipCode) {
 		this(patientID, firstname, lastname, gender, dateOfBirth);
 		this.address = address;
 		this.zipCode = zipCode;
 	}
 
 	@Override
-	public String getPatientID() {
+	public int getPatientID() {
 		return patientID;
 	}
 
