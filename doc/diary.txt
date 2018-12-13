@@ -103,3 +103,19 @@
 - 29.11.2018 Daily SCRUM & Programieren gem. SCRUM Backlog
 	Zeit: 08:20 - 11:50  Uhr
 	Teilnehmer: Moritz Küdig, Roger Tschanz, Michael Däppen, Armon Dressler, Samuel Pulfer
+	
+- 29.11.2018 Implementing Model of Class Case
+	Zeit: 19:00 - 20:00 Uhr
+	Teilnehmer: Roger Tschanz
+	
+- 7.12.2018 SQL-Exampledata
+	Zeit: 14:30 - 16:00 Uhr, 18:00 - 19:00 Uhr
+	Teilnehmer: Roger Tschanz
+	
+- 9.12.2018 Implementing Case-Appointment
+	Zeit: 15:00 - 18:00 Uhr
+	Teilnehmer: Roger Tschanz
+	
+- 11.12.2018 Finalizing Case-Appointment
+	Zeit: 20:00 - 21:00 Uhr:
+	Teilnehmer: Roger Tschanz
