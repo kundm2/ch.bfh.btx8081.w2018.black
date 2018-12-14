@@ -4,11 +4,14 @@ import java.util.List;
 
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.datepicker.DatePicker;
+import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.component.textfield.TextField;
+
+import ch.bfh.btx8081.w2018.black.model.ifaces.Patient;
 import ch.bfh.btx8081.w2018.black.model.ifaces.MainCasesModel.Case;
 import ch.bfh.btx8081.w2018.black.view.ifaces.MainCaseView;
 
@@ -21,6 +24,7 @@ public class MainCaseViewImpl extends VerticalLayout implements MainCaseView {
 	DatePicker startDate = new DatePicker();
 	DatePicker endDate = new DatePicker();
 	Button add = new Button("Add");
+	Grid<Case> grid = new Grid<>();
 
 	public MainCaseViewImpl() {
 		enableEdit(false);
@@ -37,16 +41,25 @@ public class MainCaseViewImpl extends VerticalLayout implements MainCaseView {
 		add.addClickListener(event -> {
 			// inform each listener
 		});
-		add(tabs, caseInfos);
+		
+		grid.addColumn(Case::getCaseID).setHeader("Case ID");
+		grid.addColumn(Case::getStartDate).setHeader("Start Date");
+		grid.addColumn(Case::getEndDate).setHeader("End Date");
+		grid.addColumn(Case::getInsuranceNumber).setHeader("InsuranceNr.");
+		grid.addColumn(Case::getPlace).setHeader("Place");
+		
+		
+		add(tabs, grid, caseInfos);
 	}
 
 	@Override
 	public void setCases(List<Case> cases) {
-		tabs.removeAll();
-		tabs.add(new Tab(add));
-		for (Case vcase : cases) {
-			tabs.add(new Tab(String.valueOf(vcase.getCaseID())));
-		}
+//		tabs.removeAll();
+//		tabs.add(new Tab(add));
+//		for (Case vcase : cases) {
+//			tabs.add(new Tab(String.valueOf(vcase.getCaseID())));
+//		}
+		grid.setItems(cases);
 	}
 
 	public void setCase(Case vcase) {
