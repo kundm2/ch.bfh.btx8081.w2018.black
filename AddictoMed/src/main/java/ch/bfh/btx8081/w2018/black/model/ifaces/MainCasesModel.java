@@ -44,11 +44,6 @@ public interface MainCasesModel {
 		public int getInsuranceNumber();
 		
 		/**
-		 * @return Insurance Note
-		 */
-		public String getInsuranceNote();
-		
-		/**
 		 * @return Place
 		 */
 		public String getPlace();	

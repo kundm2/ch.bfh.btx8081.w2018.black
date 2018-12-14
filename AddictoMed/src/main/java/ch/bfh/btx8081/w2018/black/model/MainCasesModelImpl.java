@@ -27,16 +27,13 @@ public class MainCasesModelImpl implements MainCasesModel {
 		public LocalDate startDate = null;
 		public LocalDate endDate = null;
 		public int insuranceNumber;
-		public String insuranceNote = null;
 		public String place = null;
 
-		public CaseImpl(int caseID, LocalDate startDate, LocalDate endDate, int insuranceNumber, 
-				String insuranceNote, String place) {
+		public CaseImpl(int caseID, LocalDate startDate, LocalDate endDate, int insuranceNumber, String place) {
 			this.caseID = caseID;
 			this.startDate = startDate;
 			this.endDate = endDate;
 			this.insuranceNumber = insuranceNumber;
-			this.insuranceNote = insuranceNote;
 			this.place = place;
 		}
 
@@ -61,11 +58,6 @@ public class MainCasesModelImpl implements MainCasesModel {
 		}
 
 		@Override
-		public String getInsuranceNote() {
-			return insuranceNote;
-		}
-
-		@Override
 		public String getPlace() {
 			return place;
 		}	
@@ -73,7 +65,7 @@ public class MainCasesModelImpl implements MainCasesModel {
 
 	private DataSource dsCases;
 	private final static Logger LOGGER = Logger.getLogger(MainCasesModelImpl.class.getName());
-	public List<Object> CaseList = new ArrayList<Object>();
+	//public List<Object> caseList = new ArrayList<Object>();
 
 	public MainCasesModelImpl() {
 		try {
@@ -98,8 +90,7 @@ public class MainCasesModelImpl implements MainCasesModel {
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				Case Case = new CaseImpl(rs.getInt("case_id"), rs.getDate("StartDate").toLocalDate(), 
-						rs.getDate("EndDate").toLocalDate(), rs.getInt("InsuranceNumber"), 
-						rs.getString("InsuranceNote"), rs.getString("Place"));
+						rs.getDate("EndDate").toLocalDate(), rs.getInt("InsuranceNumber"), rs.getString("Place"));
 				Cases.add(Case);
 			}
 		} catch (SQLException e) {
