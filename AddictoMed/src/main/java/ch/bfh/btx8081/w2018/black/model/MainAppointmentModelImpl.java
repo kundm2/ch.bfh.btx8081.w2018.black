@@ -30,43 +30,43 @@ public class MainAppointmentModelImpl implements MainAppointmentModel {
 
 	public class AppointmentImpl implements Appointment {
 
-		public int AppointmentID;
-		public LocalDate StartDate;
-		public LocalDate EndDate;
-		public String Description;
+		public int appointmentID;
+		public LocalDate startDate;
+		public LocalDate endDate;
+		public String description;
 
 		public AppointmentImpl(int AppointmentID, LocalDate StartDate, LocalDate EndDate, String Description) {
-			this.AppointmentID = AppointmentID;
-			this.StartDate = StartDate;
-			this.EndDate = EndDate;
-			this.Description = Description;
+			this.appointmentID = AppointmentID;
+			this.startDate = StartDate;
+			this.endDate = EndDate;
+			this.description = Description;
 		}
 
 		@Override
 		public int getAppointmentID() {
-			return AppointmentID;
+			return appointmentID;
 		}
 
 		@Override
 		public LocalDate getStartDate() {
-			return StartDate;
+			return startDate;
 		}
 
 		@Override
 		public LocalDate getEndDate() {
-			return EndDate;
+			return endDate;
 		}
 
 		@Override
 		public String getDescription() {
-			return Description;
+			return description;
 		}
 
 	}
 
 	private DataSource dsCases;
 	private final static Logger LOGGER = Logger.getLogger(MainCasesModelImpl.class.getName());
-	public List<Appointment> AppointmentList = new ArrayList<Appointment>();
+	//public List<Appointment> AppointmentList = new ArrayList<Appointment>();
 
 	public MainAppointmentModelImpl() {
 		try {
