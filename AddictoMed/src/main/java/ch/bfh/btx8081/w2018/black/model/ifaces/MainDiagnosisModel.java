@@ -7,7 +7,7 @@ import java.util.List;
  * @author Samuel Pulfer
  * 
  */
-public interface DiagnosisModel {
+public interface MainDiagnosisModel {
 	/**
 	 * Interface to the diagnosis
 	 * @author Samuel Pulfer
