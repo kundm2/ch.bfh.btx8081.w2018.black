@@ -85,7 +85,7 @@ public class MainInsuranceModelImpl implements MainInsuranceModel {
 
 	public class InsuranceImpl implements Insurance {
 
-		private int ID;
+		private int id;
 		private String name;
 		private String address;
 		private int number;
@@ -93,9 +93,9 @@ public class MainInsuranceModelImpl implements MainInsuranceModel {
 		public InsuranceImpl() {
 		}
 
-		public InsuranceImpl(int iD, String name, String address, int number) {
+		public InsuranceImpl(int id, String name, String address, int number) {
 			super();
-			ID = iD;
+			this.id = id;
 			this.name = name;
 			this.address = address;
 			this.number = number;
@@ -103,11 +103,11 @@ public class MainInsuranceModelImpl implements MainInsuranceModel {
 
 		@Override
 		public int getID() {
-			return ID;
+			return id;
 		}
 
-		public void setID(int iD) {
-			ID = iD;
+		public void setID(int id) {
+			this.id = id;
 		}
 
 		@Override
