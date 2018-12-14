@@ -3,7 +3,7 @@ package ch.bfh.btx8081.w2018.black.model.ifaces;
 import java.time.LocalDate;
 import java.util.List;
 
-public interface MainCaseAppointmentModel {
+public interface MainAppointmentModel {
 	
 	public List<Appointment> getAppointmentList();
 	

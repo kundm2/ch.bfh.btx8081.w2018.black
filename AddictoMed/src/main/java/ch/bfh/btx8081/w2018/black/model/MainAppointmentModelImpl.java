@@ -14,9 +14,9 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import ch.bfh.btx8081.w2018.black.model.ifaces.MainCaseAppointmentModel;
+import ch.bfh.btx8081.w2018.black.model.ifaces.MainAppointmentModel;
 
-public class MainCaseAppointmentModelImpl implements MainCaseAppointmentModel {
+public class MainAppointmentModelImpl implements MainAppointmentModel {
 	
 	/**
 	 * 
@@ -68,7 +68,7 @@ public class MainCaseAppointmentModelImpl implements MainCaseAppointmentModel {
 	private final static Logger LOGGER = Logger.getLogger(MainCasesModelImpl.class.getName());
 	public List<Appointment> AppointmentList = new ArrayList<Appointment>();
 
-	public MainCaseAppointmentModelImpl() {
+	public MainAppointmentModelImpl() {
 		try {
 			Context ctx = new InitialContext();
 			dsCases = (DataSource) ctx.lookup("java:comp/env/jdbc/postgres");
