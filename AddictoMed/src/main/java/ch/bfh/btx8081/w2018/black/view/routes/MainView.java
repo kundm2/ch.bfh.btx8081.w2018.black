@@ -3,19 +3,19 @@ package ch.bfh.btx8081.w2018.black.view.routes;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.router.Route;
 
-import ch.bfh.btx8081.w2018.black.model.MainCaseAppointmentModelImpl;
+import ch.bfh.btx8081.w2018.black.model.MainAppointmentModelImpl;
 import ch.bfh.btx8081.w2018.black.model.MainCasesModelImpl;
 import ch.bfh.btx8081.w2018.black.model.MainPatientModelImpl;
-import ch.bfh.btx8081.w2018.black.model.ifaces.MainCaseAppointmentModel;
+import ch.bfh.btx8081.w2018.black.model.ifaces.MainAppointmentModel;
 import ch.bfh.btx8081.w2018.black.model.ifaces.MainCasesModel;
 import ch.bfh.btx8081.w2018.black.model.ifaces.MainPatientModel;
-import ch.bfh.btx8081.w2018.black.presenter.MainCaseAppointmentPresenterImpl;
+import ch.bfh.btx8081.w2018.black.presenter.MainAppointmentPresenterImpl;
 import ch.bfh.btx8081.w2018.black.presenter.MainCasePresenterImpl;
 import ch.bfh.btx8081.w2018.black.presenter.MainPatientPresenterImpl;
-import ch.bfh.btx8081.w2018.black.view.MainCaseAppointmentViewImpl;
+import ch.bfh.btx8081.w2018.black.view.MainAppointmentViewImpl;
 import ch.bfh.btx8081.w2018.black.view.MainCaseViewImpl;
 import ch.bfh.btx8081.w2018.black.view.MainPatientViewImpl;
-import ch.bfh.btx8081.w2018.black.view.ifaces.MainCaseAppointmentView;
+import ch.bfh.btx8081.w2018.black.view.ifaces.MainAppointmentView;
 
 /**
  * The main view of AddictoMed
@@ -45,9 +45,9 @@ public class MainView extends HorizontalLayout {
 		MainPatientModel model = new MainPatientModelImpl();
 		new MainPatientPresenterImpl(view, model);
 		
-		MainCaseAppointmentViewImpl appointmentView = new MainCaseAppointmentViewImpl();
-		MainCaseAppointmentModel appointmentModel = new MainCaseAppointmentModelImpl();
-		new MainCaseAppointmentPresenterImpl(appointmentModel, appointmentView);
+		MainAppointmentViewImpl appointmentView = new MainAppointmentViewImpl();
+		MainAppointmentModel appointmentModel = new MainAppointmentModelImpl();
+		new MainAppointmentPresenterImpl(appointmentModel, appointmentView);
 		
 		MainCaseViewImpl caseview = new MainCaseViewImpl();
 		MainCasesModel casemodel = new MainCasesModelImpl();

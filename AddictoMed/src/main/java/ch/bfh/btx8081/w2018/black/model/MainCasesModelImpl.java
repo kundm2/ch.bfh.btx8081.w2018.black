@@ -66,7 +66,7 @@ public class MainCasesModelImpl implements MainCasesModel {
 
 	private DataSource dsCases;
 	private final static Logger LOGGER = Logger.getLogger(MainCasesModelImpl.class.getName());
-	public List<Object> CaseList = new ArrayList<Object>();
+	public List<Object> caseList = new ArrayList<Object>();
 
 	public MainCasesModelImpl() {
 		try {
@@ -90,6 +90,7 @@ public class MainCasesModelImpl implements MainCasesModel {
 					ps.setInt(1, patientID);
 			rs = ps.executeQuery();
 			while (rs.next()) {
+
 				Date startDate = rs.getDate("start_date");
 		        Date endDate = rs.getDate("end_date");
 		        LocalDate localStartDate = null;
