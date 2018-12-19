@@ -7,16 +7,16 @@ import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 
-import ch.bfh.btx8081.w2018.black.model.ifaces.MainCaseAppointmentModel.Appointment;
-import ch.bfh.btx8081.w2018.black.view.ifaces.MainCaseAppointmentView;
+import ch.bfh.btx8081.w2018.black.model.ifaces.MainAppointmentModel.Appointment;
+import ch.bfh.btx8081.w2018.black.view.ifaces.MainAppointmentView;
 
-public class MainCaseAppointmentViewImpl extends VerticalLayout implements MainCaseAppointmentView {
+public class MainAppointmentViewImpl extends VerticalLayout implements MainAppointmentView {
 	
 	Grid<Appointment> gridAppointment = new Grid<>();
 	TextField txtSearchAppointment = new TextField();
 	Button btnSearchAppointment = new Button("Search Appointment");
 	
-	public MainCaseAppointmentViewImpl() {
+	public MainAppointmentViewImpl() {
 		
 		gridAppointment.addColumn(Appointment::getAppointmentID).setHeader("Appointment ID");
 		// gridAppointment.addColumn(Appointment::getCreatedBy)("Created By");

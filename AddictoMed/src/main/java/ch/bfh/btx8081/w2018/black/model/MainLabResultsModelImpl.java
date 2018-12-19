@@ -16,7 +16,7 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 import ch.bfh.btx8081.w2018.black.model.ifaces.MainLabResultsModel;
-import ch.bfh.btx8081.w2018.black.model.ifaces.MainCaseAppointmentModel.Appointment;
+import ch.bfh.btx8081.w2018.black.model.ifaces.MainAppointmentModel.Appointment;
 import ch.bfh.btx8081.w2018.black.model.ifaces.MainLabResultsModel.LabResult;
 
 

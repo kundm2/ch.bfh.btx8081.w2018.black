@@ -4,13 +4,10 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.router.Route;
 
 import ch.bfh.btx8081.w2018.black.model.MainAppointmentModelImpl;
-import ch.bfh.btx8081.w2018.black.model.MainCasesModelImpl;
 import ch.bfh.btx8081.w2018.black.model.MainPatientModelImpl;
 import ch.bfh.btx8081.w2018.black.model.ifaces.MainAppointmentModel;
-import ch.bfh.btx8081.w2018.black.model.ifaces.MainCasesModel;
 import ch.bfh.btx8081.w2018.black.model.ifaces.MainPatientModel;
 import ch.bfh.btx8081.w2018.black.presenter.MainAppointmentPresenterImpl;
-import ch.bfh.btx8081.w2018.black.presenter.MainCasePresenterImpl;
 import ch.bfh.btx8081.w2018.black.presenter.MainPatientPresenterImpl;
 import ch.bfh.btx8081.w2018.black.view.MainAppointmentViewImpl;
 import ch.bfh.btx8081.w2018.black.view.MainCaseViewImpl;
@@ -49,10 +46,8 @@ public class MainView extends HorizontalLayout {
 		MainAppointmentModel appointmentModel = new MainAppointmentModelImpl();
 		new MainAppointmentPresenterImpl(appointmentModel, appointmentView);
 		
-		MainCaseViewImpl caseview = new MainCaseViewImpl();
-		MainCasesModel casemodel = new MainCasesModelImpl();
-		new MainCasePresenterImpl(caseview, casemodel);
+		MainCaseViewImpl cview = new MainCaseViewImpl();
 		
-		add(view, caseview, appointmentView);
+		add(view, cview, appointmentView);
     }
 }

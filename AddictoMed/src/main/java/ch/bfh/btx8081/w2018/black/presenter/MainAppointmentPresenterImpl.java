@@ -2,17 +2,17 @@ package ch.bfh.btx8081.w2018.black.presenter;
 
 import java.util.List;
 
-import ch.bfh.btx8081.w2018.black.model.ifaces.MainCaseAppointmentModel;
-import ch.bfh.btx8081.w2018.black.model.ifaces.MainCaseAppointmentModel.Appointment;
+import ch.bfh.btx8081.w2018.black.model.ifaces.MainAppointmentModel;
+import ch.bfh.btx8081.w2018.black.model.ifaces.MainAppointmentModel.Appointment;
 import ch.bfh.btx8081.w2018.black.model.ifaces.Patient;
-import ch.bfh.btx8081.w2018.black.view.ifaces.MainCaseAppointmentView;
+import ch.bfh.btx8081.w2018.black.view.ifaces.MainAppointmentView;
 
-public class MainCaseAppointmentPresenterImpl {
+public class MainAppointmentPresenterImpl {
 	
-	private MainCaseAppointmentModel appointmentModel = null;
-	private MainCaseAppointmentView appointmentView = null;
+	private MainAppointmentModel appointmentModel = null;
+	private MainAppointmentView appointmentView = null;
 	
-	public MainCaseAppointmentPresenterImpl(MainCaseAppointmentModel appointmentModel, MainCaseAppointmentView appointmentView) {
+	public MainAppointmentPresenterImpl(MainAppointmentModel appointmentModel, MainAppointmentView appointmentView) {
 		this.appointmentView = appointmentView;
 		this.appointmentModel = appointmentModel;
 		// appointmentView.addListener(this);

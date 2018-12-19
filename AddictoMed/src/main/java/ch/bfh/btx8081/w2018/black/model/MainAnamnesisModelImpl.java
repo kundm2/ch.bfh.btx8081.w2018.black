@@ -82,7 +82,7 @@ public class MainAnamnesisModelImpl implements MainAnamnesisModel {
 	}
 
 	public class AnamnesisImpl implements Anamnesis {
-		private int ID;
+		private int id;
 		private String chiefComplaint;
 		private LocalDate startDate;
 		private String selfAnamnesis;
@@ -92,11 +92,11 @@ public class MainAnamnesisModelImpl implements MainAnamnesisModel {
 		private String foreignAnamnesis;
 		private String additionalInformation;
 
-		public AnamnesisImpl(int iD, String chiefComplaint, LocalDate startDate, String selfAnamnesis,
+		public AnamnesisImpl(int id, String chiefComplaint, LocalDate startDate, String selfAnamnesis,
 				String familyAnamnesis, String socialAnamnesis, String systemAnamnesis, String foreignAnamnesis,
 				String additionalInformation) {
 			super();
-			ID = iD;
+			this.id = id;
 			this.chiefComplaint = chiefComplaint;
 			this.startDate = startDate;
 			this.selfAnamnesis = selfAnamnesis;
@@ -109,11 +109,11 @@ public class MainAnamnesisModelImpl implements MainAnamnesisModel {
 
 		@Override
 		public int getID() {
-			return ID;
+			return id;
 		}
 
-		public void setID(int ID) {
-			this.ID = ID;
+		public void setID(int id) {
+			this.id = id;
 		}
 		@Override
 		public String getChiefComplaint() {

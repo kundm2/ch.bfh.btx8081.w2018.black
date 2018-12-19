@@ -13,15 +13,15 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import ch.bfh.btx8081.w2018.black.model.ifaces.DiagnosisModel;
+import ch.bfh.btx8081.w2018.black.model.ifaces.MainDiagnosisModel;
 
 /**
  * @author Samuel Pulfer
  *
  */
-public class DiagnosisModelImpl implements DiagnosisModel {
+public class MainDiagnosisModelImpl implements MainDiagnosisModel {
 	
-	private final static Logger LOGGER = Logger.getLogger(DiagnosisModelImpl.class.getName());
+	private final static Logger LOGGER = Logger.getLogger(MainDiagnosisModelImpl.class.getName());
 	
 	public static class DiagnosisImpl implements Diagnosis {
 		
@@ -61,7 +61,7 @@ public class DiagnosisModelImpl implements DiagnosisModel {
 	
 	private DataSource ds;
 	
-	public DiagnosisModelImpl() {
+	public MainDiagnosisModelImpl() {
 		try {
 			Context ctx = new InitialContext();
 			ds = (DataSource) ctx.lookup("java:comp/env/jdbc/postgres");
