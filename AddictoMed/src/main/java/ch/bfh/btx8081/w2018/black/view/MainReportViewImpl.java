@@ -2,8 +2,14 @@ package ch.bfh.btx8081.w2018.black.view;
 
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.datepicker.DatePicker;
+import com.vaadin.flow.component.icon.Icon;
+import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.router.RouterLink;
+
+import ch.bfh.btx8081.w2018.black.view.routes.CaseReport;
+import ch.bfh.btx8081.w2018.black.view.routes.MainViewReport;
 
 public class MainReportViewImpl extends VerticalLayout {
 	
@@ -21,7 +27,10 @@ public class MainReportViewImpl extends VerticalLayout {
 		layoutDailyReport.add(btnDailyReport, datePickerDailyReport);
 		layoutWeeklyReport.add(btnWeeklyReport, datePickerWeeklyReport);
 		
-		add(layoutDailyReport, layoutWeeklyReport);
+		RouterLink caseReport = new RouterLink(null, CaseReport.class);
+		caseReport.add(new Button("Case Report", new Icon(VaadinIcon.CLIPBOARD_TEXT)));
+		
+		add(layoutDailyReport, layoutWeeklyReport, caseReport);
 		
 	}
 }
