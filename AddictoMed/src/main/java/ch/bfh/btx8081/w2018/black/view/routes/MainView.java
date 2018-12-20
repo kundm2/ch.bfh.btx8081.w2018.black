@@ -7,24 +7,29 @@ import com.vaadin.flow.router.Route;
 import ch.bfh.btx8081.w2018.black.model.MainAnamnesisModelImpl;
 import ch.bfh.btx8081.w2018.black.model.MainAppointmentModelImpl;
 import ch.bfh.btx8081.w2018.black.model.MainCasesModelImpl;
+import ch.bfh.btx8081.w2018.black.model.MainDiagnosisModelImpl;
 import ch.bfh.btx8081.w2018.black.model.MainPatientModelImpl;
 import ch.bfh.btx8081.w2018.black.model.ifaces.MainAnamnesisModel;
 import ch.bfh.btx8081.w2018.black.model.ifaces.MainAppointmentModel;
 import ch.bfh.btx8081.w2018.black.model.ifaces.MainCasesModel;
+import ch.bfh.btx8081.w2018.black.model.ifaces.MainDiagnosisModel;
 import ch.bfh.btx8081.w2018.black.model.ifaces.MainPatientModel;
 import ch.bfh.btx8081.w2018.black.presenter.MainAnamnesisPresenterImpl;
 import ch.bfh.btx8081.w2018.black.presenter.MainAppointmentPresenterImpl;
 import ch.bfh.btx8081.w2018.black.presenter.MainCasePresenterImpl;
+import ch.bfh.btx8081.w2018.black.presenter.MainDiagnosisPresenterImpl;
 import ch.bfh.btx8081.w2018.black.presenter.MainPatientInformationPresenterImpl;
 import ch.bfh.btx8081.w2018.black.presenter.MainPatientPresenterImpl;
 import ch.bfh.btx8081.w2018.black.presenter.ifaces.MainAnamnesisPresenter;
 import ch.bfh.btx8081.w2018.black.presenter.ifaces.MainAppointmentPresenter;
 import ch.bfh.btx8081.w2018.black.presenter.ifaces.MainCasePresenter;
+import ch.bfh.btx8081.w2018.black.presenter.ifaces.MainDiagnosisPresenter;
 import ch.bfh.btx8081.w2018.black.presenter.ifaces.MainPatientInformationPresenter;
 import ch.bfh.btx8081.w2018.black.presenter.ifaces.MainPatientPresenter;
 import ch.bfh.btx8081.w2018.black.view.MainAnamnesisViewImpl;
 import ch.bfh.btx8081.w2018.black.view.MainAppointmentViewImpl;
 import ch.bfh.btx8081.w2018.black.view.MainCaseViewImpl;
+import ch.bfh.btx8081.w2018.black.view.MainDiagnosisViewImpl;
 import ch.bfh.btx8081.w2018.black.view.MainPatientInformationViewImpl;
 import ch.bfh.btx8081.w2018.black.view.MainPatientViewImpl;
 import ch.bfh.btx8081.w2018.black.view.routes.applayout.ApplicationLayout;
@@ -82,8 +87,14 @@ public class MainView extends HorizontalLayout {
 		MainAnamnesisPresenter mainAnamnesisPresenter = new MainAnamnesisPresenterImpl(mainAnamnesisViewImpl, mainAnamnesisModel);
 		mainCasePresenter.addCurrentCaseListener(mainAnamnesisPresenter);
 		
+		// DiagnosisView
+		MainDiagnosisViewImpl mainDiagnosisViewImpl = new MainDiagnosisViewImpl();
+		MainDiagnosisModel mainDiagnosisModel = new MainDiagnosisModelImpl();
+		MainDiagnosisPresenter mainDiagnosisPresenter = new MainDiagnosisPresenterImpl(mainDiagnosisViewImpl, mainDiagnosisModel);
+		mainCasePresenter.addCurrentCaseListener(mainDiagnosisPresenter);
+		
  		// Column2
- 		column2.add(new H2("Patienteninformation"), mainPatientInformationViewImpl, new H2("Fälle"), mainCaseViewImpl, new H2("Termine"), mainAppointmentViewImpl, new H2("Anamnese"), mainAnamnesisViewImpl);
+ 		column2.add(new H2("Patienteninformation"), mainPatientInformationViewImpl, new H2("Fälle"), mainCaseViewImpl, new H2("Termine"), mainAppointmentViewImpl, new H2("Anamnese"), mainAnamnesisViewImpl, new H2("Diagnose"), mainDiagnosisViewImpl);
 		
 		add(mainPatientViewImpl, column2);
     }
