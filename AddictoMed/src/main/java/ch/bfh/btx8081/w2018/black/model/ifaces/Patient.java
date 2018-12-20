@@ -3,7 +3,16 @@ package ch.bfh.btx8081.w2018.black.model.ifaces;
 import java.time.LocalDate;
 
 public interface Patient {
-	public enum Gender { MALE, FEMALE, UNKNOWN }
+	public enum Gender { MALE("Male"), FEMALE("Female"), UNKNOWN("Unknown");
+		private String value;
+		
+		Gender(String value){
+			this.value = value;
+		}
+		public String toString() {
+			return value;
+		}
+	}
 	
 	public int getPatientID();
 	public String getFirstname();

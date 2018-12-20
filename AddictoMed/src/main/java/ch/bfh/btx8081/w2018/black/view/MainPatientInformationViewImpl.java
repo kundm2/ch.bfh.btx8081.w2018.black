@@ -40,6 +40,7 @@ public class MainPatientInformationViewImpl extends VerticalLayout implements Ma
 		super.setWidth("100%");
 		super.setHeight("100%");
 		enableEdit(false);
+		gender.setItems(Gender.values());
 		VerticalLayout column1 = new VerticalLayout();
 		column1.setWidth("100%");
 		VerticalLayout column2 = new VerticalLayout();
@@ -81,6 +82,7 @@ public class MainPatientInformationViewImpl extends VerticalLayout implements Ma
 		lastname.setEnabled(edit);
 		birthdate.setEnabled(edit);
 		address.setEnabled(edit);
+		gender.setEnabled(edit);
 		zipCode.setEnabled(edit);
 	}
 
@@ -91,6 +93,7 @@ public class MainPatientInformationViewImpl extends VerticalLayout implements Ma
 		lastname.setValue(patient.getLastname());
 		birthdate.setValue(patient.getDateOfBirth());
 		address.setValue(patient.getAddress());
+		gender.setValue(patient.getGender());
 		zipCode.setValue(patient.getZipCode());
 		
 	}
