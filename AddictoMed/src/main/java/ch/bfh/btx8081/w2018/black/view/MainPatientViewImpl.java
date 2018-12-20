@@ -14,14 +14,12 @@ import ch.bfh.btx8081.w2018.black.model.ifaces.Patient;
 import ch.bfh.btx8081.w2018.black.view.ifaces.MainPatientView;
 
 public class MainPatientViewImpl extends VerticalLayout implements MainPatientView {
-	
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -2065962399488350077L;
 	private List<MainPatientViewListener> mainPatientViewListeners = new ArrayList<>();
-	
 	
 	Grid<Patient> grid = new Grid<>();
 	TextField search = new TextField();
@@ -67,7 +65,4 @@ public class MainPatientViewImpl extends VerticalLayout implements MainPatientVi
 	public void addListener(MainPatientViewListener listener) {
 		mainPatientViewListeners.add(listener);
 	}
-
-
-
 }

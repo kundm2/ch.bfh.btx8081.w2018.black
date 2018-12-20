@@ -19,6 +19,7 @@ import com.vaadin.flow.theme.Theme;
 import com.vaadin.flow.theme.lumo.Lumo;
 
 import ch.bfh.btx8081.w2018.black.view.routes.MainView;
+import ch.bfh.btx8081.w2018.black.view.routes.MainViewReport;
 
 
 
@@ -68,7 +69,11 @@ public class ApplicationLayout extends FlexLayout implements RouterLayout {
 	private Div createNavigation() {
 		RouterLink mainViewLink = new RouterLink(null, MainView.class);
 		mainViewLink.add(new Button("Home", new Icon(VaadinIcon.ANCHOR)));
-		return new Div(mainViewLink);
+		
+		RouterLink mainReportViewLink = new RouterLink(null, MainViewReport.class);
+		mainReportViewLink.add(new Button("Report", new Icon(VaadinIcon.ACCESSIBILITY)));
+		
+		return new Div(mainViewLink, mainReportViewLink);
 	}
 	
 

@@ -5,6 +5,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 
 import ch.bfh.btx8081.w2018.black.view.MainReportViewImpl;
+import ch.bfh.btx8081.w2018.black.view.routes.applayout.ApplicationLayout;
 
 /**
  * 
@@ -13,7 +14,7 @@ import ch.bfh.btx8081.w2018.black.view.MainReportViewImpl;
  * Route for the Main View of the different Reports
  */
 
-@Route("Report")
+@Route(value = "Report", layout = ApplicationLayout.class)
 public class MainViewReport extends VerticalLayout {
 
 	/**
