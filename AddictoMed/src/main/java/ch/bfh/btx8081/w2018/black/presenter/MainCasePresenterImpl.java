@@ -8,17 +8,23 @@ import ch.bfh.btx8081.w2018.black.view.ifaces.MainCaseView;
 
 public class MainCasePresenterImpl {
 
-	private MainCasesModel model = null;
-	private MainCaseView view = null;
+	private MainCasesModel casemodel = null;
+	private MainCaseView caseview = null;
 	
-	public MainCasePresenterImpl(MainCaseView view, MainCasesModel model) {
-		this.view = view;
-		this.model = model;
+	public MainCasePresenterImpl(MainCaseView caseview, MainCasesModel casemodel) {
+		this.caseview = caseview;
+		this.casemodel = casemodel;
+		setCases();
 	}
 	
-//	public void setCases() {
-//		List<Case> cases = model.getCaseList();
-//		view.setCases(cases);
-//	}
+	public void setCases() {
+		List<Case> cases = casemodel.getCaseList();
+		caseview.setCases(cases);
+	}
+	
+	public void setCases(int patientID) {
+		List<Case> cases = casemodel.getCaseList(patientID);
+		caseview.setCases(cases);
+	}
 	
 }

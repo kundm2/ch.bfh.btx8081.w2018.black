@@ -16,6 +16,7 @@ public interface MainCasesModel {
 	 */
 	public List<Case> getCaseList(int patientID);
 
+	public List<Case> getCaseList();
 	/**
 	 * 
 	 * @author Roger Tschanz
@@ -39,9 +40,10 @@ public interface MainCasesModel {
 		public LocalDate getEndDate();
 		
 		/**
-		 * @return Insurance Number
+		 * @return InsuranceNumber
 		 */
 		public int getInsuranceNumber();
+		
 		
 		/**
 		 * @return Place
