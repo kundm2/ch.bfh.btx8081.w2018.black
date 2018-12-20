@@ -54,6 +54,7 @@ public class MainCaseViewImpl extends VerticalLayout implements MainCaseView {
 	public void setCases(List<Case> cases) {
 		tabs.removeAll();
 		tabs.add(new Tab(add));
+		tabs.setSelectedIndex(0);
 		for (Case vcase : cases) {
 			tabs.add(new Tab(String.valueOf(vcase.getCaseID())));
 		}
