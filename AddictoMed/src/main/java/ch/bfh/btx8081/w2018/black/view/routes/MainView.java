@@ -14,6 +14,7 @@ import ch.bfh.btx8081.w2018.black.presenter.MainAppointmentPresenterImpl;
 import ch.bfh.btx8081.w2018.black.presenter.MainCasePresenterImpl;
 import ch.bfh.btx8081.w2018.black.presenter.MainPatientInformationPresenterImpl;
 import ch.bfh.btx8081.w2018.black.presenter.MainPatientPresenterImpl;
+import ch.bfh.btx8081.w2018.black.presenter.ifaces.MainCasePresenter;
 import ch.bfh.btx8081.w2018.black.presenter.ifaces.MainPatientInformationPresenter;
 import ch.bfh.btx8081.w2018.black.presenter.ifaces.MainPatientPresenter;
 import ch.bfh.btx8081.w2018.black.view.MainAppointmentViewImpl;
@@ -65,7 +66,8 @@ public class MainView extends HorizontalLayout {
 		// CaseView
 		MainCaseViewImpl mainCaseViewImpl = new MainCaseViewImpl();
  		MainCasesModel mainCasesModel = new MainCasesModelImpl();
- 		new MainCasePresenterImpl(mainCaseViewImpl, mainCasesModel);
+ 		MainCasePresenter mainCasePresenter = new MainCasePresenterImpl(mainCaseViewImpl, mainCasesModel);
+ 		mainPatientPresenter.addCurrentPatientListener(mainCasePresenter);
  		
  		// Column2
  		column2.add(new H2("Patienteninformation"), mainPatientInformationViewImpl, mainCaseViewImpl, mainAppointmentViewImpl);

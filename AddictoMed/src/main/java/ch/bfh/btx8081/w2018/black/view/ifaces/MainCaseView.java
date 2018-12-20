@@ -1,15 +1,21 @@
 package ch.bfh.btx8081.w2018.black.view.ifaces;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import ch.bfh.btx8081.w2018.black.model.ifaces.MainCasesModel.Case;
-import ch.bfh.btx8081.w2018.black.view.ifaces.MainPatientView.MainPatientViewListener;
 
 public interface MainCaseView {
 
-	interface caseListener {
-		void caseSelected(String caseID);
+	interface CaseListener {
+		void caseSelected(Integer caseID);
 		void addBtnPressed();
 	}
 	public void setCases(List<Case> cases);
+	public void setStartDate(LocalDate startDate);
+	public void setEndDate(LocalDate endDate);
+	public void setPlace(String place);
+	public void setInsuranceNr(String insuranceNr);
+	
+	public void addCaseListener(CaseListener listener);
 }
