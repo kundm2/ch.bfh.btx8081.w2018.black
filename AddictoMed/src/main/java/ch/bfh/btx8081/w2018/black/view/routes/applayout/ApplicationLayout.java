@@ -11,7 +11,6 @@ import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.FlexLayout;
-import com.vaadin.flow.component.page.BodySize;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.RouterLayout;
 import com.vaadin.flow.router.RouterLink;
@@ -25,7 +24,6 @@ import ch.bfh.btx8081.w2018.black.view.routes.MainViewReport;
 
 @Theme(Lumo.class)
 @PageTitle("AddictoMed")
-@BodySize(height = "100%", width = "100%")
 @StyleSheet("applicationlayout.css")
 public class ApplicationLayout extends FlexLayout implements RouterLayout {
 
