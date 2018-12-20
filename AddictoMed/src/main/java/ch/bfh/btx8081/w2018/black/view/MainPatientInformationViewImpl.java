@@ -14,7 +14,6 @@ import com.vaadin.flow.component.textfield.TextField;
 
 import ch.bfh.btx8081.w2018.black.view.ifaces.MainPatientInformationView;
 import ch.bfh.btx8081.w2018.black.model.ifaces.Patient;
-import ch.bfh.btx8081.w2018.black.view.ifaces.MainPatientView.MainPatientViewListener;
 import ch.bfh.btx8081.w2018.black.model.ifaces.Patient.Gender;
 
 public class MainPatientInformationViewImpl extends VerticalLayout implements MainPatientInformationView {
@@ -88,14 +87,23 @@ public class MainPatientInformationViewImpl extends VerticalLayout implements Ma
 
 	@Override
 	public void setPatient(Patient patient) {
-		patID.setValue(String.valueOf(patient.getPatientID()));
-		firstname.setValue(patient.getFirstname());
-		lastname.setValue(patient.getLastname());
-		birthdate.setValue(patient.getDateOfBirth());
-		address.setValue(patient.getAddress());
-		gender.setValue(patient.getGender());
-		zipCode.setValue(patient.getZipCode());
-		
+		if(patient != null) {
+			patID.setValue(String.valueOf(patient.getPatientID()));
+			firstname.setValue(patient.getFirstname());
+			lastname.setValue(patient.getLastname());
+			birthdate.setValue(patient.getDateOfBirth());
+			address.setValue(patient.getAddress());
+			gender.setValue(patient.getGender());
+			zipCode.setValue(patient.getZipCode());
+		} else {
+			patID.setValue("");
+			firstname.setValue("");
+			lastname.setValue("");
+			birthdate.setValue(null);
+			address.setValue("");
+			gender.setValue(Gender.UNKNOWN);
+			zipCode.setValue("");
+		}
 	}
 
 	@Override

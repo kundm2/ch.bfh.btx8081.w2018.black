@@ -51,6 +51,10 @@ public class MainPatientViewImpl extends VerticalLayout implements MainPatientVi
 				for(MainPatientViewListener listener: mainPatientViewListeners) {
 					listener.patientSelected(patient.get());
 				}
+			} else {
+				for(MainPatientViewListener listener: mainPatientViewListeners) {
+					listener.patientSelected(null);
+				}
 			}
 		});
 		add(search,grid,footer);
