@@ -1,0 +1,33 @@
+#applicationlayout {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+#applicationlayout .header {
+  padding: 10px;
+  background-color: #5f5f5f;
+}
+#applicationlayout .content {
+  flex: 1;
+  padding: 10px;
+}
+#applicationlayout .navigation {
+  float: left;
+}
+#applicationlayout .navigation vaadin-button {
+  margin-right: 10px;
+  color: #ffffff;
+}
+#applicationlayout .logindiv {
+  float: right;
+}
+#applicationlayout .logindiv vaadin-button {
+  margin-left: 10px;
+  color: #ffffff;
+}
+#applicationlayout .footer {
+  border-top: 1px dashed;
+  text-align: center;
+  padding: 10px;
+  background-color: #5f5f5f;
+}
