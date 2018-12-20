@@ -12,14 +12,14 @@ import ch.bfh.btx8081.w2018.black.presenter.MainPatientPresenterImpl;
 import ch.bfh.btx8081.w2018.black.view.MainAppointmentViewImpl;
 import ch.bfh.btx8081.w2018.black.view.MainCaseViewImpl;
 import ch.bfh.btx8081.w2018.black.view.MainPatientViewImpl;
-import ch.bfh.btx8081.w2018.black.view.ifaces.MainAppointmentView;
+import ch.bfh.btx8081.w2018.black.view.routes.applayout.ApplicationLayout;
 
 /**
  * The main view of AddictoMed
  * @author Samuel Pulfer
  */
 
-@Route("")
+@Route(value = "", layout = ApplicationLayout.class)
 public class MainView extends HorizontalLayout {
 
     /**
