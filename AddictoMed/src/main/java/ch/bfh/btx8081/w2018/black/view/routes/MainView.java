@@ -14,6 +14,7 @@ import ch.bfh.btx8081.w2018.black.presenter.MainAppointmentPresenterImpl;
 import ch.bfh.btx8081.w2018.black.presenter.MainCasePresenterImpl;
 import ch.bfh.btx8081.w2018.black.presenter.MainPatientInformationPresenterImpl;
 import ch.bfh.btx8081.w2018.black.presenter.MainPatientPresenterImpl;
+import ch.bfh.btx8081.w2018.black.presenter.ifaces.MainAppointmentPresenter;
 import ch.bfh.btx8081.w2018.black.presenter.ifaces.MainCasePresenter;
 import ch.bfh.btx8081.w2018.black.presenter.ifaces.MainPatientInformationPresenter;
 import ch.bfh.btx8081.w2018.black.presenter.ifaces.MainPatientPresenter;
@@ -58,19 +59,20 @@ public class MainView extends HorizontalLayout {
 		MainPatientInformationPresenter mainPatientInformationPresenter = new MainPatientInformationPresenterImpl(mainPatientInformationViewImpl, mainPatientModel);
 		mainPatientPresenter.addCurrentPatientListener(mainPatientInformationPresenter);
 		
-		// AppointmentView
-		MainAppointmentViewImpl mainAppointmentViewImpl = new MainAppointmentViewImpl();
-		MainAppointmentModel mainAppointmentModel = new MainAppointmentModelImpl();
-		new MainAppointmentPresenterImpl(mainAppointmentModel, mainAppointmentViewImpl);
-		
 		// CaseView
 		MainCaseViewImpl mainCaseViewImpl = new MainCaseViewImpl();
  		MainCasesModel mainCasesModel = new MainCasesModelImpl();
  		MainCasePresenter mainCasePresenter = new MainCasePresenterImpl(mainCaseViewImpl, mainCasesModel);
  		mainPatientPresenter.addCurrentPatientListener(mainCasePresenter);
- 		
+
+		// AppointmentView
+		MainAppointmentViewImpl mainAppointmentViewImpl = new MainAppointmentViewImpl();
+		MainAppointmentModel mainAppointmentModel = new MainAppointmentModelImpl();
+		MainAppointmentPresenter mainAppointmentPresenter = new MainAppointmentPresenterImpl(mainAppointmentViewImpl, mainAppointmentModel);
+		mainCasePresenter.addCurrentCaseListener(mainAppointmentPresenter);
+		
  		// Column2
- 		column2.add(new H2("Patienteninformation"), mainPatientInformationViewImpl, mainCaseViewImpl, mainAppointmentViewImpl);
+ 		column2.add(new H2("Patienteninformation"), mainPatientInformationViewImpl, new H2("Fälle"), mainCaseViewImpl, new H2("Termine"), mainAppointmentViewImpl);
 		
 		add(mainPatientViewImpl, column2);
     }

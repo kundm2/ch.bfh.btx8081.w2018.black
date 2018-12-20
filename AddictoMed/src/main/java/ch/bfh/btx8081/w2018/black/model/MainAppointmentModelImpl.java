@@ -78,7 +78,7 @@ public class MainAppointmentModelImpl implements MainAppointmentModel {
 	}
 
 	@Override
-	public List<Appointment> getAppointmentList() {
+	public List<Appointment> getAppointmentList(int caseId) {
 		List<Appointment> Appointments = new ArrayList<>();
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -86,8 +86,8 @@ public class MainAppointmentModelImpl implements MainAppointmentModel {
 		try {
 			conn = dsCases.getConnection();
 			ps = conn.prepareStatement(
-					"SELECT * FROM appointment ORDER BY appointment_id");
-			// ps.setInt(1, 0);
+					"SELECT * FROM appointment WHERE case_id=? ORDER BY start_date");
+			ps.setInt(1, caseId);
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				Appointment appointment = new AppointmentImpl(rs.getInt("appointment_id"), rs.getDate("start_date").toLocalDate(), 

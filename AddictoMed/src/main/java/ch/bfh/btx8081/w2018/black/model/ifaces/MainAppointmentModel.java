@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface MainAppointmentModel {
 	
-	public List<Appointment> getAppointmentList();
+	public List<Appointment> getAppointmentList(int caseId);
 	
 	public interface Appointment {
 		
