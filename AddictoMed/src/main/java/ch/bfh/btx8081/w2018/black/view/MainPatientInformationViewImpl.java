@@ -86,7 +86,7 @@ public class MainPatientInformationViewImpl extends VerticalLayout implements Ma
 
 	@Override
 	public void setPatient(Patient patient) {
-		patID.setValue(patient.getPatientID());
+		patID.setValue(String.valueOf(patient.getPatientID()));
 		firstname.setValue(patient.getFirstname());
 		lastname.setValue(patient.getLastname());
 		birthdate.setValue(patient.getDateOfBirth());
