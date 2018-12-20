@@ -1,5 +1,6 @@
 package ch.bfh.btx8081.w2018.black.view.routes;
 
+import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.router.Route;
 
@@ -11,11 +12,16 @@ import ch.bfh.btx8081.w2018.black.model.ifaces.MainCasesModel;
 import ch.bfh.btx8081.w2018.black.model.ifaces.MainPatientModel;
 import ch.bfh.btx8081.w2018.black.presenter.MainAppointmentPresenterImpl;
 import ch.bfh.btx8081.w2018.black.presenter.MainCasePresenterImpl;
+import ch.bfh.btx8081.w2018.black.presenter.MainPatientInformationPresenterImpl;
 import ch.bfh.btx8081.w2018.black.presenter.MainPatientPresenterImpl;
+import ch.bfh.btx8081.w2018.black.presenter.ifaces.MainPatientInformationPresenter;
+import ch.bfh.btx8081.w2018.black.presenter.ifaces.MainPatientPresenter;
 import ch.bfh.btx8081.w2018.black.view.MainAppointmentViewImpl;
 import ch.bfh.btx8081.w2018.black.view.MainCaseViewImpl;
+import ch.bfh.btx8081.w2018.black.view.MainPatientInformationViewImpl;
 import ch.bfh.btx8081.w2018.black.view.MainPatientViewImpl;
 import ch.bfh.btx8081.w2018.black.view.routes.applayout.ApplicationLayout;
+import ch.bfh.btx8081.w2018.black.view.routes.applayout.ScrollableVerticalLayout;
 
 /**
  * The main view of AddictoMed
@@ -36,23 +42,34 @@ public class MainView extends HorizontalLayout {
 	public MainView() {
 		super.setHeight("100%");
 		super.setWidth("100%");
-		HorizontalLayout column2 = new HorizontalLayout();
-		column2.setHeight("100%");
-		column2.setWidth("90%");
+		ScrollableVerticalLayout column2 = new ScrollableVerticalLayout();
+		column2.setWidth("70%");
 		
+		// PatientView
+		MainPatientViewImpl mainPatientViewImpl = new MainPatientViewImpl();
+		MainPatientModel mainPatientModel = new MainPatientModelImpl();
+		MainPatientPresenter mainPatientPresenter = new MainPatientPresenterImpl(mainPatientViewImpl, mainPatientModel);
+		mainPatientViewImpl.setHeight("100%");
+		mainPatientViewImpl.setWidth("30%");
 		
-		MainPatientViewImpl view = new MainPatientViewImpl();
-		MainPatientModel model = new MainPatientModelImpl();
-		new MainPatientPresenterImpl(view, model);
+		// PatientInformationView
+		MainPatientInformationViewImpl mainPatientInformationViewImpl = new MainPatientInformationViewImpl();
+		MainPatientInformationPresenter mainPatientInformationPresenter = new MainPatientInformationPresenterImpl(mainPatientInformationViewImpl, mainPatientModel);
+		mainPatientPresenter.addCurrentPatientListener(mainPatientInformationPresenter);
 		
-		MainAppointmentViewImpl appointmentView = new MainAppointmentViewImpl();
-		MainAppointmentModel appointmentModel = new MainAppointmentModelImpl();
-		new MainAppointmentPresenterImpl(appointmentModel, appointmentView);
+		// AppointmentView
+		MainAppointmentViewImpl mainAppointmentViewImpl = new MainAppointmentViewImpl();
+		MainAppointmentModel mainAppointmentModel = new MainAppointmentModelImpl();
+		new MainAppointmentPresenterImpl(mainAppointmentModel, mainAppointmentViewImpl);
 		
-		MainCaseViewImpl caseview = new MainCaseViewImpl();
- 		MainCasesModel casemodel = new MainCasesModelImpl();
- 		new MainCasePresenterImpl(caseview, casemodel);
+		// CaseView
+		MainCaseViewImpl mainCaseViewImpl = new MainCaseViewImpl();
+ 		MainCasesModel mainCasesModel = new MainCasesModelImpl();
+ 		new MainCasePresenterImpl(mainCaseViewImpl, mainCasesModel);
+ 		
+ 		// Column2
+ 		column2.add(new H2("Patienteninformation"), mainPatientInformationViewImpl, mainCaseViewImpl, mainAppointmentViewImpl);
 		
-		add(view, caseview, appointmentView);
+		add(mainPatientViewImpl, column2);
     }
 }
