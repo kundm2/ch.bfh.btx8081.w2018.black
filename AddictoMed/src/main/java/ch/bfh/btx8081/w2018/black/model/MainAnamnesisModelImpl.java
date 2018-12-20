@@ -4,6 +4,7 @@
 package ch.bfh.btx8081.w2018.black.model;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -43,24 +44,28 @@ public class MainAnamnesisModelImpl implements MainAnamnesisModel {
 	 * @see ch.bfh.btx8081.w2018.black.model.ifaces.MainAnamnesisModel#getAnamnesisList(int)
 	 */
 	@Override
-	public List<Anamnesis> getAnamnesisList(int caseID) {
+	public Anamnesis getAnamnesis(int caseID) {
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		List<Anamnesis> anamnesis = new ArrayList<>();
+		Anamnesis anamnesis = null;
 		try {
 			conn = ds.getConnection();
 			ps = conn.prepareStatement("SELECT * FROM anamnesis WHERE anamnesis_id = ?");
 			ps.setInt(1, caseID);
 			rs = ps.executeQuery();
-			while (rs.next()) {
-				anamnesis.add(new AnamnesisImpl(rs.getInt("anamnesis_id"), rs.getString("chief_complaint"),
-						rs.getDate("chief_complaint_start_date").toInstant().atZone(ZoneId.systemDefault())
-								.toLocalDate(),
+			if (rs.next()) {
+				LocalDate localStartDate = null;
+				Date startDate = rs.getDate("chief_complaint_start_date");
+				if(startDate != null) {
+					localStartDate = startDate.toLocalDate();
+				}
+				anamnesis = new AnamnesisImpl(rs.getInt("anamnesis_id"), rs.getString("chief_complaint"),
+						localStartDate,
 						rs.getString("self_anamnesis"),
 						rs.getString("family_anamnesis"), rs.getString("social_anamnesis"),
 						rs.getString("system_anamnesis"), rs.getString("foreign_anamnesis"),
-						rs.getString("additional_information")));
+						rs.getString("additional_information"));
 			}
 		} catch (SQLException e) {
 			LOGGER.warning("Patient query went wrong...\nError: " + e.getMessage());

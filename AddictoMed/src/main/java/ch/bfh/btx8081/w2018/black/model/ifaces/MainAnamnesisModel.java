@@ -12,7 +12,7 @@ import java.util.List;
  */
 public interface MainAnamnesisModel {
 
-	public List<Anamnesis> getAnamnesisList(int caseID);
+	public Anamnesis getAnamnesis(int caseID);
 
 	public interface Anamnesis {
 		public int getID();
