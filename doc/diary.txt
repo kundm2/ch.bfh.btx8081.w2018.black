@@ -131,3 +131,11 @@
 - 29.11.2018 Finalization of classdiagram persistance
 	Zeit: 20:00 - 23:50  Uhr
 	Teilnehmer: Armon Dressler, Samuel Pulfer
+
+- 20.12.2018 Daily Scrum und Programieren an Tasks
+	Zeit: 10:00 - 12:00 Uhr
+	Teilnehmer: Moritz Küdig, Roger Tschanz, Michael Däppen, Armon Dressler, Samuel Pulfer
+
+- 20.12.2018 Bugfixes und beenden der Tasks aus Sprint 1. Erstellen des CaseReports
+	Zeit: 16:00 - 01:00 Uhr
+	Teilnehmer: Samuel Pulfer
