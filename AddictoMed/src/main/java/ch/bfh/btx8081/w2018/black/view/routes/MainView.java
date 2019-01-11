@@ -4,11 +4,13 @@ import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.router.Route;
 
+import ch.bfh.btx8081.w2018.black.model.CaseReportModelImpl;
 import ch.bfh.btx8081.w2018.black.model.MainAnamnesisModelImpl;
 import ch.bfh.btx8081.w2018.black.model.MainAppointmentModelImpl;
 import ch.bfh.btx8081.w2018.black.model.MainCasesModelImpl;
 import ch.bfh.btx8081.w2018.black.model.MainDiagnosisModelImpl;
 import ch.bfh.btx8081.w2018.black.model.MainPatientModelImpl;
+import ch.bfh.btx8081.w2018.black.model.ifaces.CaseReportModel;
 import ch.bfh.btx8081.w2018.black.model.ifaces.MainAnamnesisModel;
 import ch.bfh.btx8081.w2018.black.model.ifaces.MainAppointmentModel;
 import ch.bfh.btx8081.w2018.black.model.ifaces.MainCasesModel;
@@ -72,7 +74,8 @@ public class MainView extends HorizontalLayout {
 		// CaseView
 		MainCaseViewImpl mainCaseViewImpl = new MainCaseViewImpl();
  		MainCasesModel mainCasesModel = new MainCasesModelImpl();
- 		MainCasePresenter mainCasePresenter = new MainCasePresenterImpl(mainCaseViewImpl, mainCasesModel);
+ 		CaseReportModel caseReportModel = new CaseReportModelImpl();
+ 		MainCasePresenter mainCasePresenter = new MainCasePresenterImpl(mainCaseViewImpl, mainCasesModel, caseReportModel);
  		mainPatientPresenter.addCurrentPatientListener(mainCasePresenter);
 
 		// AppointmentView
