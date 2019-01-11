@@ -1,5 +1,8 @@
 package ch.bfh.btx8081.w2018.black.presenter;
 
+import java.io.IOException;
+
+import ch.bfh.btx8081.w2018.black.model.PDFCreatorImpl;
 import ch.bfh.btx8081.w2018.black.model.ifaces.CaseReportModel;
 import ch.bfh.btx8081.w2018.black.model.ifaces.CaseReportModel.CaseReport;
 import ch.bfh.btx8081.w2018.black.presenter.ifaces.CaseReportPresenter;
@@ -20,18 +23,26 @@ public class CaseReportPresenterImpl implements CaseReportPresenter {
 	public void generateReport(int caseId) {
 		CaseReport caseReport = model.generate(caseId);
 		StringBuilder sb = new StringBuilder();
-		sb.append("CaseReport\n");
-		sb.append("Erstellt: " + caseReport.getDateGenerated() + "\n");
 		sb.append("PatientenId: " + caseReport.getPatientId() + "\n");
 		sb.append("Name: " + caseReport.getFirstname() + " " + caseReport.getLastname() + "\n");
 		sb.append("Zeitspanne: " + caseReport.getDaysDuration() + " Tage\n");
-		sb.append("Hauptbeschwerde:\n" + caseReport.getChiefComplaint() + "\n");
+		sb.append("Hauptbeschwerde: " + caseReport.getChiefComplaint() + "\n");
 		sb.append("Anzahl Termine: " + caseReport.getAppointments() + "\n");
 		sb.append("Involvierte Mitarbeiter:\n");
 		for(String emp:caseReport.getInvolvedEmployees()) {
 			sb.append(emp + "\n");
 		}
-		view.setReport(sb.toString());
+		try {
+			PDFCreatorImpl pdf = new PDFCreatorImpl();
+			pdf.setHeading("Fall Report");
+			pdf.setTimestamp(caseReport.getDateGenerated());
+			pdf.setContent(sb.toString());
+			view.downloadReport(pdf.getDocumet(), "Fallreport.pdf");
+			pdf.close();
+		} catch (IOException e) {
+			view.setError("There was an error creating the report: " + e.getMessage());
+		}
+		
 	}
 
 }
