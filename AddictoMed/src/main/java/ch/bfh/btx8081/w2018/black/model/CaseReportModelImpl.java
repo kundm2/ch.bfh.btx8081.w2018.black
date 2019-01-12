@@ -21,6 +21,7 @@ public class CaseReportModelImpl implements CaseReportModel {
 	
 	private final static Logger LOGGER = Logger.getLogger(CaseReportModelImpl.class.getName());
 	private DataSource ds;
+	
 	public class CaseReportImpl implements CaseReport {
 		
 		private int patientId = -1;

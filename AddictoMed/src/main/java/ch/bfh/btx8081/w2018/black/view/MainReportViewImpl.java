@@ -16,7 +16,6 @@ public class MainReportViewImpl extends VerticalLayout {
 	Button btnGenWeeklyReport = new Button("Generate Weekly Report");
 
 	DatePicker datePickerDailyReport = new DatePicker();
-	DatePicker datePickerWeeklyReport = new DatePicker();
 
 	HorizontalLayout layoutDailyReport = new HorizontalLayout();
 	HorizontalLayout layoutWeeklyReport = new HorizontalLayout();
@@ -24,7 +23,7 @@ public class MainReportViewImpl extends VerticalLayout {
 	public MainReportViewImpl() {
 
 		layoutDailyReport.add(datePickerDailyReport, btnGenDailyReport);
-		layoutWeeklyReport.add(datePickerWeeklyReport, btnGenWeeklyReport);
+		layoutWeeklyReport.add( btnGenWeeklyReport);
 		
 		RouterLink caseReport = new RouterLink(null, CaseReport.class);
 		caseReport.add(new Button("Case Report", new Icon(VaadinIcon.CLIPBOARD_TEXT)));

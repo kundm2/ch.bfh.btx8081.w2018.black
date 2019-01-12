@@ -15,7 +15,9 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import ch.bfh.btx8081.w2018.black.model.CaseReportModelImpl.CaseReportImpl;
 import ch.bfh.btx8081.w2018.black.model.ifaces.MainCasesModel;
+import ch.bfh.btx8081.w2018.black.model.ifaces.CaseReportModel.CaseReport;
 
 /**
  * @author Roger Tschanz
@@ -87,20 +89,20 @@ public class MainCasesModelImpl implements MainCasesModel {
 			conn = dsCases.getConnection();
 			ps = conn.prepareStatement(
 					"SELECT * FROM \"case\" WHERE patient_id=? ORDER BY case_id");
-					ps.setInt(1, patientID);
+			ps.setInt(1, patientID);
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				Date startDate = rs.getDate("start_date");
-		        Date endDate = rs.getDate("end_date");
-		        LocalDate localStartDate = null;
-		        LocalDate localEndDate = null;
-		        if(startDate != null) {
-		          localStartDate = startDate.toLocalDate();
-		        }
-		        if(endDate != null) {
-		          localEndDate = endDate.toLocalDate();
-		        }
-				
+				Date endDate = rs.getDate("end_date");
+				LocalDate localStartDate = null;
+				LocalDate localEndDate = null;
+				if(startDate != null) {
+					localStartDate = startDate.toLocalDate();
+				}
+				if(endDate != null) {
+					localEndDate = endDate.toLocalDate();
+				}
+
 				Case Case = new CaseImpl(rs.getInt("case_id"), localStartDate, 
 						localEndDate, rs.getInt("insurance_nr"), rs.getString("place"));
 				Cases.add(Case);
@@ -137,17 +139,17 @@ public class MainCasesModelImpl implements MainCasesModel {
 					"SELECT * FROM \"case\" ORDER BY case_id");
 			rs = ps.executeQuery();
 			while (rs.next()) {
-		        Date startDate = rs.getDate("start_date");
-		        Date endDate = rs.getDate("end_date");
-		        LocalDate localStartDate = null;
-		        LocalDate localEndDate = null;
-		        if(startDate != null) {
-		          localStartDate = startDate.toLocalDate();
-		        }
-		        if(endDate != null) {
-		          localEndDate = endDate.toLocalDate();
-		        }
-				
+				Date startDate = rs.getDate("start_date");
+				Date endDate = rs.getDate("end_date");
+				LocalDate localStartDate = null;
+				LocalDate localEndDate = null;
+				if(startDate != null) {
+					localStartDate = startDate.toLocalDate();
+				}
+				if(endDate != null) {
+					localEndDate = endDate.toLocalDate();
+				}
+
 				Case Case = new CaseImpl(rs.getInt("case_id"), localStartDate, 
 						localEndDate, rs.getInt("insurance_nr"), rs.getString("place"));
 				Cases.add(Case);
@@ -172,4 +174,42 @@ public class MainCasesModelImpl implements MainCasesModel {
 		return Cases;
 	}
 
+	/**
+	 * Added Method for WeeklyReport
+	 * @author Roger Tschanz
+	 * @param caseId
+	 * @return
+	 */
+
+//	public CaseReport generateWeeklyReport(LocalDate reportStartDate, LocalDate reportEndDate) {
+//
+//		List<Case> WeeklyReport = new ArrayList<>();
+//
+//		Connection conn = null;
+//		PreparedStatement ps = null;
+//		ResultSet rs = null;
+//		try {
+//			/**
+//			 * To-To: DB-Query for all Cases within Start to End-Date
+//			 * 
+//			 * conn = ds.getConnection();
+//			 * ps = conn.prepareStatement("select * from "case" WHERE start_date >= ? AND end_date =< ? ");
+//			 * ps.setDate(1, reportStartDate);
+//			 * ps.setDate(2, reportEndDate);
+//			 * rs = ps.executeQuery();
+//			 */
+//
+//			/**
+//			if(rs.next()) {
+//				getCaseList(int patientID)
+//				// weeklyReport.setPatientId(rs.getInt("patient_id"));
+//			}
+//
+//
+//		} catch (SQLException e) {
+//			LOGGER.warning("Patient query went wrong...\nError: " + e.getMessage());
+//		}
+//			 */
+//		}
+	
 }
