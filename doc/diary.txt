@@ -139,3 +139,11 @@
 - 20.12.2018 Bugfixes und beenden der Tasks aus Sprint 1. Erstellen des CaseReports
 	Zeit: 16:00 - 01:00 Uhr
 	Teilnehmer: Samuel Pulfer
+
+- 11.01.2019 PDFCreator implementiert
+	Zeit: 22:00 - 23:00 Uhr
+	Teilnehmer: Samuel Pulfer
+
+- 12.01.2019 CaseReport in MainCaseViewImpl integriert
+	Zeit: 00:15 - 00:50 Uhr
+	Teilnehmer: Samuel Pulfer

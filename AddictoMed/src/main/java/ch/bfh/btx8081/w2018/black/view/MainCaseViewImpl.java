@@ -1,17 +1,21 @@
 package ch.bfh.btx8081.w2018.black.view;
 
+import java.io.InputStream;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.datepicker.DatePicker;
-import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.server.StreamResource;
+
 import ch.bfh.btx8081.w2018.black.model.ifaces.MainCasesModel.Case;
 import ch.bfh.btx8081.w2018.black.view.ifaces.MainCaseView;
 
@@ -25,6 +29,8 @@ public class MainCaseViewImpl extends VerticalLayout implements MainCaseView {
 	DatePicker startDate = new DatePicker();
 	DatePicker endDate = new DatePicker();
 	Button add = new Button("Add");
+	Button report = new Button("Fall Report");
+	Anchor downloadlink = new Anchor();
 
 	public MainCaseViewImpl() {
 		enableEdit(false);
@@ -33,7 +39,8 @@ public class MainCaseViewImpl extends VerticalLayout implements MainCaseView {
 		insuranceNr.setLabel("InsuranceNr.");
 		place.setLabel("Place");
 		tabs.add(new Tab(add));
-		HorizontalLayout caseInfos = new HorizontalLayout(startDate, endDate, place, insuranceNr);
+		HorizontalLayout caseInfos = new HorizontalLayout(startDate, endDate, place, insuranceNr, report);
+		caseInfos.setAlignItems(Alignment.BASELINE);
 		tabs.addSelectedChangeListener(event -> {
 			// inform each listener
 			for(CaseListener listener:listeners) {
@@ -44,10 +51,15 @@ public class MainCaseViewImpl extends VerticalLayout implements MainCaseView {
 				}
 			}
 		});
+		report.addClickListener(event -> {
+			for(CaseListener listener:listeners) {
+				listener.reportBtnPressed();
+			}
+		});
 		add.addClickListener(event -> {
 			// inform each listener
 		});
-		add(tabs, caseInfos);
+		add(tabs, caseInfos, downloadlink);
 	}
 
 	@Override
@@ -105,5 +117,19 @@ public class MainCaseViewImpl extends VerticalLayout implements MainCaseView {
 	@Override
 	public void addCaseListener(CaseListener listener) {
 		this.listeners.add(listener);
+	}
+
+	@Override
+	public void downloadReport(InputStream in, String filename) {
+		StreamResource myResource = new StreamResource(filename, () -> in);
+		downloadlink.setHref(myResource);
+		downloadlink.getElement().setAttribute("download", true);
+		UI.getCurrent().getPage().executeJavaScript("$0.click()", downloadlink);
+	}
+
+	@Override
+	public void enableReport(boolean enabled) {
+		report.setEnabled(enabled);
+		
 	}
 }
