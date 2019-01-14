@@ -147,3 +147,7 @@
 - 12.01.2019 CaseReport in MainCaseViewImpl integriert
 	Zeit: 00:15 - 00:50 Uhr
 	Teilnehmer: Samuel Pulfer
+	
+- 14.01.2019 Final Presentation
+	Zeit: 19:30 - 20:45 Uhr
+	Teilnehmer: Moritz Küdig, Roger Tschanz
