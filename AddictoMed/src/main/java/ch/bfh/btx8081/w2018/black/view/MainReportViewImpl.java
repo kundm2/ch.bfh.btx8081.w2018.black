@@ -8,6 +8,7 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.RouterLink;
 
+import ch.bfh.btx8081.w2018.black.view.routes.BusinessReport;
 import ch.bfh.btx8081.w2018.black.view.routes.CaseReport;
 
 public class MainReportViewImpl extends VerticalLayout {
@@ -28,7 +29,10 @@ public class MainReportViewImpl extends VerticalLayout {
 		RouterLink caseReport = new RouterLink(null, CaseReport.class);
 		caseReport.add(new Button("Case Report", new Icon(VaadinIcon.CLIPBOARD_TEXT)));
 		
-		add(layoutDailyReport, layoutWeeklyReport, caseReport);
+		RouterLink businessReport = new RouterLink(null, BusinessReport.class);
+		businessReport.add(new Button("Business Report", new Icon(VaadinIcon.CLIPBOARD_TEXT)));
+		
+		add(layoutDailyReport, layoutWeeklyReport, caseReport, businessReport);
 		
 		/**
 		 * Changes to (in future newly generated) Weekly-Report Page
