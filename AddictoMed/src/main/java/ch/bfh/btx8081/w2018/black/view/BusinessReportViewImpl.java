@@ -7,38 +7,46 @@ import java.util.List;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Anchor;
+import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.server.StreamResource;
 
-import ch.bfh.btx8081.w2018.black.view.ifaces.CaseReportView;
+import ch.bfh.btx8081.w2018.black.view.ifaces.BusinessReportView;
 
-public class CaseReportViewImpl extends VerticalLayout implements CaseReportView {
-	private List<CaseReportGenerateListener> listeners = new ArrayList<>();
-	private TextField caseId = new TextField("Fallnummer");
-	private TextField error = new TextField("Error");
+/**
+ * 
+ * @author Michael Däppen
+ * 
+ */
+
+public class BusinessReportViewImpl extends VerticalLayout implements BusinessReportView {
+
+	private List<BusinessReportGenerateListener> listeners = new ArrayList<>();
+	private Label title = new Label();
+	private TextField error = new TextField();
 	private Button generate = new Button("Generieren");
 	private Anchor downloadlink = new Anchor();
 	
-	public CaseReportViewImpl() {
+	public BusinessReportViewImpl() {
+		title.setText("Business Report");
+		error.setLabel("Error");
 		error.setVisible(false);
 		generate.addClickListener(event -> {
-			Integer caseIdInt = null;
 			try {
-				caseIdInt = Integer.valueOf(caseId.getValue());
-				for(CaseReportGenerateListener listener:listeners) {
-					listener.generateReport(caseIdInt);
+				for(BusinessReportGenerateListener listener:listeners) {
+					listener.generateReport();
 				}
 			} catch(NumberFormatException e) {
 				
 			}
 		});
 		
-		add(caseId, generate, error, downloadlink);
+		add(title, generate, error, downloadlink);
 	}
 
 	@Override
-	public void addCaseReportGenerateListener(CaseReportGenerateListener listener) {
+	public void addBusinessReportGenerateListener(BusinessReportGenerateListener listener) {
 		listeners.add(listener);
 	}
 	
@@ -56,4 +64,5 @@ public class CaseReportViewImpl extends VerticalLayout implements CaseReportView
 		this.error.setVisible(true);
 	}
 
+	
 }
