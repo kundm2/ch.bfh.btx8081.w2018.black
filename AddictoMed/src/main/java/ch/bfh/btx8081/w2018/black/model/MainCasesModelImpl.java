@@ -16,6 +16,7 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 import ch.bfh.btx8081.w2018.black.model.CaseReportModelImpl.CaseReportImpl;
+import ch.bfh.btx8081.w2018.black.model.MainInsuranceModelImpl.InsuranceImpl;
 import ch.bfh.btx8081.w2018.black.model.ifaces.MainCasesModel;
 import ch.bfh.btx8081.w2018.black.model.ifaces.CaseReportModel.CaseReport;
 
@@ -181,35 +182,55 @@ public class MainCasesModelImpl implements MainCasesModel {
 	 * @return
 	 */
 
-//	public CaseReport generateWeeklyReport(LocalDate reportStartDate, LocalDate reportEndDate) {
-//
-//		List<Case> WeeklyReport = new ArrayList<>();
-//
-//		Connection conn = null;
-//		PreparedStatement ps = null;
-//		ResultSet rs = null;
-//		try {
-//			/**
-//			 * To-To: DB-Query for all Cases within Start to End-Date
-//			 * 
-//			 * conn = ds.getConnection();
-//			 * ps = conn.prepareStatement("select * from "case" WHERE start_date >= ? AND end_date =< ? ");
-//			 * ps.setDate(1, reportStartDate);
-//			 * ps.setDate(2, reportEndDate);
-//			 * rs = ps.executeQuery();
-//			 */
-//
-//			/**
-//			if(rs.next()) {
-//				getCaseList(int patientID)
-//				// weeklyReport.setPatientId(rs.getInt("patient_id"));
-//			}
-//
-//
-//		} catch (SQLException e) {
-//			LOGGER.warning("Patient query went wrong...\nError: " + e.getMessage());
-//		}
-//			 */
-//		}
-	
+	public List<Case> getWeeklyReport(LocalDate startDate, LocalDate endDate) {
+		System.out.println("Weekly Report erreicht");
+		List<Case> WeeklyReportCases = new ArrayList<>();
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			conn = dsCases.getConnection();
+			ps = conn.prepareStatement("select * from \"case\" WHERE start_date BETWEEN '?' AND '?'; ");
+			ps.setObject(1, startDate);
+			ps.setObject(2, endDate);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				Date startDate2 = rs.getDate("start_date");
+				Date endDate2 = rs.getDate("end_date");
+				LocalDate localStartDate = null;
+				LocalDate localEndDate = null;
+
+				// myResultSet.getObject( … , LocalDate.class )
+				// https://stackoverflow.com/questions/18614836/using-setdate-in-preparedstatement
+				
+				if(startDate2 != null) {
+					localStartDate = startDate2.toLocalDate();
+				}
+				if(endDate2 != null) {
+					localEndDate = endDate2.toLocalDate();
+				}
+
+				Case Case = new CaseImpl(rs.getInt("case_id"), localStartDate, 
+						localEndDate, rs.getInt("insurance_nr"), rs.getString("place"));
+				WeeklyReportCases.add(Case);
+				System.out.println("Query successful!");
+			}
+		} catch (SQLException e) {
+			LOGGER.warning("CaseList query went wrong...\nError: " + e.getMessage());
+		} finally {
+			try {
+				rs.close();
+			} catch (Exception e) {
+			}
+			try {
+				ps.close();
+			} catch (Exception e) {
+			}
+			try {
+				conn.close();
+			} catch (Exception e) {
+			}
+		}
+		return WeeklyReportCases;
+	}
 }

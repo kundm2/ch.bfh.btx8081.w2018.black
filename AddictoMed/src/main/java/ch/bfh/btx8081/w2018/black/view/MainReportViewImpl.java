@@ -24,12 +24,12 @@ public class MainReportViewImpl extends VerticalLayout {
 
 		layoutDailyReport.add(datePickerDailyReport, btnGenDailyReport);
 		layoutWeeklyReport.add( btnGenWeeklyReport);
-		
+
 		RouterLink caseReport = new RouterLink(null, CaseReport.class);
 		caseReport.add(new Button("Case Report", new Icon(VaadinIcon.CLIPBOARD_TEXT)));
-		
+
 		add(layoutDailyReport, layoutWeeklyReport, caseReport);
-		
+
 		/**
 		 * Changes to (in future newly generated) Weekly-Report Page
 		 * Maybe to-do: remove "WeeklyReport" Route from MainView?
