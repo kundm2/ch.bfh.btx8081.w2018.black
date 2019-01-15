@@ -8,7 +8,6 @@ import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.component.textfield.TextArea;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.server.StreamResource;
 
@@ -16,14 +15,12 @@ import ch.bfh.btx8081.w2018.black.view.ifaces.CaseReportView;
 
 public class CaseReportViewImpl extends VerticalLayout implements CaseReportView {
 	private List<CaseReportGenerateListener> listeners = new ArrayList<>();
-	private TextField caseId = new TextField();
-	private TextField error = new TextField();
+	private TextField caseId = new TextField("Fallnummer");
+	private TextField error = new TextField("Error");
 	private Button generate = new Button("Generieren");
 	private Anchor downloadlink = new Anchor();
 	
 	public CaseReportViewImpl() {
-		caseId.setLabel("Fallnummer");
-		error.setLabel("Error");
 		error.setVisible(false);
 		generate.addClickListener(event -> {
 			Integer caseIdInt = null;
