@@ -29,12 +29,10 @@ public class MainReportViewImpl extends VerticalLayout {
 
 		RouterLink caseReport = new RouterLink(null, CaseReport.class);
 		caseReport.add(new Button("Case Report", new Icon(VaadinIcon.CLIPBOARD_TEXT)));
-<<<<<<< HEAD
 
 		add(layoutDailyReport, layoutWeeklyReport, caseReport);
 
-=======
-		
+
 		RouterLink businessReport = new RouterLink(null, BusinessReport.class);
 		businessReport.add(new Button("Business Report", new Icon(VaadinIcon.CLIPBOARD_TEXT)));
 
@@ -42,8 +40,7 @@ public class MainReportViewImpl extends VerticalLayout {
 		patientReport.add(new Button("Patient Report", new Icon(VaadinIcon.CLIPBOARD_USER)));
 		
 		add(layoutDailyReport, layoutWeeklyReport, patientReport, caseReport, businessReport);
-		
->>>>>>> branch 'master' of https://github.com/kundm2/ch.bfh.btx8081.w2018.black.git
+	
 		/**
 		 * Changes to (in future newly generated) Weekly-Report Page
 		 * Maybe to-do: remove "WeeklyReport" Route from MainView?
