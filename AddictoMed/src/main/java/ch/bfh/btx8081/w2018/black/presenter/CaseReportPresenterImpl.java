@@ -37,7 +37,7 @@ public class CaseReportPresenterImpl implements CaseReportPresenter {
 			pdf.setHeading("Fall Report");
 			pdf.setTimestamp(caseReport.getDateGenerated());
 			pdf.setContent(sb.toString());
-			view.downloadReport(pdf.getDocumet(), "Fallreport.pdf");
+			view.downloadReport(pdf.getDocumet(), "Fallreport-" + caseId + ".pdf");
 			pdf.close();
 		} catch (IOException e) {
 			view.setError("There was an error creating the report: " + e.getMessage());
