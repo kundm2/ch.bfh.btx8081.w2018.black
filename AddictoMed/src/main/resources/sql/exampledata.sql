@@ -3401,7 +3401,7 @@ INSERT INTO diagnosis(
 (99,18,'icd10-code','Beschreibung Diagnose',CURRENT_TIMESTAMP),
 (100,25,'icd10-code','Beschreibung Diagnose',CURRENT_TIMESTAMP),
 (101,44,'icd10-code','Reizdarm-Syndrom',CURRENT_TIMESTAMP),
-(101,44,'icd10-code','Tinitus',CURRENT_TIMESTAMP);
+(102,16,'icd10-code','Tinitus',CURRENT_TIMESTAMP);
 
 INSERT INTO anamnesis(
 	anamnesis_id, case_id, chief_complaint, chief_complaint_start_date, self_anamnesis, family_anamnesis, social_anamnesis, system_anamnesis, foreign_anamnesis, created)
