@@ -13,10 +13,15 @@ import com.vaadin.flow.component.textfield.TextField;
 import ch.bfh.btx8081.w2018.black.model.ifaces.Patient;
 import ch.bfh.btx8081.w2018.black.view.ifaces.MainPatientView;
 
+/**
+ * Shows a Grid with all Patients including search functionality.
+ * @author Samuel Pulfer
+ *
+ */
 public class MainPatientViewImpl extends VerticalLayout implements MainPatientView {
 
 	/**
-	 * 
+	 * Generated serialVersionUID
 	 */
 	private static final long serialVersionUID = -2065962399488350077L;
 	private List<MainPatientViewListener> mainPatientViewListeners = new ArrayList<>();
@@ -42,9 +47,15 @@ public class MainPatientViewImpl extends VerticalLayout implements MainPatientVi
 		//btn_add.getElement().getStyle().set("margin-left", "auto");
 		footer.setWidth("100%");
 		footer.add(btn_add);
-		grid.addColumn(Patient::getPatientID).setHeader("Patient ID");
-		grid.addColumn(Patient::getName).setHeader("Name");
-		grid.addColumn(Patient::getDateOfBirth).setHeader("Geburtsdatum");
+		grid.addColumn(Patient::getPatientID)
+		.setComparator((patient1, patient2) -> Integer.valueOf(patient1.getPatientID()).compareTo(patient2.getPatientID()))
+		.setHeader("Patient ID");
+		grid.addColumn(Patient::getName)
+		.setComparator((patient1, patient2) -> patient1.getName().compareTo(patient2.getName()))
+		.setHeader("Name");
+		grid.addColumn(Patient::getDateOfBirth)
+		.setComparator((patient1, patient2) -> patient1.getDateOfBirth().compareTo(patient2.getDateOfBirth()))
+		.setHeader("Geburtsdatum");
 		grid.addSelectionListener(event -> {
 			Optional<Patient> patient = event.getFirstSelectedItem();
 			if(patient.isPresent()) {

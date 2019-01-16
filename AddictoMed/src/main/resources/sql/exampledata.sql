@@ -5,11 +5,11 @@ SET datestyle = "ISO, MDY";
 INSERT INTO employee (employee_id, birthdate, first_name, last_name, department, job_title, address, zip_code, nickname, password)
 	VALUES
 	(1,'1/1/1970','Admin','User','ICT','Developer','Höheweg 80','2501','admin',MD5('admin')),
-	(2,'2/2/1970','Samuel','User','Medical','Doctor','Höheweg 80','2501','Sämi',MD5('admin')),
-	(3,'3/3/1970','Armon','User','Medical','Doctor','Höheweg 80','2501','Parmon',MD5('admin')),
-	(4,'4/4/1970','Michael','User','Medical','Doctor','Höheweg 80','2501','Miki',MD5('admin')),
-	(5,'5/5/1970','Roger','User','Medical','Doctor','Höheweg 80','2501','Tschöslä',MD5('admin')),
-	(6,'6/6/1970','Moritz','User','Medical','Doctor','Höheweg 80','2501','Mötzi',MD5('admin'));
+	(2,'2/2/1970','Samuel','Pulfer','Medical','Doctor','Höheweg 80','2501','Sämi',MD5('admin')),
+	(3,'3/3/1970','Armon','Dressler','Medical','Doctor','Höheweg 80','2501','Parmon',MD5('admin')),
+	(4,'4/4/1970','Michael','Däppen','Medical','Doctor','Höheweg 80','2501','Miki',MD5('admin')),
+	(5,'5/5/1970','Roger','Tschanz','Medical','Doctor','Höheweg 80','2501','Tschöslä',MD5('admin')),
+	(6,'6/6/1970','Moritz','Kündig','Medical','Doctor','Höheweg 80','2501','Mötzi',MD5('admin'));
 	
 -- Insurance
 INSERT INTO insurance (insurance_id, name, address, created) 
@@ -3169,7 +3169,7 @@ VALUES
 (21,	3,	6,	'20/09/2010	11:10:00',	'20/09/2010	18:14:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
 (22,	5,	53,	'04/03/2014	12:20:00',	'04/03/2014	19:23:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
 (23,	3,	77,	'30/01/2002	10:24:00',	'30/01/2002	17:27:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
-(24,	5,	44,	'10/08/2002	10:58:00',	'10/08/2002	18:02:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
+(24,	5,	44,	'10/08/2002	10:58:00',	'10/08/2002	18:02:00',	'Gastroskopie',	CURRENT_TIMESTAMP),
 (25,	5,	2,	'24/05/2001	15:52:00',	'24/05/2001	22:56:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
 (26,	3,	73,	'18/09/2011	12:26:00',	'18/09/2011	19:30:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
 (27,	3,	87,	'09/07/2014	12:39:00',	'09/07/2014	19:42:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
@@ -3204,10 +3204,10 @@ VALUES
 (56,	6,	5,	'24/11/2014	10:08:00',	'24/11/2014	17:12:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
 (57,	5,	38,	'21/07/2001	10:01:00',	'21/07/2001	17:04:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
 (58,	3,	87,	'06/09/2005	16:41:00',	'06/09/2005	23:45:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
-(59,	2,	102,	'07/11/2008	08:49:00',	'07/11/2008	15:53:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
+(59,	2,	102,	'07/11/2008	08:49:00',	'07/11/2008	15:53:00',	'Grosses Blutbild',	CURRENT_TIMESTAMP),
 (60,	4,	91,	'11/12/2014	14:54:00',	'11/12/2014	21:57:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
 (61,	3,	91,	'30/06/2011	08:24:00',	'30/06/2011	15:28:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
-(62,	5,	110,	'13/01/2009	12:15:00',	'13/01/2009	19:19:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
+(62,	5,	110,	'13/01/2009	12:15:00',	'13/01/2009	19:19:00',	'Sprechstunde',	CURRENT_TIMESTAMP),
 (63,	5,	24,	'30/05/2003	13:46:00',	'30/05/2003	20:50:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
 (64,	6,	68,	'03/11/2000	08:46:00',	'03/11/2000	15:50:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
 (65,	5,	98,	'01/11/2001	08:17:00',	'01/11/2001	15:20:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
@@ -3219,7 +3219,7 @@ VALUES
 (71,	3,	29,	'02/08/2009	09:23:00',	'02/08/2009	16:26:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
 (72,	5,	78,	'17/01/2014	09:46:00',	'17/01/2014	16:49:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
 (73,	4,	40,	'11/11/2003	09:48:00',	'11/11/2003	16:52:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
-(74,	3,	110,	'22/03/2014	13:57:00',	'22/03/2014	21:01:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
+(74,	3,	110,	'22/03/2014	13:57:00',	'22/03/2014	21:01:00',	'Gastroskopie',	CURRENT_TIMESTAMP),
 (75,	3,	90,	'12/10/1996	17:08:00',	'12/10/1996	00:12:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
 (76,	5,	6,	'24/07/2012	11:23:00',	'24/07/2012	18:27:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
 (77,	4,	80,	'22/11/2013	13:00:00',	'22/11/2013	20:04:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
@@ -3237,7 +3237,7 @@ VALUES
 (89,	4,	96,	'04/01/2013	08:50:00',	'04/01/2013	15:53:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
 (90,	3,	36,	'06/05/2014	09:22:00',	'06/05/2014	16:25:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
 (91,	6,	103,	'01/09/2005	13:51:00',	'01/09/2005	20:55:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
-(92,	6,	44,	'08/07/2009	16:54:00',	'08/07/2009	23:58:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
+(92,	6,	44,	'08/07/2009	16:54:00',	'08/07/2009	23:58:00',	'Allergietest',	CURRENT_TIMESTAMP),
 (93,	4,	42,	'11/01/2003	14:52:00',	'11/01/2003	21:56:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
 (94,	5,	66,	'23/11/2007	13:54:00',	'23/11/2007	20:58:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
 (95,	5,	76,	'25/06/2006	10:09:00',	'25/06/2006	17:13:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
@@ -3249,12 +3249,12 @@ VALUES
 (101,	2,	70,	'19/01/2002	09:51:00',	'19/01/2002	16:54:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
 (102,	6,	48,	'06/04/2006	07:50:00',	'06/04/2006	14:54:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
 (103,	4,	60,	'05/01/1998	07:35:00',	'05/01/1998	14:39:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
-(104,	3,	44,	'20/07/1997	10:01:00',	'20/07/1997	17:05:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
+(104,	3,	44,	'20/07/1997	10:01:00',	'20/07/1997	17:05:00',	'Koloskopie',	CURRENT_TIMESTAMP),
 (105,	5,	109,	'14/02/2014	14:34:00',	'14/02/2014	21:37:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
 (106,	2,	40,	'30/03/1997	12:38:00',	'30/03/1997	19:42:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
 (107,	2,	56,	'23/09/2014	12:53:00',	'23/09/2014	19:56:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
 (108,	2,	57,	'21/12/2013	14:24:00',	'21/12/2013	21:28:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
-(109,	2,	102,	'12/03/1997	17:00:00',	'12/03/1997	00:04:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
+(109,	2,	102,	'12/03/1997	17:00:00',	'12/03/1997	00:04:00',	'Sprechstunde',	CURRENT_TIMESTAMP),
 (110,	5,	61,	'03/04/2008	09:21:00',	'03/04/2008	16:24:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
 (111,	6,	19,	'29/05/2014	13:54:00',	'29/05/2014	20:57:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
 (112,	3,	105,	'17/04/2002	12:50:00',	'17/04/2002	19:53:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
@@ -3276,7 +3276,7 @@ VALUES
 (128,	4,	24,	'04/10/2004	12:35:00',	'04/10/2004	19:39:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
 (129,	4,	77,	'21/08/2000	11:17:00',	'21/08/2000	18:20:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
 (130,	6,	70,	'10/07/2014	08:50:00',	'10/07/2014	15:54:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
-(131,	4,	16,	'30/03/2012	08:35:00',	'30/03/2012	15:38:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
+(131,	4,	16,	'30/03/2012	08:35:00',	'30/03/2012	15:38:00',	'Audiogramm',	CURRENT_TIMESTAMP),
 (132,	2,	27,	'20/03/2012	16:16:00',	'20/03/2012	23:20:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
 (133,	5,	7,	'12/06/2009	14:45:00',	'12/06/2009	21:48:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
 (134,	5,	38,	'10/05/1999	11:33:00',	'10/05/1999	18:37:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
@@ -3287,14 +3287,14 @@ VALUES
 (139,	5,	24,	'05/06/2004	09:02:00',	'05/06/2004	16:06:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
 (140,	4,	49,	'24/12/2006	15:56:00',	'24/12/2006	22:59:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
 (141,	4,	22,	'22/08/1997	14:46:00',	'22/08/1997	21:49:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
-(142,	5,	44,	'21/03/2012	14:13:00',	'21/03/2012	21:16:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
+(142,	5,	44,	'21/03/2012	14:13:00',	'21/03/2012	21:16:00',	'Koloskopie',	CURRENT_TIMESTAMP),
 (143,	2,	88,	'04/11/1996	11:39:00',	'04/11/1996	18:42:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
 (144,	6,	107,	'05/06/2002	11:22:00',	'05/06/2002	18:25:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
 (145,	3,	82,	'06/08/2002	12:48:00',	'06/08/2002	19:52:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
 (146,	4,	74,	'31/12/2010	09:44:00',	'31/12/2010	16:48:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
 (147,	6,	9,	'07/12/1997	11:59:00',	'07/12/1997	19:03:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
 (148,	5,	67,	'29/03/1996	17:00:00',	'29/03/1996	00:03:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
-(149,	3,	102,	'05/03/2002	10:11:00',	'05/03/2002	17:14:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP),
+(149,	3,	102,	'05/03/2002	10:11:00',	'05/03/2002	17:14:00',	'EKG',	CURRENT_TIMESTAMP),
 (150, 	6,	67,	'08/05/2014	12:45:00',	'08/05/2014	19:48:00',	'Beschreibung Appointment asdf',	CURRENT_TIMESTAMP);
 
 INSERT INTO diagnosis(
@@ -3338,7 +3338,7 @@ INSERT INTO diagnosis(
 (36,6,'icd10-code','Beschreibung Diagnose',CURRENT_TIMESTAMP),
 (37,23,'icd10-code','Beschreibung Diagnose',CURRENT_TIMESTAMP),
 (38,45,'icd10-code','Beschreibung Diagnose',CURRENT_TIMESTAMP),
-(39,102,'icd10-code','Beschreibung Diagnose',CURRENT_TIMESTAMP),
+(39,102,'icd10-code','Herz-Angst-Neurose',CURRENT_TIMESTAMP),
 (40,27,'icd10-code','Beschreibung Diagnose',CURRENT_TIMESTAMP),
 (41,63,'icd10-code','Beschreibung Diagnose',CURRENT_TIMESTAMP),
 (42,73,'icd10-code','Beschreibung Diagnose',CURRENT_TIMESTAMP),
@@ -3365,7 +3365,7 @@ INSERT INTO diagnosis(
 (63,9,'icd10-code','Beschreibung Diagnose',CURRENT_TIMESTAMP),
 (64,11,'icd10-code','Beschreibung Diagnose',CURRENT_TIMESTAMP),
 (65,49,'icd10-code','Beschreibung Diagnose',CURRENT_TIMESTAMP),
-(66,110,'icd10-code','Beschreibung Diagnose',CURRENT_TIMESTAMP),
+(66,110,'icd10-code','Anorexie',CURRENT_TIMESTAMP),
 (67,50,'icd10-code','Beschreibung Diagnose',CURRENT_TIMESTAMP),
 (68,29,'icd10-code','Beschreibung Diagnose',CURRENT_TIMESTAMP),
 (69,26,'icd10-code','Beschreibung Diagnose',CURRENT_TIMESTAMP),
@@ -3399,7 +3399,9 @@ INSERT INTO diagnosis(
 (97,13,'icd10-code','Beschreibung Diagnose',CURRENT_TIMESTAMP),
 (98,4,'icd10-code','Beschreibung Diagnose',CURRENT_TIMESTAMP),
 (99,18,'icd10-code','Beschreibung Diagnose',CURRENT_TIMESTAMP),
-(100,25,'icd10-code','Beschreibung Diagnose',CURRENT_TIMESTAMP);
+(100,25,'icd10-code','Beschreibung Diagnose',CURRENT_TIMESTAMP),
+(101,44,'icd10-code','Reizdarm-Syndrom',CURRENT_TIMESTAMP),
+(101,44,'icd10-code','Tinitus',CURRENT_TIMESTAMP);
 
 INSERT INTO anamnesis(
 	anamnesis_id, case_id, chief_complaint, chief_complaint_start_date, self_anamnesis, family_anamnesis, social_anamnesis, system_anamnesis, foreign_anamnesis, created)
@@ -3414,7 +3416,7 @@ VALUES
 (8,100,'Description Chief Complaint','06/11/2008','Description Self Anamnesis','Description Family Anamnesis','Description Social Anamnesis','Description System Anamnesis','Description Foreign Anamnesis',CURRENT_TIMESTAMP),
 (9,54,'Description Chief Complaint','05/09/2014','Description Self Anamnesis','Description Family Anamnesis','Description Social Anamnesis','Description System Anamnesis','Description Foreign Anamnesis',CURRENT_TIMESTAMP),
 (10,30,'Description Chief Complaint','28/12/2014','Description Self Anamnesis','Description Family Anamnesis','Description Social Anamnesis','Description System Anamnesis','Description Foreign Anamnesis',CURRENT_TIMESTAMP),
-(11,102,'Description Chief Complaint','27/03/2012','Description Self Anamnesis','Description Family Anamnesis','Description Social Anamnesis','Description System Anamnesis','Description Foreign Anamnesis',CURRENT_TIMESTAMP),
+(11,102,'Herzrasen','27/03/2012','Tägliche Panikattaken','Psychische Störungen aus Seiter der Mutter bekannt.','Job im mittleren Management einer Bank','Keine Besonderheiten','Macht einen gestressten Eindruck auf ihren Freund.',CURRENT_TIMESTAMP),
 (12,10,'Description Chief Complaint','03/07/2012','Description Self Anamnesis','Description Family Anamnesis','Description Social Anamnesis','Description System Anamnesis','Description Foreign Anamnesis',CURRENT_TIMESTAMP),
 (13,52,'Description Chief Complaint','10/10/2012','Description Self Anamnesis','Description Family Anamnesis','Description Social Anamnesis','Description System Anamnesis','Description Foreign Anamnesis',CURRENT_TIMESTAMP),
 (14,27,'Description Chief Complaint','09/07/2011','Description Self Anamnesis','Description Family Anamnesis','Description Social Anamnesis','Description System Anamnesis','Description Foreign Anamnesis',CURRENT_TIMESTAMP),
@@ -3451,7 +3453,7 @@ VALUES
 (45,42,'Description Chief Complaint','03/05/2012','Description Self Anamnesis','Description Family Anamnesis','Description Social Anamnesis','Description System Anamnesis','Description Foreign Anamnesis',CURRENT_TIMESTAMP),
 (46,79,'Description Chief Complaint','23/12/2006','Description Self Anamnesis','Description Family Anamnesis','Description Social Anamnesis','Description System Anamnesis','Description Foreign Anamnesis',CURRENT_TIMESTAMP),
 (47,101,'Description Chief Complaint','18/10/2010','Description Self Anamnesis','Description Family Anamnesis','Description Social Anamnesis','Description System Anamnesis','Description Foreign Anamnesis',CURRENT_TIMESTAMP),
-(48,44,'Description Chief Complaint','20/08/2009','Description Self Anamnesis','Description Family Anamnesis','Description Social Anamnesis','Description System Anamnesis','Description Foreign Anamnesis',CURRENT_TIMESTAMP),
+(48,44,'Unkontrollierter Stuhlgang','20/08/2009','Schafft es nachts nicht rechtzeitig aufs WC','Keine Besonderheiten','Keine Besonderheiten','Keine Besonderheiten','Freund meldet, dass sie oft Schweissgebadet aufwacht.',CURRENT_TIMESTAMP),
 (49,56,'Description Chief Complaint','28/09/2007','Description Self Anamnesis','Description Family Anamnesis','Description Social Anamnesis','Description System Anamnesis','Description Foreign Anamnesis',CURRENT_TIMESTAMP),
 (50,36,'Description Chief Complaint','15/09/2014','Description Self Anamnesis','Description Family Anamnesis','Description Social Anamnesis','Description System Anamnesis','Description Foreign Anamnesis',CURRENT_TIMESTAMP),
 (51,59,'Description Chief Complaint','20/10/2009','Description Self Anamnesis','Description Family Anamnesis','Description Social Anamnesis','Description System Anamnesis','Description Foreign Anamnesis',CURRENT_TIMESTAMP),
@@ -3494,7 +3496,7 @@ VALUES
 (88,83,'Description Chief Complaint','21/01/2010','Description Self Anamnesis','Description Family Anamnesis','Description Social Anamnesis','Description System Anamnesis','Description Foreign Anamnesis',CURRENT_TIMESTAMP),
 (89,48,'Description Chief Complaint','18/04/2014','Description Self Anamnesis','Description Family Anamnesis','Description Social Anamnesis','Description System Anamnesis','Description Foreign Anamnesis',CURRENT_TIMESTAMP),
 (90,9,'Description Chief Complaint','08/03/2010','Description Self Anamnesis','Description Family Anamnesis','Description Social Anamnesis','Description System Anamnesis','Description Foreign Anamnesis',CURRENT_TIMESTAMP),
-(91,110,'Description Chief Complaint','07/08/2007','Description Self Anamnesis','Description Family Anamnesis','Description Social Anamnesis','Description System Anamnesis','Description Foreign Anamnesis',CURRENT_TIMESTAMP),
+(91,110,'Starkes Untergewicht','07/08/2007','Appetitlosigkeit','Keine Besonderheiten','Keine Besonderheiten','Keine Besonderheiten','Freund findet sie zu dick.',CURRENT_TIMESTAMP),
 (92,88,'Description Chief Complaint','24/01/2010','Description Self Anamnesis','Description Family Anamnesis','Description Social Anamnesis','Description System Anamnesis','Description Foreign Anamnesis',CURRENT_TIMESTAMP),
 (93,8,'Description Chief Complaint','29/12/2015','Description Self Anamnesis','Description Family Anamnesis','Description Social Anamnesis','Description System Anamnesis','Description Foreign Anamnesis',CURRENT_TIMESTAMP),
 (94,94,'Description Chief Complaint','17/05/2013','Description Self Anamnesis','Description Family Anamnesis','Description Social Anamnesis','Description System Anamnesis','Description Foreign Anamnesis',CURRENT_TIMESTAMP),
@@ -3513,7 +3515,7 @@ VALUES
 (107,84,'Description Chief Complaint','17/02/2007','Description Self Anamnesis','Description Family Anamnesis','Description Social Anamnesis','Description System Anamnesis','Description Foreign Anamnesis',CURRENT_TIMESTAMP),
 (108,40,'Description Chief Complaint','30/05/2010','Description Self Anamnesis','Description Family Anamnesis','Description Social Anamnesis','Description System Anamnesis','Description Foreign Anamnesis',CURRENT_TIMESTAMP),
 (109,65,'Description Chief Complaint','27/08/2007','Description Self Anamnesis','Description Family Anamnesis','Description Social Anamnesis','Description System Anamnesis','Description Foreign Anamnesis',CURRENT_TIMESTAMP),
-(110,16,'Description Chief Complaint','20/08/2015','Description Self Anamnesis','Description Family Anamnesis','Description Social Anamnesis','Description System Anamnesis','Description Foreign Anamnesis',CURRENT_TIMESTAMP);
+(110,16,'Pfeiffen im Ohr','20/08/2015','Geht oft in die Disco','Mutter Taub','Keine Besonderheiten','Keine Besonderheiten','Keine Besonderheiten',CURRENT_TIMESTAMP);
 
 --drugs
 insert into drug (drug_id, manufacturer, active_agent, price, dosis, "type", warnings) VALUES
