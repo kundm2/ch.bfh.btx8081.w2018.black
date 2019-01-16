@@ -51,7 +51,7 @@ public class MainAnamnesisModelImpl implements MainAnamnesisModel {
 		Anamnesis anamnesis = null;
 		try {
 			conn = ds.getConnection();
-			ps = conn.prepareStatement("SELECT * FROM anamnesis WHERE anamnesis_id = ?");
+			ps = conn.prepareStatement("SELECT * FROM anamnesis WHERE case_id = ?");
 			ps.setInt(1, caseID);
 			rs = ps.executeQuery();
 			if (rs.next()) {
