@@ -15,10 +15,8 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import ch.bfh.btx8081.w2018.black.model.CaseReportModelImpl.CaseReportImpl;
-import ch.bfh.btx8081.w2018.black.model.MainInsuranceModelImpl.InsuranceImpl;
+import ch.bfh.btx8081.w2018.black.model.BusinessReportModelImpl.BusinessReportImpl;
 import ch.bfh.btx8081.w2018.black.model.ifaces.MainCasesModel;
-import ch.bfh.btx8081.w2018.black.model.ifaces.CaseReportModel.CaseReport;
 
 /**
  * @author Roger Tschanz
@@ -64,7 +62,11 @@ public class MainCasesModelImpl implements MainCasesModel {
 		@Override
 		public String getPlace() {
 			return place;
-		}	
+		}
+
+		public void setCaseID(int caseID) {
+			this.caseID = caseID;
+		}
 	}
 
 	private DataSource dsCases;
@@ -182,15 +184,18 @@ public class MainCasesModelImpl implements MainCasesModel {
 	 * @return
 	 */
 
-	public List<Case> getWeeklyReport(LocalDate startDate, LocalDate endDate) {
-		System.out.println("Weekly Report erreicht");
+	// public WeeklyReport generateWeeklyReport(LocalDate startDate, LocalDate endDate) {
+	public List<Case> generateWeeklyReport(LocalDate startDate, LocalDate endDate) {
+
+		LOGGER.info("Arrived at WeeklyReport!");
 		List<Case> WeeklyReportCases = new ArrayList<>();
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		try {
 			conn = dsCases.getConnection();
-			ps = conn.prepareStatement("select * from \"case\" WHERE start_date BETWEEN '?' AND '?'; ");
+			ps = conn.prepareStatement("select * from \"case\" WHERE start_date BETWEEN ? AND ?; ");
+			// ps = conn.prepareStatement("select count (case_id) from \"case\" WHERE start_date BETWEEN ? AND ?; ");
 			ps.setObject(1, startDate);
 			ps.setObject(2, endDate);
 			rs = ps.executeQuery();
@@ -199,10 +204,8 @@ public class MainCasesModelImpl implements MainCasesModel {
 				Date endDate2 = rs.getDate("end_date");
 				LocalDate localStartDate = null;
 				LocalDate localEndDate = null;
-
 				// myResultSet.getObject( … , LocalDate.class )
 				// https://stackoverflow.com/questions/18614836/using-setdate-in-preparedstatement
-				
 				if(startDate2 != null) {
 					localStartDate = startDate2.toLocalDate();
 				}
@@ -213,8 +216,8 @@ public class MainCasesModelImpl implements MainCasesModel {
 				Case Case = new CaseImpl(rs.getInt("case_id"), localStartDate, 
 						localEndDate, rs.getInt("insurance_nr"), rs.getString("place"));
 				WeeklyReportCases.add(Case);
-				System.out.println("Query successful!");
-			}
+				LOGGER.info("Query successful!");
+			}			
 		} catch (SQLException e) {
 			LOGGER.warning("CaseList query went wrong...\nError: " + e.getMessage());
 		} finally {

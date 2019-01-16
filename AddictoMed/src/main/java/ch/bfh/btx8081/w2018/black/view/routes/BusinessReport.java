@@ -8,7 +8,7 @@ import ch.bfh.btx8081.w2018.black.model.ifaces.BusinessReportModel;
 import ch.bfh.btx8081.w2018.black.presenter.BusinessReportPresenterImpl;
 import ch.bfh.btx8081.w2018.black.presenter.ifaces.BusinessReportPresenter;
 import ch.bfh.btx8081.w2018.black.view.BusinessReportViewImpl;
-import ch.bfh.btx8081.w2018.black.view.MainWeeklyReportViewImpl;
+import ch.bfh.btx8081.w2018.black.view.WeeklyReportViewImpl;
 import ch.bfh.btx8081.w2018.black.view.routes.applayout.ApplicationLayout;
 
 /**

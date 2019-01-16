@@ -10,28 +10,25 @@ import com.vaadin.flow.router.RouterLink;
 
 import ch.bfh.btx8081.w2018.black.view.routes.BusinessReport;
 import ch.bfh.btx8081.w2018.black.view.routes.CaseReport;
+import ch.bfh.btx8081.w2018.black.view.routes.MainViewWeeklyReport;
 import ch.bfh.btx8081.w2018.black.view.routes.PatientReport;
 
 public class MainReportViewImpl extends VerticalLayout {
 
 	Button btnGenDailyReport = new Button("Generate Daily Report");
-	Button btnGenWeeklyReport = new Button("Generate Weekly Report");
 
 	DatePicker datePickerDailyReport = new DatePicker();
 
 	HorizontalLayout layoutDailyReport = new HorizontalLayout();
-	HorizontalLayout layoutWeeklyReport = new HorizontalLayout();
 
 	public MainReportViewImpl() {
 
 		layoutDailyReport.add(datePickerDailyReport, btnGenDailyReport);
-		layoutWeeklyReport.add( btnGenWeeklyReport);
 
 		RouterLink caseReport = new RouterLink(null, CaseReport.class);
 		caseReport.add(new Button("Case Report", new Icon(VaadinIcon.CLIPBOARD_TEXT)));
 
-		add(layoutDailyReport, layoutWeeklyReport, caseReport);
-
+		add(layoutDailyReport, caseReport);
 
 		RouterLink businessReport = new RouterLink(null, BusinessReport.class);
 		businessReport.add(new Button("Business Report", new Icon(VaadinIcon.CLIPBOARD_TEXT)));
@@ -39,13 +36,11 @@ public class MainReportViewImpl extends VerticalLayout {
 		RouterLink patientReport = new RouterLink(null, PatientReport.class);
 		patientReport.add(new Button("Patient Report", new Icon(VaadinIcon.CLIPBOARD_USER)));
 		
-		add(layoutDailyReport, layoutWeeklyReport, patientReport, caseReport, businessReport);
-	
-		/**
-		 * Changes to (in future newly generated) Weekly-Report Page
-		 * Maybe to-do: remove "WeeklyReport" Route from MainView?
-		 * Maybe to-do: Open Weekly-Report in new Tab (or window)
-		 */
-		btnGenWeeklyReport.addClickListener(e-> {btnGenWeeklyReport.getUI().ifPresent(ui -> ui.navigate("WeeklyReport"));});
+		RouterLink weeklyReport = new RouterLink(null, MainViewWeeklyReport.class);
+		weeklyReport.add(new Button("Weekly Report"));
+		
+		add(layoutDailyReport, weeklyReport, patientReport, caseReport, businessReport);
+
+		// btnGenWeeklyReport.addClickListener(e-> {btnGenWeeklyReport.getUI().ifPresent(ui -> ui.navigate("WeeklyReport"));});
 	}
 }
