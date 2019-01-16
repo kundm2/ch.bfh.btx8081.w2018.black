@@ -3,7 +3,13 @@
  */
 package ch.bfh.btx8081.w2018.black.presenter;
 
-import ch.bfh.btx8081.w2018.black.model.ifaces.CaseReportModel;
+import java.io.IOException;
+import java.util.List;
+
+import ch.bfh.btx8081.w2018.black.model.PDFCreatorImpl;
+import ch.bfh.btx8081.w2018.black.model.PatientImpl;
+import ch.bfh.btx8081.w2018.black.model.ifaces.MainCasesModel;
+import ch.bfh.btx8081.w2018.black.model.ifaces.MainCasesModel.Case;
 import ch.bfh.btx8081.w2018.black.model.ifaces.MainPatientModel;
 import ch.bfh.btx8081.w2018.black.presenter.ifaces.PatientReportPresenter;
 import ch.bfh.btx8081.w2018.black.view.ifaces.PatientReportView;
@@ -15,33 +21,61 @@ import ch.bfh.btx8081.w2018.black.view.ifaces.PatientReportView;
 public class PatientReportPresenterImpl implements PatientReportPresenter {
 	PatientReportView view = null;
 	MainPatientModel pModel = null;
-	CaseReportModel cModel = null;
+	MainCasesModel cModel = null;
 
-	public PatientReportPresenterImpl(PatientReportView view, MainPatientModel pModel, CaseReportModel cModel) {
+	public PatientReportPresenterImpl(PatientReportView view, MainPatientModel pModel, MainCasesModel cModel) {
 		this.view = view;
 		this.pModel = pModel;
+		this.cModel = cModel;
 
 		view.addPatientReportGenerateListener(this);
 	}
 
 	@Override
 	public void generateReport(int patId) {
-		String retVal = "";
-		retVal += getPatientData(patId);
-		retVal += "/n";
-		retVal += getCasesData(patId);
-		System.out.println(patId);
+		String content = "";
+		content += getPatientData(patId);
+		content += "\n";
+		content += getCasesData(patId);
+
+		try {
+			PDFCreatorImpl pdf = new PDFCreatorImpl();
+			pdf.setHeading("Patienten Report");
+			pdf.setContent(content);
+			view.downloadReport(pdf.getDocumet(), "Patientenreport-" + patId + ".pdf");
+			pdf.close();
+		} catch (IOException e) {
+			view.setError("There was an error creating the report: " + e.getMessage());
+		}
 
 	}
 
 	private String getPatientData(int patId) {
 		StringBuilder sb = new StringBuilder();
-
-		return null;
+		PatientImpl p = (PatientImpl) pModel.getPatientById(patId);
+		sb.append("INFOS ZUM PATIENTEN\n");
+		sb.append("PatientenId: " + p.getPatientID() + "\n");
+		sb.append("Name: " + p.getName() + "\n");
+		sb.append("Geburtstag: " + p.getDateOfBirth().toString() + "\n");
+		sb.append("Adresse: " + p.getAddress() + "\n");
+		sb.append("Postleitzahl: " + p.getZipCode() + "\n");
+		sb.append("\n");
+		return sb.toString();
 	}
 
 	private String getCasesData(int patId) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Case> cases = cModel.getCaseList(patId);
+		if (cases == null || cases.isEmpty())
+			return " ";
+		StringBuilder sb = new StringBuilder();
+		sb.append("INFOS ZU DEN FÄLLEN\n");
+		for (Case c : cases) {
+			sb.append("Fallnummer: " + c.getCaseID() + "\n");
+			sb.append("Falldauer: " + c.getStartDate() + " " + c.getEndDate() + "\n");
+			sb.append("Versicherungsnummer zum Fall: " + c.getInsuranceNumber() + "\n");
+			sb.append("\n");
+		}
+		return sb.toString();
 	}
+
 }

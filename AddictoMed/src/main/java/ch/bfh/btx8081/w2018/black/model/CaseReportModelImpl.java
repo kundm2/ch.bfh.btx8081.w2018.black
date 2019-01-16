@@ -196,13 +196,6 @@ public class CaseReportModelImpl implements CaseReportModel {
 			} catch (Exception e) {
 			}
 		}
-
-		
-		
-		
-		
-		
-		
 		
 		
 		return caseReport;
