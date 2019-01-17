@@ -27,12 +27,11 @@ import ch.bfh.btx8081.w2018.black.view.ifaces.MainWeeklyReportView;
 public class WeeklyReportViewImpl extends VerticalLayout implements MainWeeklyReportView {
 
 	private List<WeeklyReportGenerateListener> weeklyReportListeners = new ArrayList<>();
-	private Button btnWeeklyReport = new Button("Generate");
-	private Label startDateLabel = new Label("Start Date...");
-	private Label endDateLabel = new Label("End Date...");
+	private Button btnWeeklyReport = new Button("Generieren");
+	private Label startDateLabel = new Label("");
+	private Label endDateLabel = new Label("");
 	private DatePicker startDatePickerWeeklyReport = new DatePicker();
 	private DatePicker endDatePickerWeeklyReport = new DatePicker();
-	private Label weeklyReport = new Label("Weekly Report Case-IDs");
 	private Anchor downloadlink = new Anchor();
 
 	private LocalDate startDate;
@@ -40,8 +39,8 @@ public class WeeklyReportViewImpl extends VerticalLayout implements MainWeeklyRe
 
 	public WeeklyReportViewImpl() {
 
-		startDatePickerWeeklyReport.setLabel("StartDate");
-		endDatePickerWeeklyReport.setLabel("EndDate");
+		startDatePickerWeeklyReport.setLabel("Startdatum");
+		endDatePickerWeeklyReport.setLabel("Enddatum");
 
 		btnWeeklyReport.addClickListener(event -> {
 			try {
@@ -66,7 +65,7 @@ public class WeeklyReportViewImpl extends VerticalLayout implements MainWeeklyRe
 		});
 
 		add(startDatePickerWeeklyReport, endDatePickerWeeklyReport, startDateLabel, 
-				endDateLabel, btnWeeklyReport, downloadlink, weeklyReport);
+				endDateLabel, btnWeeklyReport, downloadlink);
 
 	}
 

@@ -12,9 +12,9 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 
-import ch.bfh.btx8081.w2018.black.view.ifaces.MainPatientInformationView;
 import ch.bfh.btx8081.w2018.black.model.ifaces.Patient;
 import ch.bfh.btx8081.w2018.black.model.ifaces.Patient.Gender;
+import ch.bfh.btx8081.w2018.black.view.ifaces.MainPatientInformationView;
 
 public class MainPatientInformationViewImpl extends VerticalLayout implements MainPatientInformationView {
 	/**
@@ -31,8 +31,8 @@ public class MainPatientInformationViewImpl extends VerticalLayout implements Ma
 	DatePicker birthdate = new DatePicker();
 	TextField address = new TextField();
 	TextField zipCode = new TextField();
-	Button edit = new Button("Edit");
-	Button delete = new Button("Delete");
+	Button edit = new Button("Bearbeiten");
+	Button delete = new Button("Löschen");
 	
 	
 	public MainPatientInformationViewImpl() {
@@ -53,12 +53,12 @@ public class MainPatientInformationViewImpl extends VerticalLayout implements Ma
 		birthdate.setLocale(Locale.GERMANY);
 		
 		column1.add(new HorizontalLayout(new H4("Patient ID"), patID));
-		column1.add(new HorizontalLayout(new H4("Firstname"), firstname));
-		column1.add(new HorizontalLayout(new H4("Lastname"), lastname));
-		column1.add(new HorizontalLayout(new H4("Birthdate"), birthdate));
-		column1.add(new HorizontalLayout(new H4("Address"), address));
-		column1.add(new HorizontalLayout(new H4("Gender"), gender));
-		column1.add(new HorizontalLayout(new H4("Zip Code"), zipCode));
+		column1.add(new HorizontalLayout(new H4("Vorname"), firstname));
+		column1.add(new HorizontalLayout(new H4("Nachname"), lastname));
+		column1.add(new HorizontalLayout(new H4("Geburtstag"), birthdate));
+		column1.add(new HorizontalLayout(new H4("Adresse"), address));
+		column1.add(new HorizontalLayout(new H4("Geschlecht"), gender));
+		column1.add(new HorizontalLayout(new H4("Postleitzahl"), zipCode));
 		column1.setDefaultHorizontalComponentAlignment(Alignment.STRETCH);
 		add(columns, footer);
 		

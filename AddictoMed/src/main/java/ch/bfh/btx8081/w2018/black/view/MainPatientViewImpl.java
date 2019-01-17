@@ -27,12 +27,12 @@ public class MainPatientViewImpl extends VerticalLayout implements MainPatientVi
 	
 	Grid<Patient> grid = new Grid<>();
 	TextField search = new TextField();
-	Button btn_add = new Button("Add");
+	Button btn_add = new Button("Hinzufügen");
 	HorizontalLayout footer = new HorizontalLayout();
 	
 	public MainPatientViewImpl() {
 		super.setHeight("100%");
-		search.setLabel("Search");
+		search.setLabel("Suchen");
 		search.addValueChangeListener(event -> {
 			for(MainPatientViewListener listener: mainPatientViewListeners) {
 				listener.searchPatient(search.getValue());

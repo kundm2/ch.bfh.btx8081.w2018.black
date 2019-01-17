@@ -15,7 +15,7 @@ import ch.bfh.btx8081.w2018.black.view.routes.PatientReport;
 
 public class MainReportViewImpl extends VerticalLayout {
 
-	Button btnGenDailyReport = new Button("Generate Daily Report");
+	Button btnGenDailyReport = new Button("Tagesreport");
 
 	DatePicker datePickerDailyReport = new DatePicker();
 
@@ -26,7 +26,7 @@ public class MainReportViewImpl extends VerticalLayout {
 		layoutDailyReport.add(datePickerDailyReport, btnGenDailyReport);
 
 		RouterLink caseReport = new RouterLink(null, CaseReport.class);
-		caseReport.add(new Button("Case Report", new Icon(VaadinIcon.CLIPBOARD_TEXT)));
+		caseReport.add(new Button("Fallreport", new Icon(VaadinIcon.CLIPBOARD_TEXT)));
 
 		add(layoutDailyReport, caseReport);
 
@@ -34,10 +34,10 @@ public class MainReportViewImpl extends VerticalLayout {
 		businessReport.add(new Button("Business Report", new Icon(VaadinIcon.CLIPBOARD_TEXT)));
 
 		RouterLink patientReport = new RouterLink(null, PatientReport.class);
-		patientReport.add(new Button("Patient Report", new Icon(VaadinIcon.CLIPBOARD_USER)));
+		patientReport.add(new Button("Patientenreport", new Icon(VaadinIcon.CLIPBOARD_USER)));
 		
 		RouterLink weeklyReport = new RouterLink(null, MainViewWeeklyReport.class);
-		weeklyReport.add(new Button("Weekly Report"));
+		weeklyReport.add(new Button("Wochenreport"));
 		
 		add(layoutDailyReport, weeklyReport, patientReport, caseReport, businessReport);
 

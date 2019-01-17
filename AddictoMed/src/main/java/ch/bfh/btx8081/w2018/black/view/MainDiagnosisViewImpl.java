@@ -14,7 +14,7 @@ public class MainDiagnosisViewImpl extends VerticalLayout implements MainDiagnos
 	
 	private TextField icd10 = new TextField();
 	private TextArea description = new TextArea();
-	private Button edit = new Button("Edit");
+	private Button edit = new Button("Bearbeiten");
 	
 	public MainDiagnosisViewImpl() {
 		icd10.setLabel("ICD10 Code");

@@ -1,7 +1,5 @@
 package ch.bfh.btx8081.w2018.black.view;
 
-import java.util.List;
-
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextArea;
@@ -18,7 +16,7 @@ public class MainAnamnesisViewImpl extends VerticalLayout implements MainAnamnes
 	private TextArea systemAnamnesis = new TextArea();
 	private TextArea foreignAnamnesis = new TextArea();
 	private TextArea additionalInformation = new TextArea();
-	private Button edit = new Button("Edit");
+	private Button edit = new Button("Bearbeiten");
 	
 	public MainAnamnesisViewImpl() {
 		chiefComplaint.setLabel("Hauptbeschwerde");

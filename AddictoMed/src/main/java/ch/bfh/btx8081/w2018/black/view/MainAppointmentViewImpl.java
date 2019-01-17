@@ -14,16 +14,16 @@ public class MainAppointmentViewImpl extends VerticalLayout implements MainAppoi
 	
 	Grid<Appointment> gridAppointment = new Grid<>();
 	TextField txtSearchAppointment = new TextField();
-	Button btnSearchAppointment = new Button("Search Appointment");
+	Button btnSearchAppointment = new Button("Sitzung suchen");
 	
 	public MainAppointmentViewImpl() {
 		
-		gridAppointment.addColumn(Appointment::getAppointmentID).setHeader("Appointment ID");
+		gridAppointment.addColumn(Appointment::getAppointmentID).setHeader("Sitzung ID");
 		// gridAppointment.addColumn(Appointment::getCreatedBy)("Created By");
 		// gridAppointment.addColumn(Appointment::getCaseID).setHeader("Case ID");
-		gridAppointment.addColumn(Appointment::getStartDate).setHeader("Start Date");
-		gridAppointment.addColumn(Appointment::getEndDate).setHeader("End Date");
-		gridAppointment.addColumn(Appointment::getDescription).setHeader("Description");
+		gridAppointment.addColumn(Appointment::getStartDate).setHeader("Sitzungsstart");
+		gridAppointment.addColumn(Appointment::getEndDate).setHeader("Sitzungsende");
+		gridAppointment.addColumn(Appointment::getDescription).setHeader("Beschreibung");
 		
 		add(gridAppointment, txtSearchAppointment, btnSearchAppointment);
 	}

@@ -28,16 +28,16 @@ public class MainCaseViewImpl extends VerticalLayout implements MainCaseView {
 	TextField place = new TextField();
 	DatePicker startDate = new DatePicker();
 	DatePicker endDate = new DatePicker();
-	Button add = new Button("Add");
+	Button add = new Button("Hinzufügen");
 	Button report = new Button("Fall Report");
 	Anchor downloadlink = new Anchor();
 
 	public MainCaseViewImpl() {
 		enableEdit(false);
-		startDate.setLabel("Start Date");
-		endDate.setLabel("End Date");
-		insuranceNr.setLabel("InsuranceNr.");
-		place.setLabel("Place");
+		startDate.setLabel("Fallbegin");
+		endDate.setLabel("Fallende");
+		insuranceNr.setLabel("Versicherungsnummer.");
+		place.setLabel("Ort");
 		tabs.add(new Tab(add));
 		HorizontalLayout caseInfos = new HorizontalLayout(startDate, endDate, place, insuranceNr, report);
 		caseInfos.setAlignItems(Alignment.BASELINE);
