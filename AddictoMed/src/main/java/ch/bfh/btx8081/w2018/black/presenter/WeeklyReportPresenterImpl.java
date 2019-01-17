@@ -10,6 +10,11 @@ import ch.bfh.btx8081.w2018.black.model.ifaces.MainCasesModel.Case;
 import ch.bfh.btx8081.w2018.black.presenter.ifaces.MainWeeklyReportPresenter;
 import ch.bfh.btx8081.w2018.black.view.WeeklyReportViewImpl;
 
+/**
+ * The Presenter manages the Report-Creater initialized in the WeeklyReportView and gets the concerning cases from the MainCasesModel.
+ * @author Roger Tschanz
+ */
+
 public class WeeklyReportPresenterImpl implements MainWeeklyReportPresenter {
 
 	WeeklyReportViewImpl view = null;
@@ -21,11 +26,14 @@ public class WeeklyReportPresenterImpl implements MainWeeklyReportPresenter {
 		view.addWeeklyReportGenerateListener(this);
 	}
 
+	/**
+	 * Creates the Weekly-Report as PDF containing all Cases between the selected startDate and EndDate
+	 * @param startDate, endDate
+	 * @return void
+	 */
 	@Override
 	public void generateWeeklyReport(LocalDate startDate, LocalDate endDate) {
-		System.out.println("Presenter erreicht!");
 		StringBuilder sb = new StringBuilder();
-		// sb.append("Cases: " + casesModel.generateWeeklyReport(startDate, endDate) + "\n");
 		List<Case> caselist = casesModel.generateWeeklyReport(startDate, endDate);
 		sb.append("Report von " + startDate + " bis " + endDate + "\n\n");
 		for(Case casesModel:caselist) {
@@ -45,7 +53,6 @@ public class WeeklyReportPresenterImpl implements MainWeeklyReportPresenter {
 			view.downloadWeeklyReport(pdf.getDocumet(), "WeeklyReport.pdf");
 			pdf.close();
 		} catch (IOException e) {
-			// weeklyReportView.setError("There was an error creating the report: " + e.getMessage());
 		}
 	}
 }
