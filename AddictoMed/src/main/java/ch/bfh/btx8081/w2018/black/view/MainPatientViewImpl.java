@@ -23,7 +23,6 @@ public class MainPatientViewImpl extends VerticalLayout implements MainPatientVi
 	/**
 	 * Generated serialVersionUID
 	 */
-	private static final long serialVersionUID = -2065962399488350077L;
 	private List<MainPatientViewListener> mainPatientViewListeners = new ArrayList<>();
 	
 	Grid<Patient> grid = new Grid<>();
