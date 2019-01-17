@@ -55,7 +55,7 @@ public class Init implements ServletContextListener {
 				}
 				// Create Tables
 				LOGGER.info("Create tables if not exist");
-				String[] createDDL = resourceToString("/sql/create.sql");
+				String[] createDDL = resourceToString("/ch/bfh/btx8081/w2018/black/sql/create.sql");
 				try {
 					Statement stmt = conn.createStatement();
 					for(String ddl:createDDL) {
@@ -73,7 +73,7 @@ public class Init implements ServletContextListener {
 					ResultSet rs = ps.executeQuery();
 					if(!rs.next()) {
 						LOGGER.info("There are no example patients. I will add them...");
-						String[] querys = resourceToString("/sql/exampledata.sql");
+						String[] querys = resourceToString("/ch/bfh/btx8081/w2018/black/sql/exampledata.sql");
 						Statement stmt = conn.createStatement();
 						for(String query:querys) {
 							stmt.executeUpdate(query);
