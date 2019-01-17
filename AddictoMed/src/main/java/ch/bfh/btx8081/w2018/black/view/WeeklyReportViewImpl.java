@@ -13,7 +13,7 @@ import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.server.StreamResource;
 
-import ch.bfh.btx8081.w2018.black.view.ifaces.MainWeeklyReportView;
+import ch.bfh.btx8081.w2018.black.view.ifaces.WeeklyReportView;
 
 /**
  * View for the Weekly Reports
@@ -21,7 +21,7 @@ import ch.bfh.btx8081.w2018.black.view.ifaces.MainWeeklyReportView;
  * @author Roger Tschanz
  */
 
-public class WeeklyReportViewImpl extends VerticalLayout implements MainWeeklyReportView {
+public class WeeklyReportViewImpl extends VerticalLayout implements WeeklyReportView {
 
 	private List<WeeklyReportGenerateListener> weeklyReportListeners = new ArrayList<>();
 	private Button btnWeeklyReport = new Button("Generieren");

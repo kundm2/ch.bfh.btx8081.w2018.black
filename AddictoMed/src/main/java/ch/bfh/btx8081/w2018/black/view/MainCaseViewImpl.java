@@ -16,7 +16,7 @@ import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.server.StreamResource;
 
-import ch.bfh.btx8081.w2018.black.model.ifaces.MainCasesModel.Case;
+import ch.bfh.btx8081.w2018.black.model.ifaces.CaseService.Case;
 import ch.bfh.btx8081.w2018.black.view.ifaces.MainCaseView;
 
 public class MainCaseViewImpl extends VerticalLayout implements MainCaseView {

@@ -5,10 +5,10 @@ import java.util.List;
 
 import ch.bfh.btx8081.w2018.black.model.ifaces.MainPatientModel;
 import ch.bfh.btx8081.w2018.black.model.ifaces.Patient;
-import ch.bfh.btx8081.w2018.black.presenter.ifaces.MainPatientPresenter;
+import ch.bfh.btx8081.w2018.black.presenter.ifaces.PatientPresenter;
 import ch.bfh.btx8081.w2018.black.view.ifaces.MainPatientView;
 
-public class MainPatientPresenterImpl implements MainPatientPresenter, MainPatientView.MainPatientViewListener {
+public class MainPatientPresenterImpl implements PatientPresenter, MainPatientView.MainPatientViewListener {
 	
 	private List<CurrentPatientListener> listeners = new ArrayList<>();
 	private MainPatientModel model = null;

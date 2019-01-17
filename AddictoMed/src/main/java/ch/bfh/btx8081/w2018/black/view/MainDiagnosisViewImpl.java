@@ -7,7 +7,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextArea;
 import com.vaadin.flow.component.textfield.TextField;
 
-import ch.bfh.btx8081.w2018.black.model.ifaces.MainDiagnosisModel.Diagnosis;
+import ch.bfh.btx8081.w2018.black.model.ifaces.DiagnosisService.Diagnosis;
 import ch.bfh.btx8081.w2018.black.view.ifaces.MainDiagnosisView;
 
 public class MainDiagnosisViewImpl extends VerticalLayout implements MainDiagnosisView {

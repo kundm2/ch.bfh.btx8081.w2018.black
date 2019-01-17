@@ -4,10 +4,10 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 
-import ch.bfh.btx8081.w2018.black.model.MainCasesModelImpl;
+import ch.bfh.btx8081.w2018.black.model.CaseServiceImpl;
 import ch.bfh.btx8081.w2018.black.model.PDFCreatorImpl;
-import ch.bfh.btx8081.w2018.black.model.ifaces.MainCasesModel.Case;
-import ch.bfh.btx8081.w2018.black.presenter.ifaces.MainWeeklyReportPresenter;
+import ch.bfh.btx8081.w2018.black.model.ifaces.CaseService.Case;
+import ch.bfh.btx8081.w2018.black.presenter.ifaces.WeeklyReportPresenter;
 import ch.bfh.btx8081.w2018.black.view.WeeklyReportViewImpl;
 
 /**
@@ -15,12 +15,12 @@ import ch.bfh.btx8081.w2018.black.view.WeeklyReportViewImpl;
  * @author Roger Tschanz
  */
 
-public class WeeklyReportPresenterImpl implements MainWeeklyReportPresenter {
+public class WeeklyReportPresenterImpl implements WeeklyReportPresenter {
 
 	WeeklyReportViewImpl view = null;
-	MainCasesModelImpl casesModel = null;
+	CaseServiceImpl casesModel = null;
 
-	public WeeklyReportPresenterImpl(WeeklyReportViewImpl view, MainCasesModelImpl casesModel) {
+	public WeeklyReportPresenterImpl(WeeklyReportViewImpl view, CaseServiceImpl casesModel) {
 		this.view = view;
 		this.casesModel = casesModel;
 		view.addWeeklyReportGenerateListener(this);

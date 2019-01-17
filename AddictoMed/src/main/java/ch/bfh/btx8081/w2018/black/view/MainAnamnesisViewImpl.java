@@ -4,7 +4,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextArea;
 
-import ch.bfh.btx8081.w2018.black.model.ifaces.MainAnamnesisModel.Anamnesis;
+import ch.bfh.btx8081.w2018.black.model.ifaces.AnamnesisService.Anamnesis;
 import ch.bfh.btx8081.w2018.black.view.ifaces.MainAnamnesisView;
 
 public class MainAnamnesisViewImpl extends VerticalLayout implements MainAnamnesisView {
