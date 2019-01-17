@@ -8,13 +8,17 @@ public interface AppointmentService {
 	public List<Appointment> getAppointmentList(int caseId);
 	
 	public interface Appointment {
-		
+
 		public int getAppointmentID();
-		// public int getCreatorID();
-		// public int getCaseID();
+		public int getCreatorID();
+		public int getCaseID();
 		public LocalDate getStartDate();
 		public LocalDate getEndDate();
 		public String getDescription();
+		public String getPlace();
+		public LocalDate getCreated();
+		public LocalDate getModified();
+		public LocalDate getDeleted();
 	}
 
 }

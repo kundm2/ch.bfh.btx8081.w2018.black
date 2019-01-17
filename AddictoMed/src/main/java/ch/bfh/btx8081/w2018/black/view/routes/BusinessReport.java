@@ -6,9 +6,7 @@ import com.vaadin.flow.router.Route;
 import ch.bfh.btx8081.w2018.black.model.BusinessReportModelImpl;
 import ch.bfh.btx8081.w2018.black.model.ifaces.BusinessReportModel;
 import ch.bfh.btx8081.w2018.black.presenter.BusinessReportPresenterImpl;
-import ch.bfh.btx8081.w2018.black.presenter.ifaces.BusinessReportPresenter;
 import ch.bfh.btx8081.w2018.black.view.BusinessReportViewImpl;
-import ch.bfh.btx8081.w2018.black.view.WeeklyReportViewImpl;
 import ch.bfh.btx8081.w2018.black.view.routes.applayout.ApplicationLayout;
 
 /**
@@ -20,10 +18,15 @@ import ch.bfh.btx8081.w2018.black.view.routes.applayout.ApplicationLayout;
 @Route(value = "BusinessReport", layout = ApplicationLayout.class)
 public class BusinessReport extends VerticalLayout {
 	
+	/**
+	 * Generated SerialVersionUID
+	 */
+	private static final long serialVersionUID = -5099599487268315808L;
+
 	public BusinessReport() {
 		BusinessReportViewImpl businessReportViewImpl = new BusinessReportViewImpl();
 		BusinessReportModel businessReportModel = new BusinessReportModelImpl();
-		BusinessReportPresenter businessReportPresenter = new BusinessReportPresenterImpl(businessReportViewImpl, businessReportModel);
+		new BusinessReportPresenterImpl(businessReportViewImpl, businessReportModel);
 		add(businessReportViewImpl);
 	}
 

@@ -19,12 +19,17 @@ import ch.bfh.btx8081.w2018.black.view.routes.applayout.ApplicationLayout;
 public class WeeklyReport extends VerticalLayout {
 
 	/**
+	 * Generated SerialVersionUID
+	 */
+	private static final long serialVersionUID = 6912674588664010645L;
+
+	/**
 	 * Main View of WeeklyReport
 	 */
 	public WeeklyReport() {
 		WeeklyReportViewImpl weeklyReportViewImpl = new WeeklyReportViewImpl();
 		CaseServiceImpl mainCasesModelImpl = new CaseServiceImpl();
-		WeeklyReportPresenterImpl mainWeeklyReportPresenterImpl = new WeeklyReportPresenterImpl(weeklyReportViewImpl, mainCasesModelImpl);
+		new WeeklyReportPresenterImpl(weeklyReportViewImpl, mainCasesModelImpl);
 		add(weeklyReportViewImpl);
 	}
 }

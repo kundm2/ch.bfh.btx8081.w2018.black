@@ -15,7 +15,7 @@ import ch.bfh.btx8081.w2018.black.model.ifaces.AnamnesisService;
 import ch.bfh.btx8081.w2018.black.model.ifaces.AppointmentService;
 import ch.bfh.btx8081.w2018.black.model.ifaces.CaseService;
 import ch.bfh.btx8081.w2018.black.model.ifaces.DiagnosisService;
-import ch.bfh.btx8081.w2018.black.model.ifaces.MainPatientModel;
+import ch.bfh.btx8081.w2018.black.model.ifaces.PatientService;
 import ch.bfh.btx8081.w2018.black.presenter.AnamnesisPresenterImpl;
 import ch.bfh.btx8081.w2018.black.presenter.AppointmentPresenterImpl;
 import ch.bfh.btx8081.w2018.black.presenter.CasePresenterImpl;
@@ -61,7 +61,7 @@ public class MainView extends HorizontalLayout {
 		
 		// PatientView
 		MainPatientViewImpl mainPatientViewImpl = new MainPatientViewImpl();
-		MainPatientModel mainPatientModel = new PatientServiceImpl();
+		PatientService mainPatientModel = new PatientServiceImpl();
 		PatientPresenter mainPatientPresenter = new MainPatientPresenterImpl(mainPatientViewImpl, mainPatientModel);
 		mainPatientViewImpl.setHeight("100%");
 		mainPatientViewImpl.setWidth("30%");

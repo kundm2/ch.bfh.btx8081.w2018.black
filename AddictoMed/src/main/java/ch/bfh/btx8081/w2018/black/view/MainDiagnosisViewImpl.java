@@ -12,6 +12,10 @@ import ch.bfh.btx8081.w2018.black.view.ifaces.MainDiagnosisView;
 
 public class MainDiagnosisViewImpl extends VerticalLayout implements MainDiagnosisView {
 	
+	/**
+	 * Generated SerialVersionUID
+	 */
+	private static final long serialVersionUID = 4960941607764247354L;
 	private TextField icd10 = new TextField();
 	private TextArea description = new TextArea();
 	private Button edit = new Button("Bearbeiten");

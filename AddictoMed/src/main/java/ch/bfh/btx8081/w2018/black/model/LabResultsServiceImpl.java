@@ -16,11 +16,11 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 import ch.bfh.btx8081.w2018.black.model.ifaces.LabResultsService;
-import ch.bfh.btx8081.w2018.black.model.ifaces.AppointmentService.Appointment;
-import ch.bfh.btx8081.w2018.black.model.ifaces.LabResultsService.LabResult;
 
 
 public class LabResultsServiceImpl implements LabResultsService {
+	
+	private final static Logger LOGGER = Logger.getLogger(LabResultsServiceImpl.class.getName());
 	
 	public class LabResultImpl implements LabResult {
 		
@@ -30,6 +30,9 @@ public class LabResultsServiceImpl implements LabResultsService {
 		private String content;
 		private LocalDate orderDate;
 		private LocalDate receptionDate;
+		private LocalDate created = null;
+		private LocalDate modified = null;
+		private LocalDate deleted = null;
 		
 		public LabResultImpl(int caseID, int labresultID, int laboratoryID, String content, LocalDate orderDate, LocalDate receptionDate) {
 			this.caseID = caseID;
@@ -64,9 +67,28 @@ public class LabResultsServiceImpl implements LabResultsService {
 		public LocalDate getReceptionDate() {
 			return receptionDate;
 		}
+
+		@Override
+		public int getCaseID() {
+			return caseID;
+		}
+
+		@Override
+		public LocalDate getCreated() {
+			return created;
+		}
+
+		@Override
+		public LocalDate getModified() {
+			return modified;
+		}
+
+		@Override
+		public LocalDate getDeleted() {
+			return deleted;
+		}
 	}
 	
-		private final static Logger LOGGER = Logger.getLogger(LabResultsServiceImpl.class.getName());
 		public List<LabResult> LabResultList = new ArrayList<LabResult>();
 		private DataSource ds;
 		

@@ -13,6 +13,9 @@ public class PatientImpl implements Patient {
 	private LocalDate dateOfBirth = null;
 	private String address = null;
 	private String zipCode = null;
+	private LocalDate created = null;
+	private LocalDate modified = null;
+	private LocalDate deleted = null;
 
 	public PatientImpl(int patientID, String firstname, String lastname, String gender, LocalDate dateOfBirth) {
 		this.patientID = patientID;
@@ -107,6 +110,18 @@ public class PatientImpl implements Patient {
 			this.gender = Gender.UNKNOWN;
 		}
 		
+	}
+	@Override
+	public LocalDate getCreated() {
+		return created;
+	}
+	@Override
+	public LocalDate getModified() {
+		return modified;
+	}
+	@Override
+	public LocalDate getDeleted() {
+		return deleted;
 	}
 
 

@@ -15,6 +15,11 @@ import ch.bfh.btx8081.w2018.black.view.routes.PatientReport;
 
 public class ReportViewImpl extends VerticalLayout {
 
+	/**
+	 * Generated SerialVersionUID
+	 */
+	private static final long serialVersionUID = -2878625525322252003L;
+
 	Button btnGenDailyReport = new Button("Tagesreport");
 
 	DatePicker datePickerDailyReport = new DatePicker();

@@ -1,13 +1,10 @@
 package ch.bfh.btx8081.w2018.black.model;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.logging.Logger;
 import javax.naming.Context;
 import javax.naming.InitialContext;

@@ -22,6 +22,10 @@ import ch.bfh.btx8081.w2018.black.view.ifaces.BusinessReportView;
 
 public class BusinessReportViewImpl extends VerticalLayout implements BusinessReportView {
 
+	/**
+	 * Generated SerialVersionUID
+	 */
+	private static final long serialVersionUID = 7597655001720443214L;
 	private List<BusinessReportGenerateListener> listeners = new ArrayList<>();
 	private Label title = new Label();
 	private TextField error = new TextField();

@@ -29,6 +29,10 @@ public interface CaseService {
 		 */
 		public int getCaseID();
 		
+		public int getCreatorID();
+		public int getPatientID();
+		public int getInsuranceID();
+		
 		/**
 		 * @return StartDate
 		 */
@@ -48,7 +52,10 @@ public interface CaseService {
 		/**
 		 * @return Place
 		 */
-		public String getPlace();	
+		public String getPlace();
+		public LocalDate getCreated();
+		public LocalDate getModified();
+		public LocalDate getDeleted();
 	}
 
 }

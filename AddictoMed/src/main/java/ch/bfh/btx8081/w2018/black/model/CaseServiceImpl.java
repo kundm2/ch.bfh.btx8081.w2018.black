@@ -24,16 +24,23 @@ import ch.bfh.btx8081.w2018.black.model.ifaces.CaseService;
 
 public class CaseServiceImpl implements CaseService {
 
+	private final static Logger LOGGER = Logger.getLogger(CaseServiceImpl.class.getName());
 	/**
 	 * The inner class containing the basic constructor for case-objects with ID, dates, insurance-number and place
 	 * @author Roger Tschanz
 	 */
 	private class CaseImpl implements Case {
-		public int caseID;
-		public LocalDate startDate = null;
-		public LocalDate endDate = null;
-		public int insuranceNumber;
-		public String place = null;
+		private int caseID;
+		private LocalDate startDate = null;
+		private LocalDate endDate = null;
+		private int insuranceNumber;
+		private String place = null;
+		private int creatorID = -1;
+		private int patientID = -1;
+		private int insuranceID = -1;
+		private LocalDate created = null;
+		private LocalDate modified = null;
+		private LocalDate deleted = null;
 
 		public CaseImpl(int caseID, LocalDate startDate, LocalDate endDate, int insuranceNumber, String place) {
 			this.caseID = caseID;
@@ -68,13 +75,39 @@ public class CaseServiceImpl implements CaseService {
 			return place;
 		}
 
-		public void setCaseID(int caseID) {
-			this.caseID = caseID;
+		@Override
+		public int getCreatorID() {
+			return creatorID;
+		}
+
+		@Override
+		public int getPatientID() {
+			return patientID;
+		}
+
+		@Override
+		public int getInsuranceID() {
+			return insuranceID;
+		}
+
+		@Override
+		public LocalDate getCreated() {
+			return created;
+		}
+
+		@Override
+		public LocalDate getModified() {
+			return modified;
+		}
+
+		@Override
+		public LocalDate getDeleted() {
+			return deleted;
 		}
 	}
 
 	private DataSource dsCases;
-	private final static Logger LOGGER = Logger.getLogger(CaseServiceImpl.class.getName());
+	
 	public List<Object> CaseList = new ArrayList<Object>();
 
 	public CaseServiceImpl() {

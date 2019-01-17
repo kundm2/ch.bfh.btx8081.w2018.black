@@ -5,16 +5,19 @@ import java.util.List;
 
 public interface EmployeeService {
 	public interface Employee {
-		int getEmployeeId();
-		LocalDate getBirthdate();
-		String getFirstname();
-		String getLastname();
-		String getDepartment();
-		String getJobTitle();
-		String getAddress();
-		String getZipCode();
-		String getNickname();
-		String getHashedPassword();
+		public int getEmployeeId();
+		public LocalDate getBirthdate();
+		public String getFirstname();
+		public String getLastname();
+		public String getDepartment();
+		public String getJobTitle();
+		public String getAddress();
+		public String getZipCode();
+		public String getNickname();
+		public String getHashedPassword();
+		public LocalDate getCreated();
+		public LocalDate getModified();
+		public LocalDate getDeleted();
 	}
 	
 	public List<Employee> getEmployees();

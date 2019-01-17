@@ -1,5 +1,6 @@
 package ch.bfh.btx8081.w2018.black.model.ifaces;
 
+import java.time.LocalDate;
 import java.util.List;
 
 /*
@@ -24,6 +25,8 @@ public interface InsuranceService {
 		public String getName();
 		public String getAddress();
 		public int getNumber();
-		
+		public LocalDate getCreated();
+		public LocalDate getModified();
+		public LocalDate getDeleted();
 	}
 }

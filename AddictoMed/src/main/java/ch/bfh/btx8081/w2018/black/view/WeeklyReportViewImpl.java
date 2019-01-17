@@ -23,6 +23,10 @@ import ch.bfh.btx8081.w2018.black.view.ifaces.WeeklyReportView;
 
 public class WeeklyReportViewImpl extends VerticalLayout implements WeeklyReportView {
 
+	/**
+	 * Generated SerialVersionUID
+	 */
+	private static final long serialVersionUID = -8056887850429093735L;
 	private List<WeeklyReportGenerateListener> weeklyReportListeners = new ArrayList<>();
 	private Button btnWeeklyReport = new Button("Generieren");
 	private Label startDateLabel = new Label("");

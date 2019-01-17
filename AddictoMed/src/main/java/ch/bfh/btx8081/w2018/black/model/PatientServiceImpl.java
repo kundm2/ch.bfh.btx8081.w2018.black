@@ -13,10 +13,10 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import ch.bfh.btx8081.w2018.black.model.ifaces.MainPatientModel;
+import ch.bfh.btx8081.w2018.black.model.ifaces.PatientService;
 import ch.bfh.btx8081.w2018.black.model.ifaces.Patient;
 
-public class PatientServiceImpl implements MainPatientModel {
+public class PatientServiceImpl implements PatientService {
 
 	private final static Logger LOGGER = Logger.getLogger(PatientServiceImpl.class.getName());
 	private DataSource ds;

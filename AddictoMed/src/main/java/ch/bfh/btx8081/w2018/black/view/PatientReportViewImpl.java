@@ -14,6 +14,10 @@ import com.vaadin.flow.server.StreamResource;
 import ch.bfh.btx8081.w2018.black.view.ifaces.PatientReportView;
 
 public class PatientReportViewImpl extends VerticalLayout implements PatientReportView {
+	/**
+	 * Generated SerialVersionUID
+	 */
+	private static final long serialVersionUID = -7879180530424859574L;
 	private List<PatientReportGenerateListener> listeners = new ArrayList<>();
 	private TextField patientId = new TextField("Patientennummer");
 	private TextField error = new TextField("Error");

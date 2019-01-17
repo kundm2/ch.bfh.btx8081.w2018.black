@@ -9,9 +9,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Logger;
 
 import javax.naming.Context;
@@ -28,74 +25,19 @@ import ch.bfh.btx8081.w2018.black.model.ifaces.AnamnesisService;
 public class AnamnesisServiceImpl implements AnamnesisService {
 
 	private final static Logger LOGGER = Logger.getLogger(AnamnesisServiceImpl.class.getName());
-	private DataSource ds;
-
-	public AnamnesisServiceImpl() {
-		try {
-			Context ctx = new InitialContext();
-			ds = (DataSource) ctx.lookup("java:comp/env/jdbc/postgres");
-		} catch (NamingException e) {
-			LOGGER.severe("Can't connect to db. Error: " + e.getMessage());
-		}
-	}
-
-
-	/* (non-Javadoc)
-	 * @see ch.bfh.btx8081.w2018.black.model.ifaces.MainAnamnesisModel#getAnamnesisList(int)
-	 */
-	@Override
-	public Anamnesis getAnamnesis(int caseID) {
-		Connection conn = null;
-		PreparedStatement ps = null;
-		ResultSet rs = null;
-		Anamnesis anamnesis = null;
-		try {
-			conn = ds.getConnection();
-			ps = conn.prepareStatement("SELECT * FROM anamnesis WHERE case_id = ?");
-			ps.setInt(1, caseID);
-			rs = ps.executeQuery();
-			if (rs.next()) {
-				LocalDate localStartDate = null;
-				Date startDate = rs.getDate("chief_complaint_start_date");
-				if(startDate != null) {
-					localStartDate = startDate.toLocalDate();
-				}
-				anamnesis = new AnamnesisImpl(rs.getInt("anamnesis_id"), rs.getString("chief_complaint"),
-						localStartDate,
-						rs.getString("self_anamnesis"),
-						rs.getString("family_anamnesis"), rs.getString("social_anamnesis"),
-						rs.getString("system_anamnesis"), rs.getString("foreign_anamnesis"),
-						rs.getString("additional_information"));
-			}
-		} catch (SQLException e) {
-			LOGGER.warning("Patient query went wrong...\nError: " + e.getMessage());
-		} finally {
-			try {
-				rs.close();
-			} catch (Exception e) {
-			}
-			try {
-				ps.close();
-			} catch (Exception e) {
-			}
-			try {
-				conn.close();
-			} catch (Exception e) {
-			}
-		}
-		return anamnesis;
-	}
-
 	public class AnamnesisImpl implements Anamnesis {
-		private int id;
-		private String chiefComplaint;
-		private LocalDate startDate;
-		private String selfAnamnesis;
-		private String familyAnamnesis;
-		private String socialAnamnesis;
-		private String systemAnamnesis;
-		private String foreignAnamnesis;
-		private String additionalInformation;
+		private int id = -1;
+		private String chiefComplaint = null;
+		private LocalDate startDate = null;
+		private String selfAnamnesis = null;
+		private String familyAnamnesis = null;
+		private String socialAnamnesis = null;
+		private String systemAnamnesis = null;
+		private String foreignAnamnesis = null;
+		private String additionalInformation = null;
+		private LocalDate created = null;
+		private LocalDate modified = null;
+		private LocalDate deleted = null;
 
 		public AnamnesisImpl(int id, String chiefComplaint, LocalDate startDate, String selfAnamnesis,
 				String familyAnamnesis, String socialAnamnesis, String systemAnamnesis, String foreignAnamnesis,
@@ -192,6 +134,77 @@ public class AnamnesisServiceImpl implements AnamnesisService {
 			this.additionalInformation = additionalInformation;
 		}
 
+		@Override
+		public LocalDate getCreated() {
+			return created;
+		}
+
+		@Override
+		public LocalDate getModified() {
+			return modified;
+		}
+
+		@Override
+		public LocalDate getDeleted() {
+			return deleted;
+		}
+
+	}
+	private DataSource ds;
+
+	public AnamnesisServiceImpl() {
+		try {
+			Context ctx = new InitialContext();
+			ds = (DataSource) ctx.lookup("java:comp/env/jdbc/postgres");
+		} catch (NamingException e) {
+			LOGGER.severe("Can't connect to db. Error: " + e.getMessage());
+		}
 	}
 
+
+	/* (non-Javadoc)
+	 * @see ch.bfh.btx8081.w2018.black.model.ifaces.MainAnamnesisModel#getAnamnesisList(int)
+	 */
+	@Override
+	public Anamnesis getAnamnesis(int caseID) {
+		Connection conn = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		Anamnesis anamnesis = null;
+		try {
+			conn = ds.getConnection();
+			ps = conn.prepareStatement("SELECT * FROM anamnesis WHERE case_id = ?");
+			ps.setInt(1, caseID);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				LocalDate localStartDate = null;
+				Date startDate = rs.getDate("chief_complaint_start_date");
+				if(startDate != null) {
+					localStartDate = startDate.toLocalDate();
+				}
+				anamnesis = new AnamnesisImpl(rs.getInt("anamnesis_id"), rs.getString("chief_complaint"),
+						localStartDate,
+						rs.getString("self_anamnesis"),
+						rs.getString("family_anamnesis"), rs.getString("social_anamnesis"),
+						rs.getString("system_anamnesis"), rs.getString("foreign_anamnesis"),
+						rs.getString("additional_information"));
+			}
+		} catch (SQLException e) {
+			LOGGER.warning("Patient query went wrong...\nError: " + e.getMessage());
+		} finally {
+			try {
+				rs.close();
+			} catch (Exception e) {
+			}
+			try {
+				ps.close();
+			} catch (Exception e) {
+			}
+			try {
+				conn.close();
+			} catch (Exception e) {
+			}
+		}
+		return anamnesis;
+	}
 }

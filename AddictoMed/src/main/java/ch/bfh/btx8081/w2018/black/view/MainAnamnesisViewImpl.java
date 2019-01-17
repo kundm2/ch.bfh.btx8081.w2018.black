@@ -9,6 +9,10 @@ import ch.bfh.btx8081.w2018.black.view.ifaces.MainAnamnesisView;
 
 public class MainAnamnesisViewImpl extends VerticalLayout implements MainAnamnesisView {
 	
+	/**
+	 * Generated SerialVersionUID
+	 */
+	private static final long serialVersionUID = -5891764735243228459L;
 	private TextArea chiefComplaint = new TextArea();
 	private TextArea selfAnamnesis = new TextArea();
 	private TextArea familyAnamnesis = new TextArea();

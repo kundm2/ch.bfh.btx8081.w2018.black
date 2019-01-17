@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -29,6 +30,10 @@ public class DiagnosisServiceImpl implements DiagnosisService {
 		private int diagnosisId = 0;
 		private String icd10Code = null;
 		private String description = null;
+		private LocalDate created = null;
+		private LocalDate modified = null;
+		private LocalDate deleted = null;
+		
 		
 		public DiagnosisImpl(int caseId, int diagnosisId, String icd10Code, String description) {
 			this.caseId = caseId;
@@ -55,6 +60,21 @@ public class DiagnosisServiceImpl implements DiagnosisService {
 		@Override
 		public String getDescription() {
 			return description;
+		}
+
+		@Override
+		public LocalDate getCreated() {
+			return created;
+		}
+
+		@Override
+		public LocalDate getModified() {
+			return modified;
+		}
+
+		@Override
+		public LocalDate getDeleted() {
+			return deleted;
 		}
 		
 	}

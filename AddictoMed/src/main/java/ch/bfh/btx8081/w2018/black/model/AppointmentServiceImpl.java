@@ -18,17 +18,25 @@ import ch.bfh.btx8081.w2018.black.model.ifaces.AppointmentService;
 
 public class AppointmentServiceImpl implements AppointmentService {
 	
+	private final static Logger LOGGER = Logger.getLogger(AppointmentServiceImpl.class.getName());
+	
 	/**
 	 * 
 	 * @author Roger Tschanz
 	 */
-
 	public class AppointmentImpl implements Appointment {
 
-		public int appointmentID;
-		public LocalDate startDate;
-		public LocalDate endDate;
-		public String description;
+		
+		private int appointmentID = -1;
+		private LocalDate startDate = null;
+		private LocalDate endDate = null;
+		private String description = null;
+		private int caseId = -1;
+		private int creatorId = -1;
+		private String place = null;
+		private LocalDate created = null;
+		private LocalDate modified = null;
+		private LocalDate deleted = null;
 
 		public AppointmentImpl(int AppointmentID, LocalDate StartDate, LocalDate EndDate, String Description) {
 			this.appointmentID = AppointmentID;
@@ -57,10 +65,40 @@ public class AppointmentServiceImpl implements AppointmentService {
 			return description;
 		}
 
+		@Override
+		public int getCreatorID() {
+			return creatorId;
+		}
+
+		@Override
+		public int getCaseID() {
+			return caseId;
+		}
+
+		@Override
+		public String getPlace() {
+			return place;
+		}
+
+		@Override
+		public LocalDate getCreated() {
+			return created;
+		}
+
+		@Override
+		public LocalDate getModified() {
+			return modified;
+		}
+
+		@Override
+		public LocalDate getDeleted() {
+			return deleted;
+		}
+
 	}
 
 	private DataSource dsCases;
-	private final static Logger LOGGER = Logger.getLogger(CaseServiceImpl.class.getName());
+	
 	//public List<Appointment> AppointmentList = new ArrayList<Appointment>();
 
 	public AppointmentServiceImpl() {

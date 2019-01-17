@@ -3,8 +3,17 @@ package ch.bfh.btx8081.w2018.black.view.routes.applayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.Component;
 
+/**
+ * Scrollable Vertical Layout for Vaadin 10 (because functionality is not available..)
+ * @author Samuel Pulfer
+ *
+ */
 public class ScrollableVerticalLayout extends VerticalLayout {
 	
+	/**
+	 * Generated SerialVersionUID
+	 */
+	private static final long serialVersionUID = 8009778391192330801L;
 	private VerticalLayout content = new VerticalLayout();
 
     public ScrollableVerticalLayout() {

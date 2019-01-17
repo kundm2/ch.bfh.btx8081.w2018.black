@@ -10,7 +10,7 @@ import ch.bfh.btx8081.w2018.black.model.PDFCreatorImpl;
 import ch.bfh.btx8081.w2018.black.model.PatientImpl;
 import ch.bfh.btx8081.w2018.black.model.ifaces.CaseService;
 import ch.bfh.btx8081.w2018.black.model.ifaces.CaseService.Case;
-import ch.bfh.btx8081.w2018.black.model.ifaces.MainPatientModel;
+import ch.bfh.btx8081.w2018.black.model.ifaces.PatientService;
 import ch.bfh.btx8081.w2018.black.presenter.ifaces.PatientReportPresenter;
 import ch.bfh.btx8081.w2018.black.view.ifaces.PatientReportView;
 
@@ -20,10 +20,10 @@ import ch.bfh.btx8081.w2018.black.view.ifaces.PatientReportView;
  */
 public class PatientReportPresenterImpl implements PatientReportPresenter {
 	PatientReportView view = null;
-	MainPatientModel pModel = null;
+	PatientService pModel = null;
 	CaseService cModel = null;
 
-	public PatientReportPresenterImpl(PatientReportView view, MainPatientModel pModel, CaseService cModel) {
+	public PatientReportPresenterImpl(PatientReportView view, PatientService pModel, CaseService cModel) {
 		this.view = view;
 		this.pModel = pModel;
 		this.cModel = cModel;

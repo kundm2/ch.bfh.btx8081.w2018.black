@@ -173,7 +173,8 @@ CREATE TABLE IF NOT EXISTS drug (
 	price INTEGER,
 	dosis FLOAT,
 	"type" VARCHAR(30),
-	warnings VARCHAR(2000)
+	warnings VARCHAR(2000),
+	created TIMESTAMP, modified TIMESTAMP, deleted TIMESTAMP
 );
 
 CREATE TABLE IF NOT EXISTS laboratory (

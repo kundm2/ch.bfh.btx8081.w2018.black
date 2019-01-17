@@ -21,6 +21,10 @@ import ch.bfh.btx8081.w2018.black.view.ifaces.MainCaseView;
 
 public class MainCaseViewImpl extends VerticalLayout implements MainCaseView {
 
+	/**
+	 * Generated SerialVersionUID
+	 */
+	private static final long serialVersionUID = -5232222045800727437L;
 	List<CaseListener> listeners = new ArrayList<>();
 	Tabs tabs = new Tabs();
 

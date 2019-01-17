@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -24,10 +25,86 @@ import ch.bfh.btx8081.w2018.black.model.ifaces.InsuranceService;
  */
 public class InsuranceServiceImpl implements InsuranceService {
 
-	private DataSource dsCases;
+	
 	private final static Logger LOGGER = Logger.getLogger(InsuranceServiceImpl.class.getName());
-	public List<InsuranceImpl> AppointmentList = new ArrayList<InsuranceImpl>();
+	
+	public class InsuranceImpl implements Insurance {
 
+		private int id = -1;
+		private String name = null;
+		private String address = null;
+		private int number = -1;
+		private LocalDate created = null;
+		private LocalDate modified = null;
+		private LocalDate deleted = null;
+
+		public InsuranceImpl() {
+		}
+
+		public InsuranceImpl(int id, String name, String address, int number) {
+			super();
+			this.id = id;
+			this.name = name;
+			this.address = address;
+			this.number = number;
+		}
+
+		@Override
+		public int getID() {
+			return id;
+		}
+
+		public void setID(int id) {
+			this.id = id;
+		}
+
+		@Override
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		@Override
+		public String getAddress() {
+			return address;
+		}
+
+		public void setAddress(String address) {
+			this.address = address;
+		}
+		
+		@Override
+		public int getNumber() {
+			return number;
+		}
+
+		public void setNumber(int number) {
+			this.number = number;
+		}
+
+		@Override
+		public LocalDate getCreated() {
+			return created;
+		}
+
+		@Override
+		public LocalDate getModified() {
+			return modified;
+		}
+
+		@Override
+		public LocalDate getDeleted() {
+			return deleted;
+		}
+
+	}
+	
+	private DataSource dsCases;
+	public List<InsuranceImpl> AppointmentList = new ArrayList<InsuranceImpl>();
+	
 	public InsuranceServiceImpl() {
 		try {
 			Context ctx = new InitialContext();
@@ -83,59 +160,5 @@ public class InsuranceServiceImpl implements InsuranceService {
 		return insurance;
 	}
 
-	public class InsuranceImpl implements Insurance {
-
-		private int id;
-		private String name;
-		private String address;
-		private int number;
-
-		public InsuranceImpl() {
-		}
-
-		public InsuranceImpl(int id, String name, String address, int number) {
-			super();
-			this.id = id;
-			this.name = name;
-			this.address = address;
-			this.number = number;
-		}
-
-		@Override
-		public int getID() {
-			return id;
-		}
-
-		public void setID(int id) {
-			this.id = id;
-		}
-
-		@Override
-		public String getName() {
-			return name;
-		}
-
-		public void setName(String name) {
-			this.name = name;
-		}
-
-		@Override
-		public String getAddress() {
-			return address;
-		}
-
-		public void setAddress(String address) {
-			this.address = address;
-		}
-		
-		@Override
-		public int getNumber() {
-			return number;
-		}
-
-		public void setNumber(int number) {
-			this.number = number;
-		}
-
-	}
+	
 }

@@ -9,16 +9,19 @@ public class EmployeeServiceImpl implements EmployeeService {
 	
 	public class EmployeeImpl implements Employee {
 		
-		private int employeeId;
-		private LocalDate birthdate;
-		private String firstname;
-		private String lastname;
-		private String department;
-		private String jobTitle;
-		private String address;
-		private String zipCode;
-		private String nickname;
-		private String hashedPassword;
+		private int employeeId = -1;
+		private LocalDate birthdate = null;
+		private String firstname = null;
+		private String lastname = null;
+		private String department = null;
+		private String jobTitle = null;
+		private String address = null;
+		private String zipCode = null;
+		private String nickname = null;
+		private String hashedPassword = null;
+		private LocalDate created = null;
+		private LocalDate modified = null;
+		private LocalDate deleted = null;
 
 		@Override
 		public int getEmployeeId() {
@@ -68,6 +71,21 @@ public class EmployeeServiceImpl implements EmployeeService {
 		@Override
 		public String getHashedPassword() {
 			return hashedPassword;
+		}
+
+		@Override
+		public LocalDate getCreated() {
+			return created;
+		}
+
+		@Override
+		public LocalDate getModified() {
+			return modified;
+		}
+
+		@Override
+		public LocalDate getDeleted() {
+			return deleted;
 		}
 		
 	}

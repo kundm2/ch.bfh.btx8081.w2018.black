@@ -21,8 +21,9 @@ import ch.bfh.btx8081.w2018.black.view.ifaces.MainPatientView;
 public class MainPatientViewImpl extends VerticalLayout implements MainPatientView {
 
 	/**
-	 * Generated serialVersionUID
+	 * Generated SerialVersionUID
 	 */
+	private static final long serialVersionUID = -2311302757898367157L;
 	private List<MainPatientViewListener> mainPatientViewListeners = new ArrayList<>();
 	
 	Grid<Patient> grid = new Grid<>();

@@ -1,5 +1,6 @@
 package ch.bfh.btx8081.w2018.black.model.ifaces;
 
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -30,6 +31,9 @@ public interface DiagnosisService {
 		 * @return the description of the diagnosis
 		 */
 		String getDescription();
+		public LocalDate getCreated();
+		public LocalDate getModified();
+		public LocalDate getDeleted();
 	}
 	/**
 	 * @param caseId the case id

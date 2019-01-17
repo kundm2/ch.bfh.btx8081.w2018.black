@@ -12,6 +12,10 @@ import ch.bfh.btx8081.w2018.black.view.ifaces.MainAppointmentView;
 
 public class MainAppointmentViewImpl extends VerticalLayout implements MainAppointmentView {
 	
+	/**
+	 * Generated SerialVersionUID
+	 */
+	private static final long serialVersionUID = 4924606272066900541L;
 	Grid<Appointment> gridAppointment = new Grid<>();
 	TextField txtSearchAppointment = new TextField();
 	Button btnSearchAppointment = new Button("Sitzung suchen");

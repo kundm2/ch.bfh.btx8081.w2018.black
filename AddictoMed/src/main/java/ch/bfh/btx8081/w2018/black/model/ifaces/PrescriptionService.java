@@ -12,7 +12,7 @@ import java.util.List;
  *
  */
 
-public interface MainPrescriptionModel {
+public interface PrescriptionService {
 	
 	public List<Prescription> getPrescriptionList(int prescriptionID);
 
@@ -32,13 +32,19 @@ public interface MainPrescriptionModel {
 			public int getPrice();
 			public int getDosis();
 			public String getType();
-			public String getWarning();			
+			public String getWarning();
+			public LocalDate getCreated();
+			public LocalDate getModified();
+			public LocalDate getDeleted();
 		}
 		
 		public int getPrescriptionID();		
 		public int getCaseID();
 		public LocalDate getStartDate();
 		public LocalDate getEndDate();
+		public LocalDate getCreated();
+		public LocalDate getModified();
+		public LocalDate getDeleted();
 	}
 
 }

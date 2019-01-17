@@ -3,9 +3,9 @@ package ch.bfh.btx8081.w2018.black.model;
 import java.time.LocalDate;
 import java.util.List;
 
-import ch.bfh.btx8081.w2018.black.model.ifaces.MainPrescriptionModel;
+import ch.bfh.btx8081.w2018.black.model.ifaces.PrescriptionService;
 
-public class PrescriptionServiceImpl implements MainPrescriptionModel {
+public class PrescriptionServiceImpl implements PrescriptionService {
 	
 	public class PrescriptionImpl implements Prescription {
 		
@@ -21,13 +21,16 @@ public class PrescriptionServiceImpl implements MainPrescriptionModel {
 			this.prescriptionDescription = Description;
 			
 			class DrugImpl implements Drug {
-				public int drugID;
-				public String manufacturer;
-				public String agent;
-				public int price;
-				public int dosis;
-				public String type;
-				public String warning;
+				public int drugID = -1;
+				public String manufacturer = null;
+				public String agent = null;
+				public int price = -1;
+				public int dosis = -1;
+				public String type = null;
+				public String warning = null;
+				public LocalDate created = null;
+				public LocalDate modified = null;
+				public LocalDate deleted = null;
 
 				public DrugImpl(int drugID, String manufacturer, String agent, int price, int dosis, String type, String warning) {
 					this.drugID = drugID;
@@ -39,32 +42,54 @@ public class PrescriptionServiceImpl implements MainPrescriptionModel {
 					this.warning = warning;
 				}
 
+				@Override
 				public int getDrugID() {
 					return drugID;
 				}
 
+				@Override
 				public String getManufacturer() {
 					return manufacturer;
 				}
 
+				@Override
 				public String getAgent() {
 					return agent;
 				}
 
+				@Override
 				public int getPrice() {
 					return price;
 				}
 
+				@Override
 				public int getDosis() {
 					return dosis;
 				}
 
+				@Override
 				public String getType() {
 					return type;
 				}
-
+				
+				@Override
 				public String getWarning() {
 					return warning;
+				}
+
+				@Override
+				public LocalDate getCreated() {
+					return created;
+				}
+
+				@Override
+				public LocalDate getModified() {
+					return modified;
+				}
+
+				@Override
+				public LocalDate getDeleted() {
+					return deleted;
 				}
 				
 			}
@@ -98,6 +123,27 @@ public class PrescriptionServiceImpl implements MainPrescriptionModel {
 
 		@Override
 		public List<Drug> getDrugList(int drugID) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+
+		@Override
+		public LocalDate getCreated() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+
+		@Override
+		public LocalDate getModified() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+
+		@Override
+		public LocalDate getDeleted() {
 			// TODO Auto-generated method stub
 			return null;
 		}

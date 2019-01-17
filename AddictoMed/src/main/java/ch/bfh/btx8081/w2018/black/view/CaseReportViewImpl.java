@@ -14,6 +14,10 @@ import com.vaadin.flow.server.StreamResource;
 import ch.bfh.btx8081.w2018.black.view.ifaces.CaseReportView;
 
 public class CaseReportViewImpl extends VerticalLayout implements CaseReportView {
+	/**
+	 * Generated SerialVersionUID
+	 */
+	private static final long serialVersionUID = 7056644818544557194L;
 	private List<CaseReportGenerateListener> listeners = new ArrayList<>();
 	private TextField caseId = new TextField("Fallnummer");
 	private TextField error = new TextField("Error");

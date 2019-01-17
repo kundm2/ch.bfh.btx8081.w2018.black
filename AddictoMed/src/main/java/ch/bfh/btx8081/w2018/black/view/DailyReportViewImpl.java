@@ -9,6 +9,12 @@ import ch.bfh.btx8081.w2018.black.view.ifaces.DailyReportView;
 
 public class DailyReportViewImpl extends VerticalLayout implements DailyReportView {
 	
+	/**
+	 * Generated SerialVersionUID
+	 */
+	private static final long serialVersionUID = -2687287531996500897L;
+
+
 	public DailyReportViewImpl() {
 		DatePicker reportdate = new DatePicker();
 	}

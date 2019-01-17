@@ -22,6 +22,9 @@ public interface Patient {
 	public String getAddress();
 	public String getZipCode();
 	public Gender getGender();
+	public LocalDate getCreated();
+	public LocalDate getModified();
+	public LocalDate getDeleted();
 	
 	public void setFirstname(String firstname);
 	public void setLastname(String lastname);
