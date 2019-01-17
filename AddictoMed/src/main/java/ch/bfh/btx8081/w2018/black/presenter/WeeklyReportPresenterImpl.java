@@ -29,7 +29,6 @@ public class WeeklyReportPresenterImpl implements WeeklyReportPresenter {
 	/**
 	 * Creates the Weekly-Report as PDF containing all Cases between the selected startDate and EndDate
 	 * @param startDate, endDate
-	 * @return void
 	 */
 	@Override
 	public void generateWeeklyReport(LocalDate startDate, LocalDate endDate) {

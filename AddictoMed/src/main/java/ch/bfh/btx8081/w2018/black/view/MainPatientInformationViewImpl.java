@@ -1,16 +1,20 @@
 package ch.bfh.btx8081.w2018.black.view;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.datepicker.DatePicker;
+import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.html.H4;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.server.StreamResource;
 
 import ch.bfh.btx8081.w2018.black.model.ifaces.Patient;
 import ch.bfh.btx8081.w2018.black.model.ifaces.Patient.Gender;
@@ -23,6 +27,7 @@ public class MainPatientInformationViewImpl extends VerticalLayout implements Ma
 	private static final long serialVersionUID = 5812987873615708053L;
 
 	List<MainPatientInformationListener> listeners = new ArrayList<>();
+	List<PatientReportGenerateListener> reportListeners = new ArrayList<>();
 	
 	TextField patID = new TextField();
 	TextField firstname = new TextField();
@@ -33,6 +38,8 @@ public class MainPatientInformationViewImpl extends VerticalLayout implements Ma
 	TextField zipCode = new TextField();
 	Button edit = new Button("Bearbeiten");
 	Button delete = new Button("Löschen");
+	private Button generate = new Button("Patienten Report");
+	private Anchor downloadlink = new Anchor();
 	
 	
 	public MainPatientInformationViewImpl() {
@@ -46,8 +53,9 @@ public class MainPatientInformationViewImpl extends VerticalLayout implements Ma
 		column2.setWidth("100%");
 		HorizontalLayout columns = new HorizontalLayout(column1, column2);
 		columns.setWidth("100%");
-		edit.getElement().getStyle().set("margin-left", "auto");
-		HorizontalLayout footer = new HorizontalLayout(edit, delete);
+		generate.setEnabled(false);
+		generate.getElement().getStyle().set("margin-left", "auto");
+		HorizontalLayout footer = new HorizontalLayout(generate, downloadlink, edit, delete);
 		footer.setWidth("100%");
 		
 		birthdate.setLocale(Locale.GERMANY);
@@ -70,6 +78,17 @@ public class MainPatientInformationViewImpl extends VerticalLayout implements Ma
 		delete.addClickListener(event -> {
 			for(MainPatientInformationListener listener: listeners) {
 				listener.deletePressed();
+			}
+		});
+		generate.addClickListener(event -> {
+			Integer patIdInt = null;
+			try {
+				patIdInt = Integer.valueOf(patID.getValue());
+				for (PatientReportGenerateListener listener : reportListeners) {
+					listener.generateReport(patIdInt);
+				}
+			} catch (NumberFormatException e) {
+
 			}
 		});
 	}
@@ -95,6 +114,7 @@ public class MainPatientInformationViewImpl extends VerticalLayout implements Ma
 			address.setValue(patient.getAddress());
 			gender.setValue(patient.getGender());
 			zipCode.setValue(patient.getZipCode());
+			generate.setEnabled(true);
 		} else {
 			patID.setValue("");
 			firstname.setValue("");
@@ -103,12 +123,32 @@ public class MainPatientInformationViewImpl extends VerticalLayout implements Ma
 			address.setValue("");
 			gender.setValue(Gender.UNKNOWN);
 			zipCode.setValue("");
+			generate.setEnabled(false);
 		}
 	}
 
 	@Override
 	public void addListener(MainPatientInformationListener listener) {
 		listeners.add(listener);
+	}
+
+	@Override
+	public void setError(String error) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void downloadReport(InputStream in, String filename) {
+		StreamResource myResource = new StreamResource(filename, () -> in);
+		downloadlink.setHref(myResource);
+		downloadlink.getElement().setAttribute("download", true);
+		UI.getCurrent().getPage().executeJavaScript("$0.click()", downloadlink);
+	}
+
+	@Override
+	public void addPatientReportGenerateListener(PatientReportGenerateListener listener) {
+		this.reportListeners.add(listener);
 	}
 
 }

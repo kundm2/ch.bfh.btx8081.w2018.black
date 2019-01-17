@@ -121,7 +121,7 @@ public class CaseServiceImpl implements CaseService {
 
 	/**
 	 * Searches all cases that belong to a patient or rather the patient-ID
-	 * @param patiendID
+	 * @param patientID Patient ID
 	 * @return List containing Case-Objects for the concerning patient sorted by case_id containing ID, Dates, Insurance and Place
 	 */
 	@Override
@@ -173,7 +173,7 @@ public class CaseServiceImpl implements CaseService {
 	}
 
 	/**
-	 * Used for Main-View, searches all cases in the database and writes them in a list<Case> sorted by Case-ID
+	 * Used for Main-View, searches all cases in the database and writes them in a list sorted by Case-ID
 	 * @return List containing all cases sorted by case_id containing case-objects containing ID, Dates, Insurance and Place
 	 */
 	@Override
@@ -225,7 +225,8 @@ public class CaseServiceImpl implements CaseService {
 
 	/**
 	 * Used for WeeklyReport, searches all cases created between the selected startDate and endDate
-	 * @param startDate, endDate
+	 * @param startDate StartDate
+	 * @param endDate EndDate
 	 * @return List containing Case-Objects
 	 */
 	public List<Case> generateWeeklyReport(LocalDate startDate, LocalDate endDate) {

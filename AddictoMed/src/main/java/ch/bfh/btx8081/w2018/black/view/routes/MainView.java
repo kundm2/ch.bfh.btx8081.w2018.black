@@ -21,6 +21,7 @@ import ch.bfh.btx8081.w2018.black.presenter.AppointmentPresenterImpl;
 import ch.bfh.btx8081.w2018.black.presenter.CasePresenterImpl;
 import ch.bfh.btx8081.w2018.black.presenter.DiagnosisPresenterImpl;
 import ch.bfh.btx8081.w2018.black.presenter.PatientInformationPresenterImpl;
+import ch.bfh.btx8081.w2018.black.presenter.PatientReportPresenterImpl;
 import ch.bfh.btx8081.w2018.black.presenter.MainPatientPresenterImpl;
 import ch.bfh.btx8081.w2018.black.presenter.ifaces.AnamnesisPresenter;
 import ch.bfh.btx8081.w2018.black.presenter.ifaces.AppointmentPresenter;
@@ -61,40 +62,43 @@ public class MainView extends HorizontalLayout {
 		
 		// PatientView
 		MainPatientViewImpl mainPatientViewImpl = new MainPatientViewImpl();
-		PatientService mainPatientModel = new PatientServiceImpl();
-		PatientPresenter mainPatientPresenter = new MainPatientPresenterImpl(mainPatientViewImpl, mainPatientModel);
+		PatientService patientService = new PatientServiceImpl();
+		PatientPresenter patientPresenter = new MainPatientPresenterImpl(mainPatientViewImpl, patientService);
 		mainPatientViewImpl.setHeight("100%");
 		mainPatientViewImpl.setWidth("30%");
 		
 		// PatientInformationView
 		MainPatientInformationViewImpl mainPatientInformationViewImpl = new MainPatientInformationViewImpl();
-		PatientInformationPresenter mainPatientInformationPresenter = new PatientInformationPresenterImpl(mainPatientInformationViewImpl, mainPatientModel);
-		mainPatientPresenter.addCurrentPatientListener(mainPatientInformationPresenter);
+		PatientInformationPresenter patientInformationPresenter = new PatientInformationPresenterImpl(mainPatientInformationViewImpl, patientService);
+		patientPresenter.addCurrentPatientListener(patientInformationPresenter);
 		
 		// CaseView
 		MainCaseViewImpl mainCaseViewImpl = new MainCaseViewImpl();
- 		CaseService mainCasesModel = new CaseServiceImpl();
+ 		CaseService caseService = new CaseServiceImpl();
  		CaseReportModel caseReportModel = new CaseReportModelImpl();
- 		CasePresenter mainCasePresenter = new CasePresenterImpl(mainCaseViewImpl, mainCasesModel, caseReportModel);
- 		mainPatientPresenter.addCurrentPatientListener(mainCasePresenter);
+ 		CasePresenter casePresenter = new CasePresenterImpl(mainCaseViewImpl, caseService, caseReportModel);
+ 		patientPresenter.addCurrentPatientListener(casePresenter);
 
+ 		// PatientReport
+ 		new PatientReportPresenterImpl(mainPatientInformationViewImpl, patientService, caseService);
+ 		
 		// AppointmentView
 		MainAppointmentViewImpl mainAppointmentViewImpl = new MainAppointmentViewImpl();
-		AppointmentService mainAppointmentModel = new AppointmentServiceImpl();
-		AppointmentPresenter mainAppointmentPresenter = new AppointmentPresenterImpl(mainAppointmentViewImpl, mainAppointmentModel);
-		mainCasePresenter.addCurrentCaseListener(mainAppointmentPresenter);
+		AppointmentService appointmentService = new AppointmentServiceImpl();
+		AppointmentPresenter appointmentPresenter = new AppointmentPresenterImpl(mainAppointmentViewImpl, appointmentService);
+		casePresenter.addCurrentCaseListener(appointmentPresenter);
 		
 		// AnamnesisView
 		MainAnamnesisViewImpl mainAnamnesisViewImpl = new MainAnamnesisViewImpl();
-		AnamnesisService mainAnamnesisModel = new AnamnesisServiceImpl();
-		AnamnesisPresenter mainAnamnesisPresenter = new AnamnesisPresenterImpl(mainAnamnesisViewImpl, mainAnamnesisModel);
-		mainCasePresenter.addCurrentCaseListener(mainAnamnesisPresenter);
+		AnamnesisService anamnesisService = new AnamnesisServiceImpl();
+		AnamnesisPresenter anamnesisPresenter = new AnamnesisPresenterImpl(mainAnamnesisViewImpl, anamnesisService);
+		casePresenter.addCurrentCaseListener(anamnesisPresenter);
 		
 		// DiagnosisView
 		MainDiagnosisViewImpl mainDiagnosisViewImpl = new MainDiagnosisViewImpl();
-		DiagnosisService mainDiagnosisModel = new DiagnosisServiceImpl();
-		DiagnosisPresenter mainDiagnosisPresenter = new DiagnosisPresenterImpl(mainDiagnosisViewImpl, mainDiagnosisModel);
-		mainCasePresenter.addCurrentCaseListener(mainDiagnosisPresenter);
+		DiagnosisService diagnosisService = new DiagnosisServiceImpl();
+		DiagnosisPresenter mainDiagnosisPresenter = new DiagnosisPresenterImpl(mainDiagnosisViewImpl, diagnosisService);
+		casePresenter.addCurrentCaseListener(mainDiagnosisPresenter);
 		
  		// Column2
  		column2.add(new H2("Patienteninformation"), mainPatientInformationViewImpl, new H2("Fälle"), mainCaseViewImpl, new H2("Termine"), mainAppointmentViewImpl, new H2("Anamnese"), mainAnamnesisViewImpl, new H2("Diagnose"), mainDiagnosisViewImpl);

@@ -2,7 +2,7 @@ package ch.bfh.btx8081.w2018.black.view.ifaces;
 
 import ch.bfh.btx8081.w2018.black.model.ifaces.Patient;
 
-public interface MainPatientInformationView {
+public interface MainPatientInformationView extends PatientReportView {
 	
 	interface MainPatientInformationListener {
 		void editPressed();

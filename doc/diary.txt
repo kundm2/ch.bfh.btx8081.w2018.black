@@ -155,3 +155,7 @@
 - 15.01.2019 Patient Report
 	Zeit: 19:30 - 22:00 Uhr
 	Teilnehmer: Moritz Küdig
+
+- 17.01.2019 Refactoring cleanup and reportintegration
+	Zeit: 13:00 - 15:30
+	Teilnehmer: Samuel Pulfer
