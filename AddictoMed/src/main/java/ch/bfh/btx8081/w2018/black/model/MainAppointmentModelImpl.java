@@ -21,11 +21,6 @@ public class MainAppointmentModelImpl implements MainAppointmentModel {
 	/**
 	 * 
 	 * @author Roger Tschanz
-	 * 
-	 * View Appointment-Grid (analog Patient/CaseList) and show all appointments from database
-	 * -> with search-field (txt-field) enter caseID (or patient-ID?!) and klick button Search
-	 * -> Only show appointments of this Case (or Patient?!) 
-	 *
 	 */
 
 	public class AppointmentImpl implements Appointment {

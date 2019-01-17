@@ -8,9 +8,7 @@ import ch.bfh.btx8081.w2018.black.view.MainReportViewImpl;
 import ch.bfh.btx8081.w2018.black.view.routes.applayout.ApplicationLayout;
 
 /**
- * 
  * @author Roger Tschanz
- * 
  * Route for the Main View of the different Reports
  */
 
@@ -21,9 +19,7 @@ public class MainViewReport extends VerticalLayout {
 	 * Shows Main View of Reports
 	 */
 	public MainViewReport() {
-		
 		MainReportViewImpl reportView = new MainReportViewImpl();
-		
 		add(reportView);
 	}
 }

@@ -15,15 +15,19 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import ch.bfh.btx8081.w2018.black.model.BusinessReportModelImpl.BusinessReportImpl;
 import ch.bfh.btx8081.w2018.black.model.ifaces.MainCasesModel;
 
 /**
+ * The Model for the cases
  * @author Roger Tschanz
  */
 
 public class MainCasesModelImpl implements MainCasesModel {
 
+	/**
+	 * The inner class containing the basic constructor for case-objects with ID, dates, insurance-number and place
+	 * @author Roger Tschanz
+	 */
 	private class CaseImpl implements Case {
 		public int caseID;
 		public LocalDate startDate = null;
@@ -82,6 +86,11 @@ public class MainCasesModelImpl implements MainCasesModel {
 		}
 	}
 
+	/**
+	 * Searches all cases that belong to a patient or rather the patient-ID
+	 * @param patiendID
+	 * @return List containing Case-Objects for the concerning patient sorted by case_id containing ID, Dates, Insurance and Place
+	 */
 	@Override
 	public List<Case> getCaseList(int patientID) {
 		List<Case> Cases = new ArrayList<>();
@@ -130,6 +139,10 @@ public class MainCasesModelImpl implements MainCasesModel {
 		return Cases;
 	}
 
+	/**
+	 * Used for Main-View, searches all cases in the database and writes them in a list<Case> sorted by Case-ID
+	 * @return List containing all cases sorted by case_id containing case-objects containing ID, Dates, Insurance and Place
+	 */
 	@Override
 	public List<Case> getCaseList() {
 		List<Case> Cases = new ArrayList<>();
@@ -178,16 +191,13 @@ public class MainCasesModelImpl implements MainCasesModel {
 	}
 
 	/**
-	 * Added Method for WeeklyReport
-	 * @author Roger Tschanz
-	 * @param caseId
-	 * @return
+	 * Used for WeeklyReport, searches all cases created between the selected startDate and endDate
+	 * @param startDate, endDate
+	 * @return List containing Case-Objects
 	 */
-
-	// public WeeklyReport generateWeeklyReport(LocalDate startDate, LocalDate endDate) {
 	public List<Case> generateWeeklyReport(LocalDate startDate, LocalDate endDate) {
 
-		LOGGER.info("Arrived at WeeklyReport!");
+		LOGGER.info("Arrived at WeeklyReport for Cases!");
 		List<Case> WeeklyReportCases = new ArrayList<>();
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -195,7 +205,6 @@ public class MainCasesModelImpl implements MainCasesModel {
 		try {
 			conn = dsCases.getConnection();
 			ps = conn.prepareStatement("select * from \"case\" WHERE start_date BETWEEN ? AND ?; ");
-			// ps = conn.prepareStatement("select count (case_id) from \"case\" WHERE start_date BETWEEN ? AND ?; ");
 			ps.setObject(1, startDate);
 			ps.setObject(2, endDate);
 			rs = ps.executeQuery();
@@ -204,15 +213,12 @@ public class MainCasesModelImpl implements MainCasesModel {
 				Date endDate2 = rs.getDate("end_date");
 				LocalDate localStartDate = null;
 				LocalDate localEndDate = null;
-				// myResultSet.getObject( … , LocalDate.class )
-				// https://stackoverflow.com/questions/18614836/using-setdate-in-preparedstatement
 				if(startDate2 != null) {
 					localStartDate = startDate2.toLocalDate();
 				}
 				if(endDate2 != null) {
 					localEndDate = endDate2.toLocalDate();
 				}
-
 				Case Case = new CaseImpl(rs.getInt("case_id"), localStartDate, 
 						localEndDate, rs.getInt("insurance_nr"), rs.getString("place"));
 				WeeklyReportCases.add(Case);

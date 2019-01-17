@@ -16,12 +16,9 @@ import com.vaadin.flow.server.StreamResource;
 import ch.bfh.btx8081.w2018.black.view.ifaces.MainWeeklyReportView;
 
 /**
- * 
- * @author Roger Tschanz
- * 
  * View for the Weekly Reports
- * 
  * Source: https://vaadin.com/components/vaadin-date-picker/java-examples
+ * @author Roger Tschanz
  */
 
 public class WeeklyReportViewImpl extends VerticalLayout implements MainWeeklyReportView {
