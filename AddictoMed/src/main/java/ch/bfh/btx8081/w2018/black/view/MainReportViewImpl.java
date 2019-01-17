@@ -31,13 +31,13 @@ public class MainReportViewImpl extends VerticalLayout {
 		add(layoutDailyReport, caseReport);
 
 		RouterLink businessReport = new RouterLink(null, BusinessReport.class);
-		businessReport.add(new Button("Business Report", new Icon(VaadinIcon.CLIPBOARD_TEXT)));
+		businessReport.add(new Button("Business Report", new Icon(VaadinIcon.CLIPBOARD_PULSE)));
 
 		RouterLink patientReport = new RouterLink(null, PatientReport.class);
 		patientReport.add(new Button("Patientenreport", new Icon(VaadinIcon.CLIPBOARD_USER)));
 		
 		RouterLink weeklyReport = new RouterLink(null, MainViewWeeklyReport.class);
-		weeklyReport.add(new Button("Wochenreport"));
+		weeklyReport.add(new Button("Wochenreport", new Icon(VaadinIcon.CLIPBOARD_CHECK)));
 		
 		add(layoutDailyReport, weeklyReport, patientReport, caseReport, businessReport);
 
